@@ -9,7 +9,7 @@ public class EntradaYSalidaApp {
 		
 		System.out.println("El precio del producto es "+precioProducto);
 		
-		System.out.println("El precio del producto, incluye el IVA, es "+(precioProducto*IVA));
+		System.out.println("El precio del producto, incluye el IVA, es "+(precioProducto+(precioProducto*IVA)));
 
 	}
 
