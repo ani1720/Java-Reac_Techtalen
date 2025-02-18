@@ -1,6 +1,6 @@
 package TareasFlujoDatos;
 
-public class TareaU5App {
+public class Tarea0U5App {
 
 	public static void main(String[] args) {
 		// Declaracion de variables
