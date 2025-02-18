@@ -1,3 +1,4 @@
+package UD04JavaBasic;
 
 public class VariablesApp {
 
