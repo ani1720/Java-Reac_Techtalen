@@ -1,4 +1,4 @@
-package UD05JavaBasic;
+package UD05FlujoDatos;
 
 public class UD05ScopeApp {
 	

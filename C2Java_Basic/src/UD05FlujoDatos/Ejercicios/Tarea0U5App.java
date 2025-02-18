@@ -1,4 +1,4 @@
-package TareasFlujoDatos;
+package UD05FlujoDatos.Ejercicios;
 
 public class Tarea0U5App {
 

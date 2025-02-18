@@ -1,4 +1,4 @@
-package EjercicioUD4;
+package UD04JavaBasic.Ejercicios;
 
 public class Ejercicio5App {
 

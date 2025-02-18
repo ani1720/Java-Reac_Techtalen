@@ -1,4 +1,4 @@
-package TareasFlujoDatos;
+package UD05FlujoDatos.Ejercicios;
 
 import java.util.Scanner;
 
