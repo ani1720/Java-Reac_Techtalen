@@ -1,5 +1,6 @@
+package EjercicioUD4;
 
-public class EjercicioApp {
+public class Ejercicio1App {
 
 	public static void main(String[] args) {
 		// Declaracion de variables
