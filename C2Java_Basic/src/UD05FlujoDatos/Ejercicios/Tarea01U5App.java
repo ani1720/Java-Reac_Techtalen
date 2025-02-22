@@ -1,6 +1,6 @@
 package UD05FlujoDatos.Ejercicios;
 
-public class Tarea0U5App {
+public class Tarea01U5App {
 
 	public static void main(String[] args) {
 		// Declaracion de variables

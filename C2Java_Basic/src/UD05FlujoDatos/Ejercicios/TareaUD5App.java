@@ -1,8 +1,6 @@
 package UD05FlujoDatos.Ejercicios;
-
 import java.util.Scanner;
-
-public class Tarea1UD5App {
+public class TareaUD5App {
 
 	public static void main(String[] args) {
 		Scanner escaner = new Scanner(System.in);
@@ -13,6 +11,7 @@ public class Tarea1UD5App {
 		escaner.close();
 
 		System.out.println("Bienvenido " + nombre.toUpperCase());
+
 	}
 
 }
