@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Tarea06UD5App {
 
-	public static void main(String[] args) {
+	public static boolean main(String[] args) {
 		 // Crear una instancia de Scanner para leer la entrada del usuario
         Scanner scanner = new Scanner(System.in);
 
@@ -15,8 +15,9 @@ public class Tarea06UD5App {
         int numero = scanner.nextInt();
 
         // Verificar si el número es divisible entre 2
-        if (esDivisiblePorDos(numero)) {
+                   if ((numero % 2) == 0) {
             System.out.println("El número " + numero + " es divisible entre 2.");
+            
         } else {
             System.out.println("El número " + numero + " no es divisible entre 2.");
         }
@@ -25,8 +26,5 @@ public class Tarea06UD5App {
         scanner.close();
     }
 
-    // Método booleano para verificar si un número es divisible entre 2
-    public static boolean esDivisiblePorDos(int numero) {
-        return numero % 2 == 0;
+ 
     }
-}
