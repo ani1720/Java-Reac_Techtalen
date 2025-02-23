@@ -14,14 +14,6 @@ public class Tarea06UD5App {
         // Leer el número ingresado por el usuario
         int numero = scanner.nextInt();
 
-        // Verificar si el número es divisible entre 2
-                   if ((numero % 2) == 0) {
-            System.out.println("El número " + numero + " es divisible entre 2.");
-            
-        } else {
-            System.out.println("El número " + numero + " no es divisible entre 2.");
-        }
-
         // Cerrar el scanner
         scanner.close();
     }
