@@ -1,6 +1,6 @@
 package UD05FlujoDatos.Ejercicios;
 import java.util.Scanner;
-public class TareaUD5App {
+public class Tarea02bUD5App {
 
 	public static void main(String[] args) {
 		Scanner escaner = new Scanner(System.in);
