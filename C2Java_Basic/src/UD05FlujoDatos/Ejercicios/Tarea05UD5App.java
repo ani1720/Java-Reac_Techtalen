@@ -2,7 +2,7 @@ package UD05FlujoDatos.Ejercicios;
 
 import java.util.Scanner;
 
-public class Tarea06UD5App {
+public class Tarea05UD5App {
 
 	public static boolean main(String[] args) {
 		 // Crear una instancia de Scanner para leer la entrada del usuario
