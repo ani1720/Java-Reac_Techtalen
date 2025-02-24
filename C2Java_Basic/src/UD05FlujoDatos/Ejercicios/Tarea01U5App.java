@@ -25,7 +25,8 @@ public class Tarea01U5App {
 			// Imprime que los dos numeros son iguales
 			System.out.println(op + " y " + op2 + "son iguales");
 		}
-//int num1 = 5;
+// METODO BOOLEANO
+		//int num1 = 5;
 //		int num2 = 13;
 
 		// boolean esMayor = num1 > num2;

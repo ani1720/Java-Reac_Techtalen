@@ -10,7 +10,7 @@ public class Tarea06UD5App {
 		String precioProducto = JOptionPane.showInputDialog (null, "Ingrese el precio del producto ") ;
 		
 		double precio = Double.parseDouble(precioProducto) ;
-		JOptionPane.showMessageDialog(null, "El producto cuesta " +precio+ "Prodcuto con IVA "+ (precio*IVA));
+		JOptionPane.showMessageDialog(null, "El producto con IVA "+ (precio + (precio*IVA)));
 		
 	}
 
