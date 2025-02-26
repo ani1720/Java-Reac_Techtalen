@@ -20,6 +20,7 @@ public class Tarea09UD5bApp {
 		else {
 			System.out.println("El numero no es divisible entre 2 ni entre 3.");
 		}
+		scanner.close();
 	}
 
 }

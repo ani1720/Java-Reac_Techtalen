@@ -1,4 +1,4 @@
-package UD05FlujoDatos.Ejercicios;
+package UD05FlujoDatos;
 import javax.swing.JOptionPane;
 public class PruebaTarea10UD5App {
 
