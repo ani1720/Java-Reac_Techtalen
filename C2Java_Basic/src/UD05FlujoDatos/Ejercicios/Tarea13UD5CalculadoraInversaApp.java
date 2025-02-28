@@ -1,16 +1,20 @@
 package UD05FlujoDatos.Ejercicios;
 
-import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class Tarea13UD5CalculadoraInversaApp {
 
 	public static void main(String[] args) {
-	Scanner scanner = new Scanner(System.in) ;
-		
-		int op = 12 ;
-	int op2 = 25 ;
-	String sig = Scanner.nextLine(); 
+	String op1Str =JOptionPane.showInputDialog("Operador 1");
+	String op2Str =JOptionPane.showInputDialog("Operador 2") ;
 	
+	int op1= Integer.parseInt(op1Str) ;
+	int op2= Integer.parseInt(op2Str) ;
+	
+	String signo= JOptionPane.showInputDialog("Introduce el signo") ;
+	
+	double result = 0 ;
+	boolean operacionVal = true ;
 	}
 
 }
