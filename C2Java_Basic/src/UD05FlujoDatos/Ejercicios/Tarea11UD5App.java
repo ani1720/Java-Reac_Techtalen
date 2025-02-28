@@ -27,10 +27,13 @@ public class Tarea11UD5App {
 			break;
 		case "viernes" :
 			JOptionPane.showMessageDialog(null, nomDia += "Laborable") ;
+			break;
 		case "sabado" :
 			JOptionPane.showMessageDialog(null, nomDia += "No laborable") ;
+			break;
 		case "domingo" :
 			JOptionPane.showMessageDialog(null, nomDia += "No laborable") ;
+			break;
 	default: 
 		JOptionPane.showMessageDialog(null, "Dia no valido");
 		}
