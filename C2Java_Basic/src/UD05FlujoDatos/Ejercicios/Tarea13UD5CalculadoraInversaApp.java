@@ -23,7 +23,6 @@ public class Tarea13UD5CalculadoraInversaApp {
 	// Variable para verificar si la operación es válida
 	boolean operacionVal = true ;
 	
-
     // Estructura switch para determinar la operación según el signo ingresado
 	switch (signo) {
 	case "+" :
@@ -66,6 +65,13 @@ public class Tarea13UD5CalculadoraInversaApp {
 	if (operacionVal) {
 		JOptionPane.showMessageDialog(null, "El resultado es "+ result) ;
 	}
+	// Ejemplo Marc
+	// int op1 = 0 , op2 = 0;
+	// String signo = "" ;
+	//swithc signo :
+	//case "+" 
+	//MEtodo*
+	//(next=op1 + op2)
 	}
 
 }
