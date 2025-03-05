@@ -11,6 +11,8 @@ public class Tarea11UD5App {
 	public static void main(String[] args) {
 		String dia = JOptionPane.showInputDialog("Introduce un dia de la semana");
 		String nomDia = ""; 
+		
+		dia = dia.toLowerCase() ;
 		//Usamos switch para decirle si el ususario introduce el dia le diga si es laborable o no, y si lo hace mal que le diga que no es valido
 		switch (dia) {
 		case "lunes" :
@@ -37,7 +39,10 @@ public class Tarea11UD5App {
 	default: 
 		JOptionPane.showMessageDialog(null, "Dia no valido");
 		}
-		
+		 // switch dia
+		// case "dias" : "lunes" , "martes" , "miercoles" , "jueves" , "viernes" 
+		//JOptionPane.showMessageDialog(null, nomDia += "Laborable") ;
+		// break; 
 	}
 
 }
