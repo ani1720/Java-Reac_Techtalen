@@ -3,7 +3,7 @@ package UD06MetodosArrays;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class GruposRamdon {
+public class UD06GruposRamdon {
 
     public static void main(String[] args) {
         // Lista de alumnos con nombres específicos

@@ -1,6 +1,6 @@
 package UD06MetodosArrays;
 
-public class MetodoBooleanApp {
+public class UD06MetodoBooleanApp {
 
 		public static void main(String[] args) {
 

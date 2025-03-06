@@ -2,7 +2,7 @@ package UD06MetodosArrays;
 
 import javax.swing.JOptionPane;
 
-public class MetodoSumarApp {
+public class UD06MetodoSumarApp {
 
 	public static void main(String[] args) {
 

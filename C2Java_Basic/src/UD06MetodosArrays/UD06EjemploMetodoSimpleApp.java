@@ -1,6 +1,6 @@
 package UD06MetodosArrays;
 
-public class EjemploMetodoSimpleApp {
+public class UD06EjemploMetodoSimpleApp {
 
 	public static void main(String[] args) {
 
