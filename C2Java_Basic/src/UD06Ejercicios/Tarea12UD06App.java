@@ -1,9 +1,10 @@
 package UD06Ejercicios;
 
-public class Tarea02UD6App {
+public class Tarea12UD06App {
 
 	public static void main(String[] args) {
-		System.out.println(Math.random()*100);
+		// TODO Auto-generated method stub
+
 	}
 
 }

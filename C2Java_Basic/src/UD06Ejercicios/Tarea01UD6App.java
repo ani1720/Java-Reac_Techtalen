@@ -7,6 +7,7 @@ public class Tarea01UD6App {
 	public static void main(String[] args) {
 		String figura = JOptionPane.showInputDialog
 				("Introduce la figura ") ;
+		
 		figura = figura.toLowerCase() ;
 		
 		switch (figura) {
