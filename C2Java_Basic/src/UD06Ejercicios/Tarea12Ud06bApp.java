@@ -10,15 +10,18 @@ public class Tarea12Ud06bApp {
 	        // 1. Pedir al usuario el tamaño del array
 	        System.out.print("Introduce el tamaño del array: ");
 	        int tamano = scanner.nextInt();
-
+	        
+	        // Validar si el tamaño del valor introducido es menor o igual que 0
+	        // Si lo es nos devolveria el mensaje de error 
 	        if (tamano <= 0) {
 	            System.out.println("El tamaño del array debe ser mayor que 0.");
 	            scanner.close();
 	            return;
 	        }
 
-	        // 2. Crear el array con números aleatorios entre 1 y 300
+	       // Se declara el array en enteros de tamano
 	        int[] numeros = new int[tamano];
+	        // Crear el array con números aleatorios entre 1 y 300
 	        for (int i = 0; i < tamano; i++) {
 	            numeros[i] = (int) (Math.random() * 300) + 1;
 	        }
