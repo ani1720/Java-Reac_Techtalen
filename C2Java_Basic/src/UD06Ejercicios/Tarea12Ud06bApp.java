@@ -4,15 +4,16 @@ import java.util.Scanner;
 
 public class Tarea12Ud06bApp {
 
-	public static void main(String[] args) {
-		 Scanner scanner = new Scanner(System.in);
-	        
+	  public static void main(String[] args) {
+	        Scanner scanner = new Scanner(System.in);
+
 	        // 1. Pedir al usuario el tamaño del array
 	        System.out.print("Introduce el tamaño del array: ");
 	        int tamano = scanner.nextInt();
 
 	        if (tamano <= 0) {
 	            System.out.println("El tamaño del array debe ser mayor que 0.");
+	            scanner.close();
 	            return;
 	        }
 
@@ -23,11 +24,12 @@ public class Tarea12Ud06bApp {
 	        }
 
 	        // 3. Pedir al usuario el dígito deseado
-	        System.out.print("Introduce un dígito entre 0 y 299: ");
+	        System.out.print("Introduce un dígito entre 0 y 9: ");
 	        int digito = scanner.nextInt();
 
 	        if (digito < 0 || digito > 9) {
-	            System.out.println("Debes introducir un número entre 0 y 299.");
+	            System.out.println("Debes introducir un número entre 0 y 9.");
+	            scanner.close();
 	            return;
 	        }
 
@@ -35,16 +37,22 @@ public class Tarea12Ud06bApp {
 	        int[] numerosFiltrados = filtrarNumerosPorDigito(numeros, digito);
 
 	        // 5. Mostrar el resultado
-	        System.out.println("Números originales:");
+	        System.out.println("\nNúmeros originales:");
 	        for (int numero : numeros) {
 	            System.out.print(numero + " ");
 	        }
 	        System.out.println();
 
-	        System.out.println("Números que terminan en " + digito + ":");
-	        for (int numero : numerosFiltrados) {
-	            System.out.print(numero + " ");
+	        System.out.println("\nNúmeros que terminan en " + digito + ":");
+	        if (numerosFiltrados.length > 0) {
+	            for (int numero : numerosFiltrados) {
+	                System.out.print(numero + " ");
+	            }
+	        } else {
+	            System.out.println("No hay números que terminen en " + digito + ".");
 	        }
+
+	        scanner.close(); // Cerrar el Scanner
 	    }
 
 	    // Método para filtrar los números que terminan en un dígito específico
