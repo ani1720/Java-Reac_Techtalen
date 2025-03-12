@@ -2,10 +2,6 @@ package UD05FlujoDatos.Ejercicios;
 
 import javax.swing.JOptionPane; // Quiero hacerlo mediante ventanas emergentes asi que importo el JOption
 
-import java.util.Date; //importamos la clase Date
-
-import java.text.SimpleDateFormat; //importamos la clase SimpleDateFormat
-
 public class Tarea11UD5App {
 
 	public static void main(String[] args) {
