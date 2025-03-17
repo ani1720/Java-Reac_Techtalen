@@ -19,7 +19,7 @@ public class ArraysApp {
 	public static void main(String[] args) {
 		Scanner entrada = new Scanner(System.in);
 		int elementos;
-		elementos = Integer.parseInt(JOptionPane.showInputDialog("Digite la cantidadv de elementos del arreglo"));
+		elementos = Integer.parseInt(JOptionPane.showInputDialog("Digite la cantidad de elementos del arreglo"));
 		if (elementos <= 0) {
 			System.out.println("La cantidad de elementos debe ser mayor que 0");
 			return;
