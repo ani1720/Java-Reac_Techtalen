@@ -22,7 +22,7 @@ public class ArraysApp {
 		elementos = Integer.parseInt(JOptionPane.showInputDialog("Digite la cantidad de elementos del arreglo"));
 		if (elementos <= 0) {
 			System.out.println("La cantidad de elementos debe ser mayor que 0");
-			return;
+		
 		}
 		char[] letras = new char[elementos];
 
@@ -36,5 +36,6 @@ public class ArraysApp {
 		for (int i = 0; i < elementos; i++) {
 			System.out.println(letras[i]);
 		}
+		entrada.close();
 	}
 }

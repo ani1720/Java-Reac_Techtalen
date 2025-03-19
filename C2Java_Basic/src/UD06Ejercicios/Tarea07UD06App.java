@@ -21,12 +21,10 @@ public class Tarea07UD06App {
 		// realizamos un bucle en el que utilizamos un EQUALSIGNORECASE para evitar
 		// errores en las cadenas
 		moneda = JOptionPane.showInputDialog(null, "Introduce el tipo de moneda que quieres cambiar ");
+	
 		/*if (moneda.equalsIgnoreCase("dolar")) {
-
 		} else if (moneda.equalsIgnoreCase("libras")) {
-
 		} else if (moneda.equalsIgnoreCase("yenn")) {
-
 		} else {
 			JOptionPane.showMessageDialog(null, "Divisa no reconocida");
 		}*/
@@ -36,11 +34,11 @@ public class Tarea07UD06App {
 			result = convertirDolar(euros);
 			JOptionPane.showMessageDialog(null, "Seleccionaste Dolar");
 			break;
-		case "libras":
+		case "libra":
 			result = convertirLibra(euros);
 			JOptionPane.showMessageDialog(null, "Has seleccionado Libras");
 			break;
-		case "yenn":
+		case "yenes":
 			result = convertirYenes(euros);
 			JOptionPane.showMessageDialog(null, "Seleccionaste yenes");
 			break;
@@ -54,8 +52,8 @@ public class Tarea07UD06App {
 	public static double convertirDolar(double valor) {
 		// valor = Double.parseDouble(JOptionPane.showInputDialog("Introduce el valor en
 		// EURO(€)"));
-		double usd = 1.09;
-		return valor * usd;
+		double dol = 1.19;
+		return valor * dol;
 	}
 
 	public static double convertirLibra(double valor) {

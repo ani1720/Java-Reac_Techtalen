@@ -1,0 +1,21 @@
+Linea 18
+muestraValores()
+array.length: 3 
+
+Bucle for
+i  	|  array[i] |  "Muestra en JOption"
+0	|	3 		| 	Indice: 0 - Valor: 3
+1	|   6		| 	Indice: 1 - Valor: 6
+2	|   8		| 	Indice: 2 - Valor: 8
+3 ? salgo del for
+
+rellenaValores()
+Crea los valores del "array"
+Bucle for
+i  	|  array[i]? pregunta por JOption asignar un valor int
+0	|  array[0]="el valor por teclado"
+1	|  array[1]="el valor por teclado"
+2	|  array[2]="el valor por teclado"
+3<3?  salgo del for
+
+"array = {3,6,8}"
