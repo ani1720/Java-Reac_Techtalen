@@ -37,8 +37,11 @@ public static String deciBina (int decimal) {
 	 *  de forma eficiente mediante modificaciones directas, evitando 
 	 *  las limitaciones de concatenar strings tradicionalmente
 	 */
-	StringBuilder binario= new StringBuilder() ; // Creamos un String Builder vacio para alli generar el binario
-	//Por un bucle DO WHILE hacemos la operacion donde convertiremos en binario la operacion
+	StringBuilder binario= new StringBuilder() ; 
+	/* Creamos un String Builder vacio para alli generar el binario
+	/*Por un bucle DO WHILE hacemos la operacion donde convertiremos en binario la operacion
+	 */
+	
 	do {
 		int res = decimal % 2 ; 
 		/*Calcula el residuo de dividir el decimal entre 2. 

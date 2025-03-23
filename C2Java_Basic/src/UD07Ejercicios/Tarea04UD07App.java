@@ -46,9 +46,10 @@ public class Tarea04UD07App {
 	                    return;
 	                default:
 	                    System.out.println("Invalido.");
+	                    sc.close();
 	            }
 	        }
-	    }
+	     }
 
 	    
 	    public static ArrayList<Double> gestionarVentas(ArrayList<Double> flujo) {
@@ -64,6 +65,7 @@ public class Tarea04UD07App {
 	            double precioVenta = sc.nextDouble();
 	            flujo.add(precioVenta);
 	            sum += precioVenta;
+	            sc.close();
 	        }
 
 	        System.out.println("Porcentaje de IVA: [4%/21%]");
@@ -83,6 +85,7 @@ public class Tarea04UD07App {
 
 	        for (Double precio : flujo) {
 	            System.out.println("La lista de ventas contiene: " + precio + " euros.");
+	            sc.close();
 	        }
 
 	        return flujo;
@@ -122,6 +125,7 @@ public class Tarea04UD07App {
 	            }
 	        } else {
 	            System.out.println("Invalido.");
+	            sc.close();
 	        }
 	    }
 	}

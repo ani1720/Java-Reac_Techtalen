@@ -27,8 +27,8 @@ public class Tarea04UD06App {
 		} else {
 			int resultado = 1;
 			/*
-			 * Decimos que i es igual a 2 ya que debe ser mayor a 1 para ejecutarse y que i
-			 * es menor o igual que el numero ingresado
+			 * Decimos que i es igual a 2 ya que debe ser mayor a 1 para ejecutarse 
+			 * y que i es menor o igual que el numero ingresado
 			 */
 			for (int i = 2; i <= n; i++) {
 				resultado *= i;

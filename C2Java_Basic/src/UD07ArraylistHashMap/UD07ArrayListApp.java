@@ -1,7 +1,6 @@
 package UD07ArraylistHashMap;
 
 	import java.util.ArrayList;
-	import java.util.Iterator;
 
 	public class UD07ArrayListApp {
 
