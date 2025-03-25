@@ -13,10 +13,12 @@ public class Tarea10UD06App {
 		}
 
 		int maximo = 0;
-		maximo = Integer.parseInt(JOptionPane.showInputDialog("Introduce el valor maximo del Array"));
+		maximo = Integer.parseInt(JOptionPane.showInputDialog
+									("Introduce el valor maximo del Array"));
 		System.out.println(maximo);
 		int minimo = 0;
-		minimo = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el valor minimo del Array"));
+		minimo = Integer.parseInt(JOptionPane.showInputDialog
+									("Ingrese el valor minimo del Array"));
 		System.out.println(minimo);
 		valorRandomPrimos(numeros, minimo, maximo);
 		
@@ -41,7 +43,8 @@ public class Tarea10UD06App {
  */
 	private static int dimensionArray() { // Metodo para ingresar el tamaño del array
 		int dimension = 0;
-		dimension = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el tamaño del que quieres el Array"));
+		dimension = Integer.parseInt(JOptionPane.showInputDialog
+										("Ingrese el tamaño del que quieres el Array"));
 		return dimension;
 	}
 	/* Se crea un metodo para hacer el random

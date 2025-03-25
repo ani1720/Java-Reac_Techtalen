@@ -18,7 +18,8 @@ public class Tarea08UD06App {
 
 	private static void rellenaValores(int[] array) {
 		for (int i = 0; i <= array.length - 1; i++) {
-			array[i] = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese los valores"));
+			array[i] = Integer.parseInt(JOptionPane.showInputDialog
+					(null, "Ingrese los valores"));
 		}
 	}
 

@@ -14,12 +14,14 @@ public class Tarea09UD06App {
 		 * muestraValor 
 		 */
 		int sumar = muestraValor(numArray);
-		JOptionPane.showMessageDialog(null, "La suma de los valores es " + sumar);
+		JOptionPane.showMessageDialog(null, "La suma de los valores es " 
+										+ sumar);
 	}
 
 	private static int dimensionArray() { //Metodo para ingresar el tamaño del array
 		int dimension;
-		dimension = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el tamaño del array"));
+		dimension = Integer.parseInt(JOptionPane.showInputDialog
+				("Ingrese el tamaño del array"));
 		return dimension;
 	}
 
@@ -33,7 +35,8 @@ public class Tarea09UD06App {
 		int suma = 0; //Variable para realizar la suma
 		for (int i = 0; i < numArray.length; i++) { 
 			suma += numArray[i];
-			JOptionPane.showMessageDialog(null, "Indice; " + i + " - Valor: " + numArray[i]); /* Mostramos el indice y el valor
+			JOptionPane.showMessageDialog(null, "Indice; " + i 
+					+ " - Valor: " + numArray[i]); /* Mostramos el indice y el valor
 			random asignado
 			*/
 		}
