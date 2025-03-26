@@ -8,7 +8,8 @@ public class Tarea11UD6App {
 	public static void main(String[] args) {
 	
 		//Variables
-		        int dimension = Integer.parseInt(JOptionPane.showInputDialog("Introduce la dimensión de los arrays: "));
+		        int dimension = Integer.parseInt(JOptionPane.showInputDialog
+		        		("Introduce la dimensión de los arrays: "));
 		        int[] array1 = new int [dimension] ;
 		        int[] array2 = new int[dimension];
 		        int[] array3 = new int [dimension] ;
@@ -34,7 +35,7 @@ public class Tarea11UD6App {
 			array1 = new int[dimension] ;
 		    	
 		        for (int i = 0; i < dimension; i++) {
-		            array1[i] = (int) (Math.random() * 1000);
+		            array1[i] = (int) (Math.random() * 100);
 		        }
 		        return array1; 
 	    }

@@ -19,15 +19,19 @@ public class Tarea11UD06bApp {
 		array2 = array1;
 
 		// Imprimimos los valores de los arrays en el primer paso
-		System.out.println("En el primer paso, los valores del Array 1 son: " + Arrays.toString(array1));
-		System.out.println("En el primer paso, los valores del Array 2 son: " + Arrays.toString(array2) + "\n");
+		System.out.println("En el primer paso, los valores del Array 1 son: " 
+							+ Arrays.toString(array1));
+		System.out.println("En el primer paso, los valores del Array 2 son: " 
+							+ Arrays.toString(array2) + "\n");
 
 		// Reasignamos el array2 como random
 		array2 = Array2Rand(array2, dimension);
 
 		// Imprimimos los valores de los arrays en el segundo paso
-		System.out.println("En el segundo paso, los valores del Array 1 son: " + Arrays.toString(array1));
-		System.out.println("En el segundo paso, los valores del Array 2 son: " + Arrays.toString(array2) + "\n");
+		System.out.println("En el segundo paso, los valores del Array 1 son: "
+							+ Arrays.toString(array1));
+		System.out.println("En el segundo paso, los valores del Array 2 son: "
+							+ Arrays.toString(array2) + "\n");
 
 		// Reasignamos el array3 del método de la multiplicación
 		array3 = multiplicacionArrays(array1, array2, dimension);
