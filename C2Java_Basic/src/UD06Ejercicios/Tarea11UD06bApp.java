@@ -37,9 +37,12 @@ public class Tarea11UD06bApp {
 		array3 = multiplicacionArrays(array1, array2, dimension);
 
 		// Imprimimos los valores de los arrays en el tercer paso
-		System.out.println("En el tercer paso, los valores del Array 1 son: " + Arrays.toString(array1));
-		System.out.println("En el tercer paso, los valores del Array 2 son: " + Arrays.toString(array2));
-		System.out.println("En el tercer paso, los valores del Array 3 son: " + Arrays.toString(array3));
+		System.out.println("En el tercer paso, los valores del Array 1 son: "
+							+ Arrays.toString(array1));
+		System.out.println("En el tercer paso, los valores del Array 2 son: " 
+							+ Arrays.toString(array2));
+		System.out.println("En el tercer paso, los valores del Array 3 son: " 
+							+ Arrays.toString(array3));
 
 		}
 
