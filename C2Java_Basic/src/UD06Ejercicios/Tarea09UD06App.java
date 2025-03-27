@@ -36,9 +36,8 @@ public class Tarea09UD06App {
 		for (int i = 0; i < numArray.length; i++) { 
 			suma += numArray[i];
 			JOptionPane.showMessageDialog(null, "Indice; " + i 
-					+ " - Valor: " + numArray[i]); /* Mostramos el indice y el valor
-			random asignado
-			*/
+					+ " - Valor: " + numArray[i]); /* Mostramos el indice y el valor*/
+			
 		}
 
 		return suma;

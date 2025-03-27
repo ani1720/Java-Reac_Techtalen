@@ -7,7 +7,7 @@ public class Tarea08UD06App {
 
 	public static void main(String[] args) {
 		// Asignamos a la variable una nueva instancia
-		int[] array = new int[10]; //ÍNdices del 0 al 9
+		int[] array = new int[3]; //ÍNdices del 0 al 9
 		// Idia inicial pedir al usuario que nos ingrese un valor
 		// JOptionPane.showInputDialog("Introduce un valor a asignar");
 		System.out.println("Tamaño del array:" + array.length);

@@ -22,14 +22,17 @@ public class Tarea10UD06App {
 		System.out.println(minimo);
 		valorRandomPrimos(numeros, minimo, maximo);
 		
-
 		for (int i = 0; i < numeros.length; i++) {
 			if (i == 0) {
-				System.out.print( "Los numeros primos son: {[" + i + "] =" + numeros[i] + ", ");
+				System.out.println("Los numeros primos son: {[" + i + "] =" + numeros[i] + ", ");
+				JOptionPane.showMessageDialog(null, "Los numeros primos son: {[" + i + "] =" + numeros[i] + ", ");
+				
 			} else if (i == numeros.length - 1) {
-				System.out.print( "[" + i + "] = " + numeros[i] + "}");
+				System.out.println("[" + i + "] = " + numeros[i] + "}");
+				JOptionPane.showMessageDialog(null, "[" + i + "] = " + numeros[i] + "}");
 			} else {
-				System.out.print( "[" + i + "] =" + numeros[i]+ ", ");
+				System.out.println( "[" + i + "] =" + numeros[i]+ ", ");
+				JOptionPane.showMessageDialog(null,  "[" + i + "] =" + numeros[i]+ ", ");
 			}
 		}
 	

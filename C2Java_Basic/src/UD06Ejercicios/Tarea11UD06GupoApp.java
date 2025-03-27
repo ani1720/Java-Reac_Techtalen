@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import javax.swing.JOptionPane;
 
-public class Tarea11UD06bApp {
+public class Tarea11UD06GupoApp {
 
 	public static void main(String[] args) {
 		
