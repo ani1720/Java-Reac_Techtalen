@@ -38,10 +38,7 @@ public class Tarea02UD07App {
 	private static void gestionarVenta(Scanner sc, HashMap<String, Double> productos, ArrayList<Double> carrito) {
 		boolean continueCompra = true;
 		while (continueCompra) {
-//    		System.out.println("Si");
-//    		System.out.println("No");
-//    		String respuesta = sc.nextLine();
-//    		sc.nextLine();
+
 			System.out.println("Listado de prodcutos disponibles");
 			for (Map.Entry<String, Double> entry : productos.entrySet()) {
 				System.out.println(entry.getKey() + "-$" + entry.getValue());
