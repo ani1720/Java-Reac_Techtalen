@@ -15,7 +15,7 @@ public class Tarea01UD07App {
         Map<String, ArrayList<Double>> notasAlumnos = pedirNota(sc);
         Map<String, Double> medianaAlumnos = calcularMedia(notasAlumnos);
         mostrarMediana(medianaAlumnos);
-        sc.close();
+     
     }
 
     public static Map<String, ArrayList<Double>> pedirNota(Scanner scanner) { //Metodo para pedir las notas de los alumnos
@@ -23,6 +23,10 @@ public class Tarea01UD07App {
         Map<String, ArrayList<Double>> datos = new HashMap<>();
 
         System.out.println("¿Cuántos alumnos quiere introducir?");
+        while (!scanner.hasNextInt()) {
+        	System.out.println("Por favor, introduce un numero valido");
+        	scanner.next();
+        }
         int numAlum = scanner.nextInt();
         scanner.nextLine(); // Limpiar el buffer
 
@@ -32,11 +36,19 @@ public class Tarea01UD07App {
 
             ArrayList<Double> notasAlumno = new ArrayList<>();
             System.out.println("¿Cuántas notas tiene el alumno?");
+            while (!scanner.hasNextInt()) {
+            	System.out.println("Por favor, introduce un numero valido");
+            	scanner.next();          
+            }
             int numNotas = scanner.nextInt();
             scanner.nextLine(); // Limpiar el buffer
 
             for (int j = 0; j < numNotas; j++) {
                 System.out.println("Introduce la nota " + (j + 1) + ":");
+                while (!scanner.hasNextDouble()) {
+                	System.out.println("Por favor, introduce un numero valido");
+                	scanner.next();          
+                }
                 double nota = scanner.nextDouble();
                 notasAlumno.add(nota);
             }

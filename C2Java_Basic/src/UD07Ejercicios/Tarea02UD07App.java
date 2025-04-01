@@ -49,7 +49,7 @@ public class Tarea02UD07App {
 			if (productos.containsKey(producSelec)) {
 				double precio = productos.get(producSelec);
 				carrito.add(precio);
-				System.out.println("Producto añadido al carrito" + producSelec + " - $" + precio);
+				System.out.println("Producto añadido al carrito " + producSelec + " - $" + precio);
 			} else {
 				System.out.println("Prodcuto no encontrado. Intente de nuevo y asegurese de escribir el nombre correctamente.");
 			}
@@ -97,7 +97,7 @@ public class Tarea02UD07App {
 
 		switch (metodoPago) {
 		case "tarjeta":
-			System.out.println("El precio total con IVA a pagar es de; " + decidirIVA);
+			System.out.println("El precio total con IVA a pagar es de; " + suma);
 			break;
 		case "efectivo":
 			System.out.println("Introduce la cantidad pagada");
