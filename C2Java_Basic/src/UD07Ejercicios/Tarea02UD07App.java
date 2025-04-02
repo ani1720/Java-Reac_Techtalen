@@ -20,7 +20,6 @@ public class Tarea02UD07App {
 		mostrarResumen(sc, carrito);
 
 	}
-
 	private static HashMap<String, Double> inicializarProductos() {
 		HashMap<String, Double> productos = new HashMap<>();
 
@@ -41,15 +40,15 @@ public class Tarea02UD07App {
 
 			System.out.println("Listado de prodcutos disponibles");
 			for (Map.Entry<String, Double> entry : productos.entrySet()) {
-				System.out.println(entry.getKey() + "-$" + entry.getValue());
+				System.out.println(entry.getKey() + "- " + entry.getValue() + "€");
 			}
 			System.out.println("Intoduce que producto deseas comprar");
 			String producSelec = sc.nextLine().trim();
-			
+		//	producSelec.equalsIgnoreCase(producSelec);
 			if (productos.containsKey(producSelec)) {
 				double precio = productos.get(producSelec);
 				carrito.add(precio);
-				System.out.println("Producto añadido al carrito " + producSelec + " - $" + precio);
+				System.out.println("Producto añadido al carrito " + producSelec + " - " + precio + "€");
 			} else {
 				System.out.println("Prodcuto no encontrado. Intente de nuevo y asegurese de escribir el nombre correctamente.");
 			}
