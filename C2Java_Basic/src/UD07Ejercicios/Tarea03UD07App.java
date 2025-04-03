@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 public class Tarea03UD07App {
 	public static void main(String[] args) {
 		HashMap<String, Integer> stock = new HashMap<>();
+		mostrarStock(stock);
 		JOptionPane.showMessageDialog(null, "Bienvenido al Sistema de Inventario");
 		gestionStock(stock);
 	}
@@ -26,60 +27,67 @@ public class Tarea03UD07App {
 		stock.put("Lentejas", 10);
 		stock.put("Queso", 6);
 
-		//JOptionPane.showMessageDialog(null, "Stock disponible: " + stock);
+		// JOptionPane.showMessageDialog(null, "Stock disponible: " + stock);
 	}
+	 private static void gestionStock(HashMap<String, Integer> stock) {
+	        boolean continuarGestion = true;
 
-	private static void gestionStock(HashMap<String, Integer> stock) {
-		boolean continuarGestion = true;
-		while (continuarGestion) {
-			String decision = JOptionPane.showInputDialog("¿Desea ver el stock disponible? (SI/NO)");
-			
-			if (decision.equalsIgnoreCase("Si")) {
-				for (String producto : stock.keySet()) {
-					double cant = stock.get(producto);
-	JOptionPane.showMessageDialog(null,stock.get(stock));		
-				}
-				
-			} else if (decision.equalsIgnoreCase("No")) {
-				String geStock = JOptionPane.showInputDialog("¿Desea gestionar el stock? (SI/NO)");
+	        while (continuarGestion) {
+	            String decision = JOptionPane.showInputDialog("¿Desea ver el stock disponible? (SI/NO)");
 
-				switch (geStock.toLowerCase()) {
+	            if (decision != null && decision.equalsIgnoreCase("Si")) {
+	                // Mostrar el stock
+	                StringBuilder listaStock = new StringBuilder("Stock disponible:\n");
+	                for (String producto : stock.keySet()) {
+	                    int cantidad = stock.get(producto);
+	                    listaStock.append("- Producto: ").append(producto)
+	                              .append(", Cantidad: ").append(cantidad).append("\n");
+	                }
+	                JOptionPane.showMessageDialog(null, listaStock.toString());
 
-				case "si":
-					String producto = JOptionPane.showInputDialog("Ingresa el articulo que deseas añadir");
-					String cantStr = JOptionPane.showInputDialog("Ingresa la cantidad que de articulos que añadiras");
-					int cant = Integer.parseInt(cantStr);
-					stock.put(producto, stock.getOrDefault(producto, 0) + cant);
-					JOptionPane.showMessageDialog(null,
-							"Has añadido al Stock " + producto + " con una cantidad de: " + cant + " unidades");
-					break;
-				case "no":
-					int verLista = JOptionPane.showConfirmDialog(null,
-							"¿Quieres ver la lista de productos actualizada?", "Confirmar", JOptionPane.YES_NO_OPTION);
-					
-					if (verLista == JOptionPane.YES_OPTION) {
-						StringBuilder lista = new StringBuilder("Lista actualizada de productos:\n");
-						for (String key : stock.keySet()) {
-							lista.append(key).append(": ").append(stock.get(key)).append(" unidades\n");
-						}
-						JOptionPane.showMessageDialog(null, lista.toString());
-					}
-					continuarGestion = false;
-					break;
-				default:
-					JOptionPane.showMessageDialog(null, "Opcion no valida, por favor escribe 'si' o 'no'.");
-				}
-			} else {
-				 int out = JOptionPane.showConfirmDialog(null, "¿Desea salir de la aplicacion?", "Salir", JOptionPane.YES_NO_OPTION);
-				if(out == JOptionPane.YES_OPTION) {
-					JOptionPane.showMessageDialog(null, "Gracias por usar la aplicacion. ¡Hasta pronto!");
-				System.exit(0);
-				}else {
-					JOptionPane.showMessageDialog(null, "Continuas en la aplicacion");
-				}
-			}
-		}
+	                // Preguntar si desea continuar o salir
+	                int continuar = JOptionPane.showConfirmDialog(null, "¿Desea realizar otra gestión?", "Continuar", JOptionPane.YES_NO_OPTION);
+	                if (continuar == JOptionPane.NO_OPTION) {
+	                    continuarGestion = false;
+	                }
 
+	            } else if (decision != null && decision.equalsIgnoreCase("No")) {
+	                // Gestionar el stock
+	                String geStock = JOptionPane.showInputDialog("¿Desea gestionar el stock? (SI/NO)");
+	                if (geStock != null && geStock.equalsIgnoreCase("si")) {
+	                    String producto = JOptionPane.showInputDialog("Ingresa el artículo que deseas añadir");
+	                    String cantStr = JOptionPane.showInputDialog("Ingresa la cantidad de artículos que añadirás");
+	                    try {
+	                        int cant = Integer.parseInt(cantStr);
+	                        stock.put(producto, stock.getOrDefault(producto, 0) + cant);
+	                        JOptionPane.showMessageDialog(null, "Has añadido al Stock " + producto + " con una cantidad de: " + cant + " unidades");
+	                        StringBuilder listaActualizada = new StringBuilder("Lista actualizada de productos:\n");
+	                        for (String key : stock.keySet()) {
+	                            listaActualizada.append("- Producto: ").append(key)
+	                                            .append(", Cantidad: ").append(stock.get(key)).append("\n");
+	                    } 
+	                        JOptionPane.showMessageDialog(null, listaActualizada.toString());
+	                    }catch (NumberFormatException e) {
+	                        JOptionPane.showMessageDialog(null, "Por favor, ingresa un número válido.");
+	                    }
+	                }
+
+	                // Preguntar si desea salir después de gestionar el stock
+	                int salir = JOptionPane.showConfirmDialog(null, "¿Desea salir de la aplicación?", "Salir", JOptionPane.YES_NO_OPTION);
+	                if (salir == JOptionPane.YES_OPTION) {
+	                    continuarGestion = false;
+	                }
+
+	            } else {
+	                // Manejar opción de salida
+	                int salir = JOptionPane.showConfirmDialog(null, "¿Desea salir de la aplicación?", "Salir", JOptionPane.YES_NO_OPTION);
+	                if (salir == JOptionPane.YES_OPTION) {
+	                    JOptionPane.showMessageDialog(null, "Gracias por usar la aplicación. ¡Hasta pronto!");
+	                    System.exit(0);
+	                }
+	            }
+	        }
+	    }
 	}
+	
 
-}
