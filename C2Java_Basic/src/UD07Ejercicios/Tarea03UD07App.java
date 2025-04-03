@@ -6,7 +6,9 @@ import javax.swing.JOptionPane;
 
 public class Tarea03UD07App {
 	public static void main(String[] args) {
-
+		HashMap<String, Integer> stock = new HashMap<>();
+		JOptionPane.showMessageDialog(null, "Bienvenido al Sistema de Inventario");
+		gestionStock(stock);
 	}
 
 	private static void mostrarStock(HashMap<String, Integer> stock) {
@@ -24,7 +26,7 @@ public class Tarea03UD07App {
 		stock.put("Lentejas", 10);
 		stock.put("Queso", 6);
 
-		JOptionPane.showMessageDialog(null, "Stock disponible: " + stock);
+		//JOptionPane.showMessageDialog(null, "Stock disponible: " + stock);
 	}
 
 	private static void gestionStock(HashMap<String, Integer> stock) {
@@ -35,6 +37,7 @@ public class Tarea03UD07App {
 			if (decision.equalsIgnoreCase("Si")) {
 				for (String producto : stock.keySet()) {
 					double cant = stock.get(producto);
+	JOptionPane.showMessageDialog(null,stock.get(stock));		
 				}
 				
 			} else if (decision.equalsIgnoreCase("No")) {
