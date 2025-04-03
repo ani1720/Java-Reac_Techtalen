@@ -26,19 +26,20 @@ public class Tarea03UD07App {
 		   JOptionPane.showMessageDialog(null, "Stock disponible: " + stock);
 		}
 private static void gestionStock (HashMap<String,Double> stock) {
-	String decision = JOptionPane.showInputDialog("¿Desea ver el stock disponible? (SI/NO");
-	if (decision.equalsIgnoreCase("Si")) {
-		for (String producto : stock.keySet) {
-			double cant = stock.get(producto);
-	} 
-	} else if (decision.equalsIgnoreCase("No")) {
-		for(Sring geStock : stock.keySet()) {
-			String geStock = JOptionPane.showInputDialog("¿Desea gestionar el stock? (SI/NO");
-		}
-	}
-	}
+	String decision = JOptionPane.showInputDialog("¿Desea ver el stock disponible? (SI/NO)");
+    if (decision.equalsIgnoreCase("Si")) {
+        for (String producto : stock.keySet()) {
+            double cant = stock.get(producto);
+            // Process the stock quantity as needed
+        }
+    } else if (decision.equalsIgnoreCase("No")) {
+        for (String producto : stock.keySet()) {
+            String geStock = JOptionPane.showInputDialog("¿Desea gestionar el stock? (SI/NO)");
+            // Process the stock management as needed
+        }
+    }
 }
-
+}
 		
 		
 	
