@@ -23,14 +23,14 @@ public class Tarea02UD07App {
 	private static HashMap<String, Double> inicializarProductos() {
 		HashMap<String, Double> productos = new HashMap<>();
 
-		productos.put("Mantequilla", 1.50);
-		productos.put("Leche de avena", 1.80);
-		productos.put("Pan de hamburguesa", 0.99);
-		productos.put("Manzana", 0.65);
-		productos.put("Hamburguesas", 3.50);
-		productos.put("Pasta de Vegetales", 2.80);
-		productos.put("Tomate", 1.80);
-		productos.put("Oregano", 0.60);
+		productos.put("mantequilla", 1.50);
+		productos.put("leche de avena", 1.80);
+		productos.put("pan de hamburguesa", 0.99);
+		productos.put("manzana", 0.65);
+		productos.put("hamburguesas", 3.50);
+		productos.put("pasta de vegetales", 2.80);
+		productos.put("tomate", 1.80);
+		productos.put("oregano", 0.60);
 		return productos;
 	}
 
@@ -43,7 +43,7 @@ public class Tarea02UD07App {
 				System.out.println(entry.getKey() + "- " + entry.getValue() + "€");
 			}
 			System.out.println("Intoduce que producto deseas comprar");
-			String producSelec = sc.nextLine().trim();
+			String producSelec = sc.nextLine().trim().toLowerCase();
 		//	producSelec.equalsIgnoreCase(producSelec);
 			if (productos.containsKey(producSelec)) {
 				double precio = productos.get(producSelec);
@@ -74,40 +74,42 @@ public class Tarea02UD07App {
 		System.out.println("¿Que tipo de IVA se aplica? (21% o 4%)");
 		double decidirIVA = sc.nextDouble();
 		sc.nextLine();
-		double totalConIVA = precioBruto * (1 + (decidirIVA / 100));
-		double suma= 0;
+		double IVA= 0;
 	
 		if (decidirIVA == 21) {
 			System.out.println(
 					"Has comprado " + carrito.size() + " productos un precio original de:" + precioBruto + " euros");
-		suma = precioBruto *1.21;
+		IVA = precioBruto *1.21;
 		} else if (decidirIVA == 4) {
 			System.out.println(
 					"Has comprado " + carrito.size() + " productos un precio original de: " + precioBruto + " euros");
-			suma = precioBruto *1.04;
+			IVA = precioBruto *1.04;
 		} else {
 			System.out.println("Porcentaje no valido");
 		}
 		System.out.println("La lista de compras contiene:" + carrito);
-		System.out.println("EL precio total con IVA es de: " + suma);
+		System.out.println("EL precio total con IVA es de: " + IVA);
 		System.out.println("Elige el metodo de pago (Tarjeta/Efectivo)");
 		String metodoPago = sc.nextLine();
 		// double totalConIVA = MostrarResumen(sc, carrito);
+		double totalConIVA = precioBruto * (1 + (decidirIVA / 100));
 
-		switch (metodoPago) {
+		switch (metodoPago.toLowerCase()) {
 		case "tarjeta":
-			System.out.println("El precio total con IVA a pagar es de; " + suma);
+			System.out.println("El precio total con IVA a pagar es de: " + IVA);
 			break;
 		case "efectivo":
 			System.out.println("Introduce la cantidad pagada");
 			double cantidadPagada = sc.nextDouble();
 			sc.nextLine();
-			double cambio = cantidadPagada - totalConIVA;
+			double cambio = totalConIVA - cantidadPagada;
 
-			if (cambio < cantidadPagada) {
-				System.out.println("El cambio a devolver: $" + cambio);
+			if (cantidadPagada > totalConIVA) {
+			    System.out.println("El cambio a devolver: €" + cambio);
+			} else if (cantidadPagada < totalConIVA) {
+			    System.out.println("¡Pago insuficiente! te faltan €" + (totalConIVA - cantidadPagada));
 			} else {
-				System.out.println("¡Pago insuficiente! te faltan $" + Math.abs(cambio));
+			    System.out.println("Pago exacto, no hay cambio que devolver.");
 			}
 			break;
 		default:
