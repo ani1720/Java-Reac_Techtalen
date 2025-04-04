@@ -9,9 +9,30 @@ public class SuperClassCine {
 		
 		private ArrayList<String> pelicula;
 		
+		private String[] [] asientos;
+		private boolean [] [] asientosOcupados;
+		
 		public SuperClassCine(String nombrePeli, double precioEntrada) {
 			this.nombrePeli= nombrePeli;
 			this.precioEntrada= 12.99;
+			this.asientos = new String [8] [9];
+			this.asientosOcupados = new boolean [8] [9];
+			inicializarAsientos();
+			
+		}
+		protected void inicializarAsientos() {
+			char[] columnas = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H','I'};	
+			for (int i = 0; i <asientos.length; i++) {
+				for (int j = 0; asientos[i].length; i++) {
+					asientos[i][j] = columnas[j] + String.valueOf(columnas[j]);
+					asientosOcupados[i][j]= false;
+				}
+			}
+			}
+		public void mostrarAsientos() {
+			for (int i = 0; i <asientos.length; i++) {
+				for ()
+			}
 		}
 		public void mostrarPelicula() {
 			ArrayList<String> pelicula = new ArrayList<>();
@@ -26,10 +47,7 @@ public class SuperClassCine {
 				System.out.println("- "+ pelicula);
 			}
 		}
-		//public void asientos() {
-		//	ArrayList<Integer, Character> asiento = new ArrayList<>();
-		//}
-
+	
 		
 		public String getNombrePeli() {
 			return nombrePeli;
