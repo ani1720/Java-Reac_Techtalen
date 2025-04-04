@@ -31,7 +31,12 @@ public class SuperClassCine {
 			}
 		public void mostrarAsientos() {
 			for (int i = 0; i <asientos.length; i++) {
-				for ()
+				for (int i = 0 ; i < asientos.length; i++) {
+					for (int j = 0; j < asientos[i].length; j++) {
+						System.out.println(asientos[i][j] + (asientosOcupados[i][j] ? "(O)" : "(X") + " ");	
+					}
+					System.out.println();
+				}
 			}
 		}
 		public void mostrarPelicula() {

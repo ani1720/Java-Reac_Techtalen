@@ -73,10 +73,10 @@ public class Tarea03UD07App {
 	                }
 
 	                // Preguntar si desea salir después de gestionar el stock
-	                int salir = JOptionPane.showConfirmDialog(null, "¿Desea salir de la aplicación?", "Salir", JOptionPane.YES_NO_OPTION);
-	                if (salir == JOptionPane.YES_OPTION) {
-	                    continuarGestion = false;
-	                }
+	               int salir = JOptionPane.showConfirmDialog(null, "¿Desea salir de la aplicación?", "Salir", JOptionPane.YES_NO_OPTION);
+	              if (salir == JOptionPane.YES_OPTION) {
+	                 continuarGestion = false;
+	               }
 
 	            } else {
 	                // Manejar opción de salida
