@@ -1,6 +1,9 @@
 package UD09Ejercicios;
 
 import java.util.ArrayList;
+import java.util.Random;
+
+import javax.swing.JOptionPane;
 
 public class SuperClassCine {
 	
@@ -22,15 +25,15 @@ public class SuperClassCine {
 		}
 		protected void inicializarAsientos() {
 			char[] columnas = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H','I'};	
-			for (int i = 0; i <asientos.length; i++) {
-				for (int j = 0; asientos[i].length; i++) {
-					asientos[i][j] = columnas[j] + String.valueOf(columnas[j]);
-					asientosOcupados[i][j]= false;
+			for (int l = 0; l <asientos.length; l++) {
+				for (int j = 0; asientos[l].length; l++) {
+					asientos[l][j] = columnas[j] + String.valueOf(columnas[j]);
+					asientosOcupados[l][j]= false;
 				}
 			}
 			}
 		public void mostrarAsientos() {
-			for (int i = 0; i <asientos.length; i++) {
+			for (int k = 0; k <asientos.length; k++) {
 				for (int i = 0 ; i < asientos.length; i++) {
 					for (int j = 0; j < asientos[i].length; j++) {
 						System.out.println(asientos[i][j] + (asientosOcupados[i][j] ? "(O)" : "(X") + " ");	
@@ -38,8 +41,25 @@ public class SuperClassCine {
 					System.out.println();
 				}
 			}
+		
 		}
-		public void mostrarPelicula() {
+		public boolean asignarAsiento(SubEspectadorUD09 espectador) {
+			Random random = new Random();
+			boolean asignado = false;
+			
+			while (!asignado) {
+				int fila = random.nextInt(8);
+				int columna = random.nextInt(9);
+				if(!asientosOcupados[fila][columna]) {
+					asientosOcupados[fila][columna] = true;
+					JOptionPane.showMessageDialog(null, "Espectador "+ espectador.getNombrePersona() 
+													+ " asignado el asineto " + asientos[fila][columna]);
+					asignado = true;
+				}
+			}
+			return asignado;
+		}
+		public String[] mostrarPelicula() {
 			ArrayList<String> pelicula = new ArrayList<>();
 			pelicula.add("Super Mario Bros. La película");
 			pelicula.add("Capitán América: Un nuevo mundo");
