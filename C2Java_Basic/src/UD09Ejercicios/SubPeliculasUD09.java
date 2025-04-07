@@ -17,7 +17,7 @@ public class SubPeliculasUD09 extends SuperClassCine {
 	}
 	protected Random randomPelicula() {
 		Random random = new Random();
-		String[] peli = mostrarPelicula();
+		String peli = mostrarPelicula();
 		boolean peliAsignada = true;
 		while (peli.length) {
 			random.nextInt(peli.length);

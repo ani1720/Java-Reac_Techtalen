@@ -1,17 +1,38 @@
 package UD09Ejercicios;
 
-public class SubEspectadorUD09 implements PersonaEmpleable {
+import javax.swing.JOptionPane;
+
+public class SubEspectadorUD09 extends SuperClassCine {
 	protected String nombrePersona;
 	protected int edad;
 	protected double dineroPersona;
-	
+	protected boolean asiento;
+
 public SubEspectadorUD09(String nombrePersona, int edad, double dineroPersona) {	
 	//super(null,0);
 	    this.nombrePersona = nombrePersona;
 		this.edad = edad;
 		this.dineroPersona = dineroPersona;
 		}
+
 	
+
+
+//protected double metodoPago() {
+//	double precioEntrada = 12.99;
+//	String metodo = JOptionPane.showInputDialog("¿Deseas pagar con tarjeta o en efectivo?");
+	//if (metodo.equalsIgnoreCase("tarjeta")) {
+	//	JOptionPane.showMessageDialog(null, "El monto a pagar es de " + precioEntrada);
+	//}else if (metodo.equalsIgnoreCase("efectivo")) {
+	//	double dinUsua = Double.parseDouble(JOptionPane.showInputDialog(dineroPersona + " ¿Cuanto dinero tienes?"));
+	//	if (dinUsua = precioEntrada) {
+// JOptionPane.showMessageDialog(null, "Pago exitoso");
+//{else if (dinUsua > precioEntrada) {
+// double cambio = dinUsua - precioENtrada;
+// JOptionPane.showMessageDialog(null, "Pago exitoso, su cambio es de " + cambio);
+	//}
+	
+//}
 	//@Override
 	public String getNombrePersona() {
 		return nombrePersona;
