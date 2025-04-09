@@ -24,6 +24,7 @@ public class SuperClassCine {
 			this.asientosOcupados = new boolean [8] [9];
 			inicializarAsientos();
 		}
+		
 		protected void inicializarAsientos() {
 			char[] columnas = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H','I'};	
 			for (int n = 0; n < asientos.length; n++) {

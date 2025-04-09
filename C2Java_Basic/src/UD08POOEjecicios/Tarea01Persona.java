@@ -20,10 +20,11 @@ public Tarea01Persona () {
 	this.peso =0;
 	this.altura = 0;
 }
-public Tarea01Persona (String nombre, int edad) {
-	this();
+public Tarea01Persona (String nombre, int edad, char sexo) {
+	this.sexo = sexo;
 	this.nombre = nombre;
 	this.edad = edad;
+	
 }
 public Tarea01Persona (String nombre, int edad, String Dni, 
 							char sexo, double peso, double altura) {

@@ -1,7 +1,6 @@
-package UD08POOEjecicios;
+package UD09Ejercicios;
 
-public class Tarea03Electrodomestico {
-//Constantes
+public class T1Electrodomestico {
 	protected static final double PESO_BASE = 5;
 	protected static final ConsumoEnum CONSUMO_BASE = ConsumoEnum.F ;
 	protected static final ColorEnum COLOR_BASE = ColorEnum.BLANCO;
@@ -21,19 +20,19 @@ public class Tarea03Electrodomestico {
 			A, B, C, D, E, F ;
 		}
 //Constructores
-public Tarea03Electrodomestico() {
+public T1Electrodomestico() {
 		this.peso = PESO_BASE;
 		this.consumoEnergetico = CONSUMO_BASE;
 		this.color = COLOR_BASE;
 		this.precio = PRECIO_BASE;
 	}
-public Tarea03Electrodomestico(double precio, double pesoBase) {
+public T1Electrodomestico(double precio, double pesoBase) {
 	this();
 	this.precio = precio;
 	this.peso = pesoBase ;
 	
 }
-public Tarea03Electrodomestico (double precio, double pesoBase, ColorEnum color, ConsumoEnum consumoENergetico) {
+public T1Electrodomestico (double precio, double pesoBase, ColorEnum color, ConsumoEnum consumoENergetico) {
 this.precio = precio;
 this.peso = peso;
 this.color = color;
@@ -76,6 +75,3 @@ public static double getPrecioBase() {
 	return PRECIO_BASE;
 }
 }
-
-
-
