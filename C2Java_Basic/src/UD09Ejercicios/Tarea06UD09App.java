@@ -7,21 +7,30 @@ import javax.swing.JOptionPane;
 public class Tarea06UD09App  {
 	public static void main(String[] args) {
 		
-		SubPeliculasUD09 pelicula1 = new SubPeliculasUD09("Super Mario Bros. La pelicula", 12.99, 92, 7,
-				"Aaron Horvarth");
-		pelicula1.mostrarDatosPeli();
+		String[] peliOpcion =  {"1.Super Mario Bros. La película", "2.Capitán América: Un nuevo mundo", "3.Misión: Imposible 8"} ;
+		int eleccion = JOptionPane.showOptionDialog(null, "Selecciona la pelicula que quieres ver:", "Selecciona una Opcion", 
+				JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, peliOpcion, peliOpcion[0]);
+
+		switch (eleccion) {
+		case 0 : 
+			JOptionPane.showMessageDialog(null, "Has seleccionado: " + "1.Super Mario Bros. La película");
+			break;
+		case 1 :
+			JOptionPane.showMessageDialog(null, "Has seleccionado: " + "2.Capitán América: Un nuevo mundo");
+			break;
+		case 2 : 
+			JOptionPane.showMessageDialog(null, "Has seleccionado: " + "3.Misión: Imposible 8");
+			break;
+			default: 
+				JOptionPane.showMessageDialog(null, "Nos has seleccionado una pelicula");
+				break;
+		}
+		//SubPeliculasUD09 pelicula1 = new SubPeliculasUD09("Super Mario Bros. La pelicula", 12.99, 92, 7,
+			//	"Aaron Horvarth");
+		//pelicula1.mostrarDatosPeli();
 		
 	}
-	protected  pedirDatos() {
-		//boolean datosValidos = true;
-		do {
-			String nombrePersona = JOptionPane.showInputDialog("Introduce tu nombre");
-			int edad = Integer.parseInt(JOptionPane.showInputDialog("Introduce tu edad"));
-			double dineroPersona = Double.parseDouble(JOptionPane.showInputDialog("Introduce el monto con el que pagaras"));
-		} while(dineroPersona < 12.99); {
-			 JOptionPane.showMessageDialog(null, "No tienes suficiente dinero para pagar la entrada");
-		 }
-		//	if (edad < edadMinima) {
-				
-			//}
-}
+	
+
+	}
+
