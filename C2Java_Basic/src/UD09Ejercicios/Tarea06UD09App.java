@@ -1,7 +1,5 @@
 package UD09Ejercicios;
 
-import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
 
 public class Tarea06UD09App  {
@@ -25,9 +23,6 @@ public class Tarea06UD09App  {
 				JOptionPane.showMessageDialog(null, "Nos has seleccionado una pelicula");
 				break;
 		}
-		//SubPeliculasUD09 pelicula1 = new SubPeliculasUD09("Super Mario Bros. La pelicula", 12.99, 92, 7,
-			//	"Aaron Horvarth");
-		//pelicula1.mostrarDatosPeli();
 		
 	}
 	
