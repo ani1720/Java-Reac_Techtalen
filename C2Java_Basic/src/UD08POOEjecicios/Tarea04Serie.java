@@ -22,7 +22,8 @@ public Tarea04Serie (String nombre, String director) {
 	this.titulo = nombre;
 	this.creador = director;
 }
-public Tarea04Serie (String nombre, int temporadas, String genero, String director) {
+public Tarea04Serie (String nombre, int temporadas,
+						String genero, String director) {
 	this();
 	this.titulo = nombre;
 	this.numTemporadas = temporadas;

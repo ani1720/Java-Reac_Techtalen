@@ -28,14 +28,14 @@ public Tarea03Electrodomestico() {
 		this.precio = PRECIO_BASE;
 	}
 public Tarea03Electrodomestico(double precio, double pesoBase) {
-	this();
 	this.precio = precio;
 	this.peso = pesoBase ;
 	
 }
-public Tarea03Electrodomestico (double precio, double pesoBase, ColorEnum color, ConsumoEnum consumoENergetico) {
+public Tarea03Electrodomestico (double precio, double pesoBase, ColorEnum color,
+									ConsumoEnum consumoEnergetico) {
 this.precio = precio;
-this.peso = peso;
+this.peso = pesoBase;
 this.color = color;
 this.consumoEnergetico = consumoEnergetico;
 }
