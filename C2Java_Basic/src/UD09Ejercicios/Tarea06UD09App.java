@@ -9,11 +9,10 @@ public class Tarea06UD09App  {
 		int eleccion = JOptionPane.showOptionDialog(null, "Selecciona la pelicula que quieres ver:", "Selecciona una Opcion", 
 				JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, pelicula, pelicula[0]);
 
-		SubPeliculasUD09 datosP = new SubPeliculasUD09 (Aaron Horvath, 2, 7); 
-		
+
 		switch (eleccion) {
 		case 0 : 
-			JOptionPane.showMessageDialog(null, "Has seleccionado: " + "1.Super Mario Bros. La película" + "\n" +   );
+			JOptionPane.showMessageDialog(null, "Has seleccionado: " + "1.Super Mario Bros. La película" + "\n");
 			break;
 		case 1 :
 			JOptionPane.showMessageDialog(null, "Has seleccionado: " + "2.Capitán América: Un nuevo mundo");
