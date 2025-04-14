@@ -74,4 +74,11 @@ public static ColorEnum getColorBase() {
 public static double getPrecioBase() {
 	return PRECIO_BASE;
 }
+public char comprobarConsumoEner (char consum) {
+
+	
+	
+	return 0;
+	
+}
 }

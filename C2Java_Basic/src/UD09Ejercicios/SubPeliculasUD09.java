@@ -19,7 +19,11 @@ public class SubPeliculasUD09 extends SuperClassCine {
 		this.nombrePeli = nombrePeli;
 		this.edadMinima = edadMinima;
 	}
-	
+	public SubPeliculasUD09(String directorPeli, int duracionPeli, int edadMinima) {
+		this.directorPeli = directorPeli;
+		this.duracionPeli = duracionPeli;
+		this.edadMinima = edadMinima;
+	}
 	public int getDuracionPeli() {
 		return duracionPeli;
 	}

@@ -5,20 +5,47 @@ import java.util.Random;
 import javax.swing.JOptionPane;
 
 public class SuperClassCine {
-
-	protected String nombrePeli;
+	protected static final double PRECIO_DEFA = 12.99;
+//	protected String nombrePeli;
 	protected double precioEntrada;
 
-	protected String[] pelicula = mostrarPelicula();
+	protected String[] pelicula;
 
 	private String[][] asientos;
 	private boolean[][] asientosOcupados;
 
-	public SuperClassCine(String nombrePeli, double precioEntrada) {
-		this.nombrePeli = nombrePeli;
-		this.precioEntrada = 12.99;
+	public SuperClassCine(double precioEntrada) {
+		this.precioEntrada = PRECIO_DEFA;
 	}
+	public SuperClassCine(String[] pelicula) {
+	pelicula = new String[] {
+			"1.Super Mario Bros. La película", 
+			"2.Capitán América: Un nuevo mundo",
+			"3.Misión: Imposible 8" };
+	}
+	
 
+	public String[] getPelicula() {
+		return pelicula;
+	}
+	public void setPelicula(String[] pelicula) {
+		this.pelicula = pelicula;
+	}
+	public String[][] getAsientos() {
+		return asientos;
+	}
+	public void setAsientos(String[][] asientos) {
+		this.asientos = asientos;
+	}
+	public boolean[][] getAsientosOcupados() {
+		return asientosOcupados;
+	}
+	public void setAsientosOcupados(boolean[][] asientosOcupados) {
+		this.asientosOcupados = asientosOcupados;
+	}
+	public static double getPrecioDefa() {
+		return PRECIO_DEFA;
+	}
 	public SuperClassCine() {
 		this.asientos = new String[8][9];
 		this.asientosOcupados = new boolean[8][9];
@@ -36,11 +63,14 @@ public class SuperClassCine {
 	}
 
 	public void mostrarAsientos() {
+		StringBuilder salaVisual = new StringBuilder("Asientos disponibles\n");
 		for (int i = 0; i < asientos.length; i++) {
 			for (int j = 0; j < asientos[i].length; j++) {
-				System.out.println(asientos[i][j] + (asientosOcupados[i][j] ? "(O)" : "(X)") + " ");
+				salaVisual.append(asientos[i][j]).append(asientosOcupados[i][j] ? "(O)" : "(X)" + " ");
 			}
+			salaVisual.append("\n");
 		}
+		JOptionPane.showMessageDialog(null, salaVisual.toString());
 	}
 
 	public boolean asignarAsiento(SubEspectadorUD09 espectador) {
@@ -61,8 +91,9 @@ public class SuperClassCine {
 	}
 
 	public String[] mostrarPelicula() {
-		String[] pelicula = {"1.Super Mario Bros. La película", "2.Capitán América: Un nuevo mundo", "3.Misión: Imposible 8"} ;
-		
+		String[] pelicula = { "1.Super Mario Bros. La película", "2.Capitán América: Un nuevo mundo",
+				"3.Misión: Imposible 8" };
+
 		System.out.println("Peliculas disponibles en el cine: " + pelicula);
 		for (String movie : pelicula) {
 			System.out.println("- " + pelicula);
