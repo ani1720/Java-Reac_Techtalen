@@ -15,9 +15,10 @@ public class SubEspectadorUD09 extends SuperClassCine {
 		this.dineroPersona = dineroPersona;
 	}
 
-	public SubEspectadorUD09(String nombrePersona) {
-		nombrePersona = JOptionPane.showInputDialog("Introduce tu nombre");
+	public SubEspectadorUD09(String espectador) {
+		this.nombrePersona = JOptionPane.showInputDialog("Introduce tu nombre");
 	}
+	
 
 //protected double metodoPago() {
 //	double precioEntrada = 12.99;

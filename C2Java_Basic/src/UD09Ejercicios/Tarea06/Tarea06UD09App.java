@@ -37,6 +37,8 @@ public class Tarea06UD09App  {
 		
 		cine.elegirAsiento(usuario);
 		
+		JOptionPane.showInternalMessageDialog(null, "Gracias por su compra\n" 
+		                                          + "Que disfrute su pelicula");
 	//	SuperClassCine cine = new SuperClassCine(pelicula, precioEntrada);
 	}
 	
