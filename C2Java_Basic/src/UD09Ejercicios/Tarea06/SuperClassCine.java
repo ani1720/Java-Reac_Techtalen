@@ -1,4 +1,4 @@
-package UD09Ejercicios;
+package UD09Ejercicios.Tarea06;
 
 import java.util.Random;
 
