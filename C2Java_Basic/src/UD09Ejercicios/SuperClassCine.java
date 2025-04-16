@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 
 public class SuperClassCine {
 	protected static final double PRECIO_DEFA = 12.99;
-//	protected String nombrePeli;
+	protected String nombrePeli;
 	protected double precioEntrada;
 
 	protected String[] pelicula;

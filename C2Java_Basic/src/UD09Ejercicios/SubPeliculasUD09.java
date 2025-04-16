@@ -2,6 +2,8 @@ package UD09Ejercicios;
 
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 public class SubPeliculasUD09 extends SuperClassCine {
 
 	protected int duracionPeli;
@@ -10,7 +12,7 @@ public class SubPeliculasUD09 extends SuperClassCine {
 	
 	
 	public SubPeliculasUD09(String nombrePeli, double precioEntrada, int duracionPeli, int edadMinima, String directorPeli) {
-		super(nombrePeli, precioEntrada);
+		this.nombrePeli = nombrePeli;
 		this.duracionPeli = duracionPeli;
 		this.edadMinima = edadMinima;
 		this.directorPeli = directorPeli;
@@ -19,11 +21,7 @@ public class SubPeliculasUD09 extends SuperClassCine {
 		this.nombrePeli = nombrePeli;
 		this.edadMinima = edadMinima;
 	}
-	public SubPeliculasUD09(String directorPeli, int duracionPeli, int edadMinima) {
-		this.directorPeli = directorPeli;
-		this.duracionPeli = duracionPeli;
-		this.edadMinima = edadMinima;
-	}
+
 	public int getDuracionPeli() {
 		return duracionPeli;
 	}
@@ -55,10 +53,28 @@ public class SubPeliculasUD09 extends SuperClassCine {
 	
 	
 	public void mostrarDatosPeli() {
-		System.out.println("Pelicula: " + nombrePeli);
+		System.out.println("Pelicula: " + pelicula);
 		System.out.println("Director: " + directorPeli);
 		System.out.println("Duracion: " + duracionPeli + " minutos");
 		System.out.println("Edad minima: " + edadMinima + " años");
 		System.out.println("Precio: €" + precioEntrada);
 	}
+	public void comprarEntrada(int edadMinima, double precioEntrada) {
+        int edad = Integer.parseInt(JOptionPane.showInputDialog("Introduce tu edad:"));
+
+        if (edad < edadMinima) {
+            JOptionPane.showMessageDialog(null, "No puedes comprar la entrada. Edad mínima: " + edadMinima);
+        } else {
+            JOptionPane.showMessageDialog(null, "El precio de la entrada es: " + precioEntrada + "€");
+            double dineroPersona = Double.parseDouble(JOptionPane.showInputDialog("Introduce la cantidad de dinero que tienes:"));
+
+            if (dineroPersona < precioEntrada) {
+                JOptionPane.showMessageDialog(null, "Dinero insuficiente. Necesitas al menos: " + precioEntrada + "€");
+            } else {
+                double cambio = dineroPersona - precioEntrada;
+                JOptionPane.showMessageDialog(null, "Compra realizada con éxito. Tu cambio es: " + cambio + "€");
+            }
+        }
+    }
+	
 }

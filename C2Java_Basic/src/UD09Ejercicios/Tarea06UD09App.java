@@ -9,16 +9,21 @@ public class Tarea06UD09App  {
 		int eleccion = JOptionPane.showOptionDialog(null, "Selecciona la pelicula que quieres ver:", "Selecciona una Opcion", 
 				JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, pelicula, pelicula[0]);
 
-
 		switch (eleccion) {
-		case 0 : 
-			JOptionPane.showMessageDialog(null, "Has seleccionado: " + "1.Super Mario Bros. La película" + "\n");
+		case 0 :
+			SubPeliculasUD09 peli1 = new SubPeliculasUD09("Super Mario Bros. La película", 12.99, 92, 7, "Aaron Horvath");
+			JOptionPane.showMessageDialog(null, "Has seleccionado: " + "Super Mario Bros. Dura " + peli1.getDuracionPeli() + " minutos y es para mayores de " + peli1.getEdadMinima() + " años. Coste de la entrada: " + peli1.precioEntrada + "€");
+			peli1.comprarEntrada(peli1.getEdadMinima(), peli1.precioEntrada);
 			break;
 		case 1 :
-			JOptionPane.showMessageDialog(null, "Has seleccionado: " + "2.Capitán América: Un nuevo mundo");
+			SubPeliculasUD09 peli2 = new SubPeliculasUD09("Capitán América: Un nuevo mundo", 12.99, 118, 12, "Julius Onah");
+			JOptionPane.showMessageDialog(null, "Has seleccionado: " + "Capitán América: Un nuevo mundo. Dura " + peli2.getDuracionPeli() + " minutos y es para mayores de " + peli2.getEdadMinima() + " años. Coste de la entrada: " + peli2.precioEntrada + "€");
+			peli2.comprarEntrada(peli2.getEdadMinima(), peli2.precioEntrada);
 			break;
 		case 2 : 
-			JOptionPane.showMessageDialog(null, "Has seleccionado: " + "3.Misión: Imposible 8");
+			SubPeliculasUD09 peli3 = new SubPeliculasUD09("Misión: Imposible 8", 12.99, 163, 12, "Christopher McQuarrie La película");
+			JOptionPane.showMessageDialog(null, "Has seleccionado: " + "Misión: Imposible 8. Dura " + peli3.getDuracionPeli() + " minutos y es para mayores de " + peli3.getEdadMinima() + " años. Coste de la entrada: " + peli3.precioEntrada + "€");
+			peli3.comprarEntrada(peli3.getEdadMinima(), peli3.precioEntrada);
 			break;
 			default: 
 				JOptionPane.showMessageDialog(null, "Nos has seleccionado una pelicula");
