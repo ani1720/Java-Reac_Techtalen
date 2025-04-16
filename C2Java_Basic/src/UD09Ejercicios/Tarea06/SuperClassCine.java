@@ -74,15 +74,18 @@ public class SuperClassCine {
 		}
 		JOptionPane.showMessageDialog(null, salaVisual.toString());
 	}
-	public void elegirAsiento(SubEspectadorUD09 espectador) {
+	public void elegirAsiento(SubEspectadorUD09 espectador, int entradas) {
 		mostrarAsientos();
 		
+		for (int i = 1; i <= entradas; i++) {
+			
 		String eleccion = JOptionPane.showInputDialog("Introduce el asiento deseado (Ejemplo: 5B):");
 		if (eleccion != null && marcarAsiento(eleccion)) {
 			JOptionPane.showMessageDialog(null, "Espectador " + espectador.nombrePersona + 
 					" asignado al asiento " + eleccion);
 		}else {
 			JOptionPane.showMessageDialog(null, "El asiento seleccionado no esta disponible");
+		}
 		}
 	}
 private boolean marcarAsiento(String asiento) {

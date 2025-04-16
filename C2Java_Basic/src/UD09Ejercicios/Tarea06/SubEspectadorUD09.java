@@ -18,9 +18,9 @@ public class SubEspectadorUD09 extends SuperClassCine {
 	public SubEspectadorUD09(String espectador) {
 		this.nombrePersona = JOptionPane.showInputDialog("Introduce tu nombre");
 	}
-	
 
-//protected double metodoPago() {
+
+//public void metodoPago() {
 //	double precioEntrada = 12.99;
 //	String metodo = JOptionPane.showInputDialog("¿Deseas pagar con tarjeta o en efectivo?");
 	// if (metodo.equalsIgnoreCase("tarjeta")) {
