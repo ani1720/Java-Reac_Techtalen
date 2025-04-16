@@ -1,7 +1,5 @@
 package UD09Ejercicios.Tarea06;
 
-import java.util.Random;
-
 import javax.swing.JOptionPane;
 
 public class SubPeliculasUD09 extends SuperClassCine {
@@ -12,15 +10,16 @@ public class SubPeliculasUD09 extends SuperClassCine {
 	
 	
 	public SubPeliculasUD09(String nombrePeli, double precioEntrada, int duracionPeli, int edadMinima, String directorPeli) {
-		this.nombrePeli = nombrePeli;
+		
+	super(nombrePeli, precioEntrada);
 		this.duracionPeli = duracionPeli;
 		this.edadMinima = edadMinima;
 		this.directorPeli = directorPeli;
 	}
-	public SubPeliculasUD09(String nombrePeli, int edadMinima) {
-		this.nombrePeli = nombrePeli;
-		this.edadMinima = edadMinima;
-	}
+//	public SubPeliculasUD09(String nombrePeli, int edadMinima) {
+	//	this.nombrePeli = nombrePeli;
+	//	this.edadMinima = edadMinima;
+	//}
 
 	public int getDuracionPeli() {
 		return duracionPeli;
@@ -49,15 +48,6 @@ public class SubPeliculasUD09 extends SuperClassCine {
 	
 	public void setDirectorPeli(String directorPeli) {
 		this.directorPeli = directorPeli;
-	}
-	
-	
-	public void mostrarDatosPeli() {
-		System.out.println("Pelicula: " + pelicula);
-		System.out.println("Director: " + directorPeli);
-		System.out.println("Duracion: " + duracionPeli + " minutos");
-		System.out.println("Edad minima: " + edadMinima + " años");
-		System.out.println("Precio: €" + precioEntrada);
 	}
 	public void comprarEntrada(int edadMinima, double precioEntrada) {
         int edad = Integer.parseInt(JOptionPane.showInputDialog("Introduce tu edad:"));

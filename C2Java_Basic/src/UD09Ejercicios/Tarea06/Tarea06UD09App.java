@@ -12,17 +12,17 @@ public class Tarea06UD09App  {
 		switch (eleccion) {
 		case 0 :
 			SubPeliculasUD09 peli1 = new SubPeliculasUD09("Super Mario Bros. La película", 12.99, 92, 7, "Aaron Horvath");
-			JOptionPane.showMessageDialog(null, "Has seleccionado: " + "Super Mario Bros. Dura " + peli1.getDuracionPeli() + " minutos y es para mayores de " + peli1.getEdadMinima() + " años. Coste de la entrada: " + peli1.precioEntrada + "€");
+			JOptionPane.showMessageDialog(null, "Has seleccionado: " + "Super Mario Bros. Dura " + peli1.getDuracionPeli() + " minutos y es para mayores de " + peli1.getEdadMinima() + " años." );
 			peli1.comprarEntrada(peli1.getEdadMinima(), peli1.precioEntrada);
 			break;
 		case 1 :
 			SubPeliculasUD09 peli2 = new SubPeliculasUD09("Capitán América: Un nuevo mundo", 12.99, 118, 12, "Julius Onah");
-			JOptionPane.showMessageDialog(null, "Has seleccionado: " + "Capitán América: Un nuevo mundo. Dura " + peli2.getDuracionPeli() + " minutos y es para mayores de " + peli2.getEdadMinima() + " años. Coste de la entrada: " + peli2.precioEntrada + "€");
+			JOptionPane.showMessageDialog(null, "Has seleccionado: " + "Capitán América: Un nuevo mundo. Dura " + peli2.getDuracionPeli() + " minutos y es para mayores de " + peli2.getEdadMinima() + " años." );
 			peli2.comprarEntrada(peli2.getEdadMinima(), peli2.precioEntrada);
 			break;
 		case 2 : 
 			SubPeliculasUD09 peli3 = new SubPeliculasUD09("Misión: Imposible 8", 12.99, 163, 12, "Christopher McQuarrie La película");
-			JOptionPane.showMessageDialog(null, "Has seleccionado: " + "Misión: Imposible 8. Dura " + peli3.getDuracionPeli() + " minutos y es para mayores de " + peli3.getEdadMinima() + " años. Coste de la entrada: " + peli3.precioEntrada + "€");
+			JOptionPane.showMessageDialog(null, "Has seleccionado: " + "Misión: Imposible 8. Dura " + peli3.getDuracionPeli() + " minutos y es para mayores de " + peli3.getEdadMinima() + " años.");
 			peli3.comprarEntrada(peli3.getEdadMinima(), peli3.precioEntrada);
 			break;
 			default: 

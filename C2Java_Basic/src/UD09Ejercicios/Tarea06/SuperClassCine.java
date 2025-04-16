@@ -5,31 +5,35 @@ import java.util.Random;
 import javax.swing.JOptionPane;
 
 public class SuperClassCine {
-	protected static final double PRECIO_DEFA = 12.99;
+	// protected static final double PRECIO_DEFA = 12.99;
 	protected String nombrePeli;
 	protected double precioEntrada;
 
-	protected String[] pelicula;
+//	protected String[] pelicula;
 
 	private String[][] asientos;
 	private boolean[][] asientosOcupados;
 
-	public SuperClassCine(double precioEntrada) {
-		this.precioEntrada = PRECIO_DEFA;
+	public SuperClassCine(String nombrePeli, double precioEntrada) {
+		this.nombrePeli = nombrePeli;
+		this.precioEntrada = 12.99;
 	}
-	public SuperClassCine(String[] pelicula) {
-	pelicula = new String[] {
-			"1.Super Mario Bros. La película", 
-			"2.Capitán América: Un nuevo mundo",
-			"3.Misión: Imposible 8" };
-	}
-	
+	//public SuperClassCine(String[] pelicula) {
+	//	pelicula = new String[] { "1.Super Mario Bros. La película", "2.Capitán América: Un nuevo mundo",
+		//		"3.Misión: Imposible 8" };
+	//}
 
-	public String[] getPelicula() {
-		return pelicula;
+	public String getNombrePeli() {
+		return nombrePeli;
 	}
-	public void setPelicula(String[] pelicula) {
-		this.pelicula = pelicula;
+	public void setNombrePeli(String nombrePeli) {
+		this.nombrePeli = nombrePeli;
+	}
+	public double getPrecioEntrada() {
+		return precioEntrada;
+	}
+	public void setPrecioEntrada(double precioEntrada) {
+		this.precioEntrada = precioEntrada;
 	}
 	public String[][] getAsientos() {
 		return asientos;
@@ -43,9 +47,7 @@ public class SuperClassCine {
 	public void setAsientosOcupados(boolean[][] asientosOcupados) {
 		this.asientosOcupados = asientosOcupados;
 	}
-	public static double getPrecioDefa() {
-		return PRECIO_DEFA;
-	}
+	
 	public SuperClassCine() {
 		this.asientos = new String[8][9];
 		this.asientosOcupados = new boolean[8][9];
@@ -89,16 +91,4 @@ public class SuperClassCine {
 		}
 		return asignado;
 	}
-
-	public String[] mostrarPelicula() {
-		String[] pelicula = { "1.Super Mario Bros. La película", "2.Capitán América: Un nuevo mundo",
-				"3.Misión: Imposible 8" };
-
-		System.out.println("Peliculas disponibles en el cine: " + pelicula);
-		for (String movie : pelicula) {
-			System.out.println("- " + pelicula);
-		}
-		return pelicula;
-	}
-
 }
