@@ -65,30 +65,49 @@ public class SuperClassCine {
 	}
 
 	public void mostrarAsientos() {
-		StringBuilder salaVisual = new StringBuilder("Asientos disponibles\n");
+		StringBuilder salaVisual = new StringBuilder("Asientos disponibles\n Los X estan ocupados\n");
 		for (int i = 0; i < asientos.length; i++) {
 			for (int j = 0; j < asientos[i].length; j++) {
-				salaVisual.append(asientos[i][j]).append(asientosOcupados[i][j] ? "(O)" : "(X)" + " ");
+				salaVisual.append(asientos[i][j]).append(asientosOcupados[i][j] ? "(X)" : "(O)" + " ");
 			}
 			salaVisual.append("\n");
 		}
 		JOptionPane.showMessageDialog(null, salaVisual.toString());
 	}
-
-	public boolean asignarAsiento(SubEspectadorUD09 espectador) {
-		Random random = new Random();
-		boolean asignado = false;
-
-		while (!asignado) {
-			int fila = random.nextInt(8);
-			int columna = random.nextInt(9);
-			if (!asientosOcupados[fila][columna]) {
-				asientosOcupados[fila][columna] = true;
-				JOptionPane.showMessageDialog(null, "Espectador " + espectador.getNombrePersona()
-						+ " asignado el asiento " + asientos[fila][columna]);
-				asignado = true;
-			}
-		}
-		return asignado;
+public void elegirAsiento(SubEspectadorUD09 espectador) {
+	mostrarAsientos();
+	
+	String eleccion = JOptionPane.showInputDialog("Introduce el asiento deseado (Ejemplo: 5B):");
+	if (eleccion != null && marcarAsiento(eleccion)) {
+		JOptionPane.showMessageDialog(null, "Espectador " + espectador.nombrePersona + 
+				" asignado al asiento " + eleccion);
+	}else {
+		JOptionPane.showMessageDialog(null, "El asiento seleccionado no esta disponible");
 	}
 }
+private boolean marcarAsiento(String asiento) {
+	for (int f = 0; f < asientos.length; f ++) {
+		for (int c = 0; c < asientos[f].length; c++) {
+			if (asientos[f][c].equals(asiento) && !asientosOcupados[f][c]) {
+				asientosOcupados[f][c] = true;
+				return true;
+			}
+		}
+	}
+	return false;
+}
+	public void asignarAsientos() {
+		Random random = new Random();
+		int cantidadAsiento = random.nextInt(30) + 5;
+
+		for (int i = 0; i < cantidadAsiento; i++) {
+			int fila, columna;
+			do {
+				 fila = random.nextInt(8);
+				 columna = random.nextInt(9);
+			} while (asientosOcupados[fila][columna]) ;
+			asientosOcupados[fila][columna] = true;
+		}	
+			}
+	}
+

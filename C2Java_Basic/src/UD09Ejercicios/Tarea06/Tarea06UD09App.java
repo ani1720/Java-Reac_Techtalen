@@ -29,9 +29,18 @@ public class Tarea06UD09App  {
 				JOptionPane.showMessageDialog(null, "Nos has seleccionado una pelicula");
 				break;
 		}
+		SuperClassCine cine = new SuperClassCine();
+		//cine.mostrarAsientos();
+		cine.asignarAsientos();
+		
+		SubEspectadorUD09 usuario = new SubEspectadorUD09(null);
+		
+		cine.elegirAsiento(usuario);
+		
 	//	SuperClassCine cine = new SuperClassCine(pelicula, precioEntrada);
 	}
 	
 
 	}
+
 
