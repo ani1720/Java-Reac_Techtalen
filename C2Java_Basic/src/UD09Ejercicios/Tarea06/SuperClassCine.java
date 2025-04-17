@@ -65,6 +65,7 @@ public class SuperClassCine {
 	}
 
 	public void mostrarAsientos() {
+		asignarAsientos();
 		StringBuilder salaVisual = new StringBuilder("Asientos disponibles\n Los X estan ocupados\n");
 		for (int i = 0; i < asientos.length; i++) {
 			for (int j = 0; j < asientos[i].length; j++) {
@@ -78,16 +79,23 @@ public class SuperClassCine {
 		mostrarAsientos();
 		
 		for (int i = 1; i <= entradas; i++) {
+			boolean asientoValido = false;
+			while (!asientoValido) {
+				String eleccion = JOptionPane.showInputDialog("Introduce el asiento deseado (Ejemplo: 5B):");
+				if (eleccion != null && marcarAsiento(eleccion)) {
+					JOptionPane.showMessageDialog(null, "Espectador " + espectador.nombrePersona + 
+							" asignado al asiento " + eleccion);
+					asientoValido = true;
+				}else  {
+					JOptionPane.showMessageDialog(null, "El asiento seleccionado no esta disponible. Por favor elige otro");
+			}
+		}
 			
-		String eleccion = JOptionPane.showInputDialog("Introduce el asiento deseado (Ejemplo: 5B):");
-		if (eleccion != null && marcarAsiento(eleccion)) {
-			JOptionPane.showMessageDialog(null, "Espectador " + espectador.nombrePersona + 
-					" asignado al asiento " + eleccion);
-		}else {
-			JOptionPane.showMessageDialog(null, "El asiento seleccionado no esta disponible");
+		
+		
 		}
 		}
-	}
+//}
 private boolean marcarAsiento(String asiento) {
 	for (int f = 0; f < asientos.length; f ++) {
 		for (int c = 0; c < asientos[f].length; c++) {

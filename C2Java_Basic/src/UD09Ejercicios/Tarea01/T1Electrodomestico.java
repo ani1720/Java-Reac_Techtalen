@@ -95,12 +95,12 @@ public class T1Electrodomestico {
 
 	public T1Electrodomestico(ConsumoEnum consumoEnergetico) {
 		this.consumoEnergetico = consumoEnergetico;
-		this.precio = calcularPrecio(consumoEnergetico);
+		this.precio = precioFinal();
 	}
 
-	private double calcularPrecio(ConsumoEnum consumo) {
+	 double precioFinal() {
 		double precioF = 0;
-		switch (consumo) {
+		switch (consumoEnergetico) {
 		case A:
 			precioF += 100;
 			break;

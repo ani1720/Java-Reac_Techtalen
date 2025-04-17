@@ -46,45 +46,53 @@ public class SubPeliculasUD09 extends SuperClassCine {
 	}
 
 	public int comprarEntrada(int edadMinima, double precioEntrada) {
-		int edad = Integer.parseInt(JOptionPane.showInputDialog("Introduce tu edad:"));
-
-		if (edad < edadMinima) {
-			JOptionPane.showMessageDialog(null, "No puedes comprar la entrada. Edad mínima: " + edadMinima);
-			return 0;
-		}
 
 		int entradas = Integer.parseInt(JOptionPane.showInputDialog("¿Cuantos boletos quiere comprar?"));
-		double totalPr = precioEntrada * entradas;
-		JOptionPane.showMessageDialog(null, "El precio total es: " + totalPr + "€");
-		
-		
-		String[] opciones = { "Tarjeta", "Efectivo" };
-		int metodo = JOptionPane.showOptionDialog(null, "Selecciona una metodo de pago", "Selecciona una opcion",
-				JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, 
-				opciones, opciones[0]);
-		
-		if (metodo == 0) {
-			JOptionPane.showMessageDialog(null, "Pago con tarjeta realizado. Total: " + totalPr + "€");
-		} else if (metodo == 1) {
-			
-			double dineroPersona = Double
-					.parseDouble(JOptionPane.showInputDialog("Introduce la cantidad de dinero que tienes:"));
-
-			if (dineroPersona < totalPr) {
-				JOptionPane.showMessageDialog(null, "Dinero insuficiente. Necesitas al menos: " + String.format("%2.f", totalPr) + "€");
-			} else {
-				double cambio = dineroPersona - totalPr;
-				JOptionPane.showMessageDialog(null, "Compra realizada con éxito. Tu cambio es: " + String.format("%.2f", cambio) + "€");
+		int entradasCheck = 0;
+		for (int i = 0; i < entradas; i++) {
+			int edad = Integer.parseInt(JOptionPane.showInputDialog("Introduce la edad del espectador" + (i + 1) + ":"));
+			if (edad >= edadMinima) {
+				entradasCheck++;
+			}else {
+				JOptionPane.showMessageDialog(null, "El espectador " + (i + 1) + " no cumple con la edad minima de "  + edadMinima + " años");
 			}
-		
-		}else {
-			JOptionPane.showMessageDialog(null, "No seleccionaste un metodo de pago");
-			return 0;
+			
+			if(entradasCheck < 0) {
+				String [] nombres = new String[entradasCheck];
+				for (int n = 0; n < entradasCheck; i++) {
+					nombres[i] = JOptionPane.showInputDialog("Introduce el nombre del espectador " + (n + 1) + ":");
+				}
+				double totalPr = precioEntrada * entradasCheck;
+				String[] opciones = { "Tarjeta", "Efectivo" };
+				int metodo = JOptionPane.showOptionDialog(null, "Selecciona una metodo de pago", "Selecciona una opcion",
+						JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
+
+				if (metodo == 0) {
+					JOptionPane.showMessageDialog(null, "Pago con tarjeta realizado. Total: " + totalPr + "€");
+				} else if (metodo == 1) {
+
+					double dineroPersona = Double
+							.parseDouble(JOptionPane.showInputDialog("Introduce la cantidad de dinero que tienes:"));
+
+					if (dineroPersona < totalPr) {
+						JOptionPane.showMessageDialog(null,
+								"Dinero insuficiente. Necesitas al menos: " + String.format("%2.f", totalPr) + "€");
+					} else {
+						double cambio = dineroPersona - totalPr;
+						JOptionPane.showMessageDialog(null,
+								"Compra realizada con éxito. Tu cambio es: " + String.format("%.2f", cambio) + "€");
+				return 0;
+					}
+
+				} else {
+					JOptionPane.showMessageDialog(null, "No seleccionaste un metodo de pago");
+				//	return 0;
+				}
+			}
 		}
-		return entradas;
+		return entradasCheck;
+		
 	}
-	}
+}
 
 //	public void metodoPago(double totalPr) {
-		
-

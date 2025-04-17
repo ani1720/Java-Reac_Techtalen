@@ -16,10 +16,23 @@ public class SubEspectadorUD09 extends SuperClassCine {
 	}
 
 	public SubEspectadorUD09(String espectador) {
-		this.nombrePersona = JOptionPane.showInputDialog("Introduce tu nombre");
+		this.nombrePersona =  espectador;
+				//JOptionPane.showInputDialog("Ingresa el nombre del espectador: ");
+				
 	}
-
-
+	public static void comprobarNombres () {
+		
+		int entradas=0, entradasCheck = 0;
+		for (int i = 0; i < entradas; i++) {
+			if(entradasCheck < 0) {
+				String [] nombres = new String[entradasCheck];
+				for (int n = 0; n < entradasCheck; i++) {
+					nombres[i] = JOptionPane.showInputDialog("Introduce el nombre del espectador " + (n + 1) + ":");
+		}
+		
+			}
+	}
+	}
 //public void metodoPago() {
 //	double precioEntrada = 12.99;
 //	String metodo = JOptionPane.showInputDialog("¿Deseas pagar con tarjeta o en efectivo?");

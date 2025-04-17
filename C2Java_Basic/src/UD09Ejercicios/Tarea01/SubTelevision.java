@@ -1,3 +1,4 @@
+
 package UD09Ejercicios.Tarea01;
 
 public class SubTelevision extends T1Electrodomestico {
@@ -55,6 +56,11 @@ public class SubTelevision extends T1Electrodomestico {
 		this.resolucion = resolucion;
 		this.sintonizadorTDT = sintonizadorTDT;
 		this.precio = precioFinalTv();
+	}
+	public SubTelevision(double precio, double resolucion, boolean sintonizadorTDT) {
+		this.precio = precio;
+		this.resolucion = resolucion;
+		this.sintonizadorTDT = sintonizadorTDT;
 	}
 
 	private double precioFinalTv() {
