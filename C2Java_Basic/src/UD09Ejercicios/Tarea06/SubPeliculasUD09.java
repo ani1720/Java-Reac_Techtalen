@@ -44,6 +44,7 @@ public class SubPeliculasUD09 extends SuperClassCine {
 	public void setDirectorPeli(String directorPeli) {
 		this.directorPeli = directorPeli;
 	}
+	
 
 	public int comprarEntrada(int edadMinima, double precioEntrada) {
 

@@ -4,7 +4,8 @@ import javax.swing.JOptionPane;
 
 public class Tarea06UD09App {
 	public static void main(String[] args) {
-
+		JOptionPane.showMessageDialog(null, "Bienvenido/a al Cine de Tarragona");
+	
 		String[] pelicula = { "1.Super Mario Bros. La película", "2.Capitán América: Un nuevo mundo",
 				"3.Misión: Imposible 8" };
 		int eleccion = JOptionPane.showOptionDialog(null, "Selecciona la pelicula que quieres ver:",

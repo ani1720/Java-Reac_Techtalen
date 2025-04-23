@@ -8,9 +8,7 @@ public class SuperClassCine {
 	// protected static final double PRECIO_DEFA = 12.99;
 	protected String nombrePeli;
 	protected double precioEntrada;
-
 //	protected String[] pelicula;
-
 	private String[][] asientos;
 	private boolean[][] asientosOcupados;
 
@@ -77,7 +75,7 @@ public class SuperClassCine {
 		StringBuilder salaVisual = new StringBuilder("Asientos disponibles\n Los X estan ocupados\n");
 		for (int i = 0; i < asientos.length; i++) {
 			for (int j = 0; j < asientos[i].length; j++) {
-				salaVisual.append(asientos[i][j]).append(asientosOcupados[i][j] ? "(X)" : "(O)" + " ");
+				salaVisual.append(asientos[i][j]).append(asientosOcupados[i][j] ? "(X) " : "(O) ");
 			}
 			salaVisual.append("\n");
 		}
