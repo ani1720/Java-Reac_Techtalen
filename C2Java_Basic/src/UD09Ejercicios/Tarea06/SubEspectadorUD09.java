@@ -1,7 +1,5 @@
 package UD09Ejercicios.Tarea06;
 
-import javax.swing.JOptionPane;
-
 public class SubEspectadorUD09 extends SuperClassCine {
 	protected String nombrePersona;
 	protected int edad;
@@ -15,24 +13,14 @@ public class SubEspectadorUD09 extends SuperClassCine {
 		this.dineroPersona = dineroPersona;
 	}
 
-	public SubEspectadorUD09(String espectador) {
-		this.nombrePersona =  espectador;
-				//JOptionPane.showInputDialog("Ingresa el nombre del espectador: ");
-				
+	public SubEspectadorUD09(String nombrePersona) {
+		this.nombrePersona= nombrePersona;
+		// JOptionPane.showInputDialog("Ingresa el nombre del espectador: ");
 	}
-	public static void comprobarNombres () {
-		
-		int entradas=0, entradasCheck = 0;
-		for (int i = 0; i < entradas; i++) {
-			if(entradasCheck < 0) {
-				String [] nombres = new String[entradasCheck];
-				for (int n = 0; n < entradasCheck; i++) {
-					nombres[i] = JOptionPane.showInputDialog("Introduce el nombre del espectador " + (n + 1) + ":");
-		}
-		
-			}
-	}
-	}
+
+	
+		//return nombre;
+	//}
 //public void metodoPago() {
 //	double precioEntrada = 12.99;
 //	String metodo = JOptionPane.showInputDialog("¿Deseas pagar con tarjeta o en efectivo?");

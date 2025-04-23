@@ -18,36 +18,44 @@ public class SuperClassCine {
 		this.nombrePeli = nombrePeli;
 		this.precioEntrada = 12.99;
 	}
-	//public SuperClassCine(String[] pelicula) {
-	//	pelicula = new String[] { "1.Super Mario Bros. La película", "2.Capitán América: Un nuevo mundo",
-		//		"3.Misión: Imposible 8" };
-	//}
+	// public SuperClassCine(String[] pelicula) {
+	// pelicula = new String[] { "1.Super Mario Bros. La película", "2.Capitán
+	// América: Un nuevo mundo",
+	// "3.Misión: Imposible 8" };
+	// }
 
 	public String getNombrePeli() {
 		return nombrePeli;
 	}
+
 	public void setNombrePeli(String nombrePeli) {
 		this.nombrePeli = nombrePeli;
 	}
+
 	public double getPrecioEntrada() {
 		return precioEntrada;
 	}
+
 	public void setPrecioEntrada(double precioEntrada) {
 		this.precioEntrada = precioEntrada;
 	}
+
 	public String[][] getAsientos() {
 		return asientos;
 	}
+
 	public void setAsientos(String[][] asientos) {
 		this.asientos = asientos;
 	}
+
 	public boolean[][] getAsientosOcupados() {
 		return asientosOcupados;
 	}
+
 	public void setAsientosOcupados(boolean[][] asientosOcupados) {
 		this.asientosOcupados = asientosOcupados;
 	}
-	
+
 	public SuperClassCine() {
 		this.asientos = new String[8][9];
 		this.asientosOcupados = new boolean[8][9];
@@ -75,38 +83,40 @@ public class SuperClassCine {
 		}
 		JOptionPane.showMessageDialog(null, salaVisual.toString());
 	}
+
 	public void elegirAsiento(SubEspectadorUD09 espectador, int entradas) {
 		mostrarAsientos();
-		
+
 		for (int i = 1; i <= entradas; i++) {
 			boolean asientoValido = false;
 			while (!asientoValido) {
 				String eleccion = JOptionPane.showInputDialog("Introduce el asiento deseado (Ejemplo: 5B):");
 				if (eleccion != null && marcarAsiento(eleccion)) {
-					JOptionPane.showMessageDialog(null, "Espectador " + espectador.nombrePersona + 
-							" asignado al asiento " + eleccion);
+					JOptionPane.showMessageDialog(null,
+							"Espectador asignado al asiento " + eleccion);
 					asientoValido = true;
-				}else  {
-					JOptionPane.showMessageDialog(null, "El asiento seleccionado no esta disponible. Por favor elige otro");
+				} else {
+					JOptionPane.showMessageDialog(null,
+							"El asiento seleccionado no esta disponible. Por favor elige otro");
+				}
 			}
-		}
-			
-		
-		
-		}
-		}
-//}
-private boolean marcarAsiento(String asiento) {
-	for (int f = 0; f < asientos.length; f ++) {
-		for (int c = 0; c < asientos[f].length; c++) {
-			if (asientos[f][c].equals(asiento) && !asientosOcupados[f][c]) {
-				asientosOcupados[f][c] = true;
-				return true;
-			}
+
 		}
 	}
-	return false;
-}
+
+//}
+	private boolean marcarAsiento(String asiento) {
+		for (int f = 0; f < asientos.length; f++) {
+			for (int c = 0; c < asientos[f].length; c++) {
+				if (asientos[f][c].equals(asiento) && !asientosOcupados[f][c]) {
+					asientosOcupados[f][c] = true;
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
 	public void asignarAsientos() {
 		Random random = new Random();
 		int cantidadAsiento = random.nextInt(30) + 5;
@@ -114,11 +124,10 @@ private boolean marcarAsiento(String asiento) {
 		for (int i = 0; i < cantidadAsiento; i++) {
 			int fila, columna;
 			do {
-				 fila = random.nextInt(8);
-				 columna = random.nextInt(9);
-			} while (asientosOcupados[fila][columna]) ;
+				fila = random.nextInt(8);
+				columna = random.nextInt(9);
+			} while (asientosOcupados[fila][columna]);
 			asientosOcupados[fila][columna] = true;
-		}	
-			}
+		}
 	}
-
+}
