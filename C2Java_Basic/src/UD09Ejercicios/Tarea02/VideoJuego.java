@@ -13,9 +13,40 @@ public class VideoJuego implements Entregable {
 	public VideoJuego() {
 		this.titulo = "";
 		this.horasEstimadas = HORAS_EST_BASE;
-
+		this.entregado = ENTREGADO_BASE;
+		this.genero = "";
+		this.compania = "";
+	}
+	public VideoJuego(String titulo, int horasEstimadas) {
+		this();
+		this.titulo = titulo;
+		this.horasEstimadas = horasEstimadas;
 	}
 
+	public String getTitulo() {
+		return titulo;
+	}
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+	public int getHorasEstimadas() {
+		return horasEstimadas;
+	}
+	public void setHorasEstimadas(int horasEstimadas) {
+		this.horasEstimadas = horasEstimadas;
+	}
+	public String getGenero() {
+		return genero;
+	}
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+	public String getCompania() {
+		return compania;
+	}
+	public void setCompania(String compania) {
+		this.compania = compania;
+	}
 	@Override
 	public void entregar() {
 		// TODO Auto-generated method stub
