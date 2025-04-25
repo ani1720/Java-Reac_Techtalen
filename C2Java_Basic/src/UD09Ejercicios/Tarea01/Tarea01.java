@@ -1,102 +1,89 @@
 package UD09Ejercicios.Tarea01;
 
-import java.util.Random;
-
 import javax.swing.JOptionPane;
 
-import UD09Ejercicios.Tarea01.T1Electrodomestico.ColorEnum;
-import UD09Ejercicios.Tarea01.T1Electrodomestico.ConsumoEnum;
+import UD09Ejercicios.Tarea01.Electrodomestico.ColorEnum;
+import UD09Ejercicios.Tarea01.Electrodomestico.ConsumoEnum;
 
 public class Tarea01 {
 
 	public static void main(String[] args) {
-		int cantidad = Integer.parseInt(JOptionPane.showInputDialog("¿Cuantos electrodomesticos desea comprar?"));
-
-		if(cantidad < 1) {
-			JOptionPane.showMessageDialog(null, "Debes comprar al menos 1 producto");
-		}
-		T1Electrodomestico[] electrodomesticos = new T1Electrodomestico[cantidad];
-	rellenarArray(electrodomesticos);
-	totalPrecios(electrodomesticos);
-	
-		
-		
-		
-		
-	}
-		public static void rellenarArray(T1Electrodomestico[] array)  {
-		
-		Random random = new Random();
-
-		for (int i = 5; i < array.length; i++) {
-			int tipo = random.nextInt(5);
+		JOptionPane.showMessageDialog(null, "Bienvenido a la tienda de electrodomesticos");
+			int cantidad = Integer.parseInt(JOptionPane.showInputDialog("¿Cuantos electrodomesticos desea comprar?"));
+	for(int i = 0 ; i < cantidad; i++) {
+			Electrodomestico[] array = new Electrodomestico[cantidad];
+		int tipo = Integer.parseInt(JOptionPane.showInputDialog("¿Que tipo de electrodomestico desea?\n "
+				+ "0. Electrodomestico\n"
+				+ "1. Lavadora\n"
+				+ "2. Television\n"
+				+ "3. Lavadora\n"
+				+ "4. Electrodomestico\n"));
+		for (int e = 0; e < array.length; e++) {
 			switch (tipo) {
 			case 0:
-				array[i] = new T1Electrodomestico(300, 5);
+				array[e] = new Electrodomestico(300, 5);
+				double precioFinalElectro = array[e].precioFinal();
+				JOptionPane.showMessageDialog(null, "Electrodoméstico Básico\n" +
+		                "Precio Base: 300€\n" +
+		                "Peso: 5kg " + precioFinalElectro + " €");
 				break;
 			case 1:
-				array[i] = new SubLavadora(200, 8);
+				array[e] = new SubLavadora(200, 8);
+			
+				JOptionPane.showMessageDialog(null, "Lavadora\n" +
+		                "Precio Base: 200€\n" +
+		                "Carga: 8kg " + array[e].precioFinal() + " €");
 				break;
 			case 2:
-				array[i] = new SubTelevision(500, 42, true);
+				array[e] = new SubTelevision(500, 42, true);
+				 JOptionPane.showMessageDialog(null, "Televisión\n" +
+			                "Precio Base: 500€\n" +
+			                "Pulgadas: 42\n" +
+			                "Sintonizador TDT: Sí " + array[e].precioFinal() + " €");
 				break;
 			case 3 :
-				array[i] = new SubLavadora(250, 10);
+				array[e] = new SubLavadora(250, 10);
+				JOptionPane.showMessageDialog(null, "Lavadora\n" +
+		                "Precio Base: 250€\n" +
+		                "Carga: 10kg " + array[e].precioFinal() + " €");
 				break;
 			case 4 : 
-				array[i] = new T1Electrodomestico(150, 5, ConsumoEnum.A, ColorEnum.NEGRO);
-				
+				array[e] = new Electrodomestico(150, 5, ConsumoEnum.A, ColorEnum.NEGRO);
+				JOptionPane.showMessageDialog(null, "Electrodoméstico Personalizado\n" +
+		                "Precio Base: 150€\n" +
+		                "Peso: 5kg\n " +
+		                "Consumo Energético: A\n" +
+		                "Color: Negro" + array[e].precioFinal() + " €");
+				break;
 			default:
-				array[i] = new T1Electrodomestico();
+				array[e] = new Electrodomestico();
+				JOptionPane.showMessageDialog(null, "Electrodoméstico por Defecto\n" +
+		                "Precio Base: 100€\n" +
+		                "Peso: 10kg " + array[e].precioFinal() + " €");
 			}
 		}
-		}
-		public static void mostrarPrecios(T1Electrodomestico[] array) {
-			for (int i = 0; i < array.length; i++) {
-				JOptionPane.showMessageDialog(null, "Posicion " + i + ":");
-				if(array[i] != null) {
-					if (array[i] instanceof SubLavadora) {
-						SubLavadora lavadora = (SubLavadora) array[i];
-						JOptionPane.showMessageDialog(null, "Lavadora: " + SubLavadora.precioFinalLav());
-					}
-				}
-			}
-		}
-		public static void totalPrecios(T1Electrodomestico[] array) {
-		double totalElectrodomesticos = 0;
-		double totalLavadoras = 0;
-		double totalTelevisores = 0;
-		StringBuilder resumen = new StringBuilder("Resumen de la compra\n");
-
-		// Recorrer el array y calcular los precios finales
-		for (T1Electrodomestico electrodomesticos : array) {
-			if (electrodomesticos != null) {
-				double precioFinal = electrodomesticos.precioFinal();
-				totalElectrodomesticos += precioFinal;
-
-				if (electrodomesticos instanceof SubLavadora) {
-					totalLavadoras += precioFinal;
-					resumen.append("Lavadora - Precio final: ").append(precioFinal).append("€\n");
-				} else if (electrodomesticos instanceof SubTelevision) {
-					totalTelevisores += precioFinal;
-					resumen.append("Television - Precio final: ").append(precioFinal).append("€\n");
-				} else {
-					resumen.append("Electrodomestico - Precio final: ").append(precioFinal).append("€\n");
-				}
-			}
-			resumen.append("\nTotal electrodomesticos: ").append(totalElectrodomesticos).append("€");
-
-			resumen.append("\nTotal Lavadoras: ").append(totalLavadoras).append("€");
-
-			resumen.append("\nTotal Televisores: ").append(totalTelevisores).append("€");
-			JOptionPane.showMessageDialog(null, resumen.toString());
-
-			String[] metodosPago = { "Efectivo", "Tarjeta de crédito", "PayPal" };
-			String metodoPago = (String) JOptionPane.showInputDialog(null, "Seleccione el método de pago:",
-					"Métodos de pago", JOptionPane.QUESTION_MESSAGE, null, metodosPago, metodosPago[0]);
-			JOptionPane.showMessageDialog(null, "Has pagado con: " + metodoPago + ". ¡Gracias por tu compra!");
-
-		}
+		precioTotal(array);
 	}
-}
+		
+	}
+	public static void precioTotal(Electrodomestico[] array1) {
+	    double precioFinal = 0;
 
+	    for (Electrodomestico array : array1) {
+	        if (array != null) {
+	            if (array instanceof SubLavadora) {
+	                SubLavadora lavadora = (SubLavadora) array;
+	                precioFinal = lavadora.precio + lavadora.precioFinalLav();
+	            } else if (array instanceof SubTelevision) {
+	                SubTelevision television = (SubTelevision) array;
+	                precioFinal = television.precio + television.precioFinalTv();
+	            } else {
+	                precioFinal = array.precio + array.precioFinal();
+	            }
+	        }
+	    }
+
+	    System.out.println("El precio de todos los electrodomesticos: " + precioFinal);
+	}
+ }
+	

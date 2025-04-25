@@ -1,6 +1,6 @@
 package UD09Ejercicios.Tarea01;
 
-public class SubLavadora extends T1Electrodomestico {
+public class SubLavadora extends Electrodomestico {
 	protected double carga;
 
 	private static final double CARGA_DEF = 5;
@@ -40,7 +40,7 @@ public class SubLavadora extends T1Electrodomestico {
 		this.carga = carga;
 		this.precio = precioFinalLav();
 	}
-	private double precioFinalLav() {
+	protected double precioFinalLav() {
 	
 		double precioF = 0;
 		switch (consumoEnergetico) {

@@ -1,7 +1,7 @@
 
 package UD09Ejercicios.Tarea01;
 
-public class SubTelevision extends T1Electrodomestico {
+public class SubTelevision extends Electrodomestico {
 	protected double resolucion;
 	protected boolean sintonizadorTDT;
 
@@ -63,7 +63,7 @@ public class SubTelevision extends T1Electrodomestico {
 		this.sintonizadorTDT = sintonizadorTDT;
 	}
 
-	private double precioFinalTv() {
+	protected double precioFinalTv() {
 		double precioF = 0;
 		switch (consumoEnergetico) {
 		case A:

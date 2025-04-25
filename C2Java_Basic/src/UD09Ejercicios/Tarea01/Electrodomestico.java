@@ -1,6 +1,6 @@
 package UD09Ejercicios.Tarea01;
 
-public class T1Electrodomestico {
+public class Electrodomestico {
 	protected static final double PESO_BASE = 5;
 	protected static final ConsumoEnum CONSUMO_BASE = ConsumoEnum.F;
 	protected static final ColorEnum COLOR_BASE = ColorEnum.BLANCO;
@@ -71,7 +71,7 @@ public class T1Electrodomestico {
 	}
 
 //Constructores
-	public T1Electrodomestico() {
+	public Electrodomestico() {
 		this.precio = PRECIO_BASE;
 		this.pesoBase = PESO_BASE;
 		this.consumoEnergetico = CONSUMO_BASE;
@@ -79,21 +79,21 @@ public class T1Electrodomestico {
 		
 	}
 
-	public T1Electrodomestico(double precio, double pesoBase) {
+	public Electrodomestico(double precio, double pesoBase) {
 		this();
 		this.precio = precio;
 		this.pesoBase = pesoBase;
 
 	}
 
-	public T1Electrodomestico(double precio, double pesoBase, ConsumoEnum consumoEnergetico, ColorEnum color) {
+	public Electrodomestico(double precio, double pesoBase, ConsumoEnum consumoEnergetico, ColorEnum color) {
 		this.precio = precio;
 		this.pesoBase = pesoBase;
 		this.consumoEnergetico = consumoEnergetico;
 		this.color = color;
 	}
 
-	public T1Electrodomestico(ConsumoEnum consumoEnergetico) {
+	public Electrodomestico(ConsumoEnum consumoEnergetico) {
 		this.consumoEnergetico = consumoEnergetico;
 		this.precio = precioFinal();
 	}
