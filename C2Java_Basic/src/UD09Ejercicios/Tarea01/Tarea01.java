@@ -13,41 +13,41 @@ public class Tarea01 {
 	for(int i = 0 ; i < cantidad; i++) {
 			Electrodomestico[] array = new Electrodomestico[cantidad];
 		int tipo = Integer.parseInt(JOptionPane.showInputDialog("¿Que tipo de electrodomestico desea?\n "
-				+ "0. Electrodomestico\n"
-				+ "1. Lavadora\n"
-				+ "2. Television\n"
-				+ "3. Lavadora\n"
-				+ "4. Electrodomestico\n"));
+				+ "1. Electrodomestico\n"
+				+ "2. Lavadora\n"
+				+ "3. Television\n"
+				+ "4. Lavadora\n"
+				+ "5. Electrodomestico\n"));
 		for (int e = 0; e < array.length; e++) {
 			switch (tipo) {
-			case 0:
+			case 1:
 				array[e] = new Electrodomestico(300, 5);
 				double precioFinalElectro = array[e].precioFinal();
 				JOptionPane.showMessageDialog(null, "Electrodoméstico Básico\n" +
 		                "Precio Base: 300€\n" +
 		                "Peso: 5kg " + precioFinalElectro + " €");
 				break;
-			case 1:
+			case 2:
 				array[e] = new SubLavadora(200, 8);
 			
 				JOptionPane.showMessageDialog(null, "Lavadora\n" +
 		                "Precio Base: 200€\n" +
 		                "Carga: 8kg " + array[e].precioFinal() + " €");
 				break;
-			case 2:
+			case 3:
 				array[e] = new SubTelevision(500, 42, true);
 				 JOptionPane.showMessageDialog(null, "Televisión\n" +
 			                "Precio Base: 500€\n" +
 			                "Pulgadas: 42\n" +
 			                "Sintonizador TDT: Sí " + array[e].precioFinal() + " €");
 				break;
-			case 3 :
+			case 4 :
 				array[e] = new SubLavadora(250, 10);
 				JOptionPane.showMessageDialog(null, "Lavadora\n" +
 		                "Precio Base: 250€\n" +
 		                "Carga: 10kg " + array[e].precioFinal() + " €");
 				break;
-			case 4 : 
+			case 5 : 
 				array[e] = new Electrodomestico(150, 5, ConsumoEnum.A, ColorEnum.NEGRO);
 				JOptionPane.showMessageDialog(null, "Electrodoméstico Personalizado\n" +
 		                "Precio Base: 150€\n" +
