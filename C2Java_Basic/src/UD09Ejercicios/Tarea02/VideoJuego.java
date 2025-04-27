@@ -2,14 +2,14 @@ package UD09Ejercicios.Tarea02;
 
 public class VideoJuego implements Entregable {
 
-	//atributos
+	// atributos
 	protected String titulo;
 	protected int horasEstimadas;
 	protected boolean entregado;
 	protected String genero;
 	protected String compania;
 
-	//contructores
+	// contructores
 	public VideoJuego() {
 		this.titulo = "";
 		this.horasEstimadas = HORAS_EST_BASE;
@@ -17,57 +17,99 @@ public class VideoJuego implements Entregable {
 		this.genero = "";
 		this.compania = "";
 	}
+
 	public VideoJuego(String titulo, int horasEstimadas) {
 		this();
 		this.titulo = titulo;
 		this.horasEstimadas = horasEstimadas;
 	}
 
+	public VideoJuego(String titulo, int horasEstimadas, String genero, String compania) {
+		this.titulo = titulo;
+		this.horasEstimadas = horasEstimadas;
+		this.genero = genero;
+		this.compania = compania;
+	}
+
 	public String getTitulo() {
 		return titulo;
 	}
+
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
+
 	public int getHorasEstimadas() {
 		return horasEstimadas;
 	}
+
 	public void setHorasEstimadas(int horasEstimadas) {
 		this.horasEstimadas = horasEstimadas;
 	}
+
 	public String getGenero() {
 		return genero;
 	}
+
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
+
 	public String getCompania() {
 		return compania;
 	}
+
 	public void setCompania(String compania) {
 		this.compania = compania;
 	}
+
 	@Override
 	public void entregar() {
-		// TODO Auto-generated method stub
-		
+		this.entregado = true;
+	//	System.out.println("El videojuego " + this.titulo + " ha sido entregado");
+
+	}
+	public String toString() {
+		return "VideoJuego {" + titulo + '\'' + ", Horas de Juego: " + horasEstimadas 
+				+ ", Entregado: " + entregado + ", Genero: ' "
+				+ genero + '\'' + ", Compañia: '" + compania + '\'' + '}';
 	}
 
 	@Override
-	public void devolver() {
-		// TODO Auto-generated method stub
-		
+	public boolean devolver() {
+		if (this.entregado) {
+			return true;
+		}
+	//System.out.println("El videojuego " + this.titulo + " ha sido devuelto");
+	return entregado;
 	}
 
 	@Override
 	public boolean isEntregado() {
-		// TODO Auto-generated method stub
+		if (this.entregado) {
+			return true; 
+		}else {
 		return false;
+	}
 	}
 
 	@Override
 	public String compareTo(Object a) {
-		// TODO Auto-generated method stub
-		return null;
+		if (a instanceof VideoJuego) {
+			VideoJuego v = (VideoJuego) a;
+			if (this.horasEstimadas > v.horasEstimadas) {
+				return this.titulo + " tiene mas horas estimadas que "
+						+ v.titulo;
+			}else if (this.horasEstimadas < v.horasEstimadas)  {
+				return this.titulo + " tiene mas horas estimadas que "
+						+ this.titulo;
+			}else {
+				return this.titulo + " y " + v.titulo + " tienen las mismas horas estimadas.";		
+		}
+		}else {
+			throw new IllegalArgumentException("El objeto no es tipo VideoJuego");
+		}
+		}
 	}
-}
+	
+

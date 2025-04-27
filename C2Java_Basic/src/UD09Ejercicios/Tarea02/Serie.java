@@ -72,31 +72,49 @@ public class Serie implements Entregable {
 
 	@Override
 	public String toString() {
-		return "Serie {" + titulo + '\'' + ", Temporadas: " + temporadas + "Entregado: " + entregado + "Genero: ' "
+		return "Serie {" + titulo + '\'' + ", Temporadas: " + temporadas +
+				", Entregado: " + entregado + ", Genero: ' "
 				+ genero + '\'' + ", Creador: '" + creador + '\'' + '}';
 	}
 
 	@Override
 	public void entregar() {
-		// TODO Auto-generated method stub
-		
+		this.entregado = true;
+	//	System.out.println("La serie " + this.titulo + " ha sido entregado");
+
 	}
 
 	@Override
-	public void devolver() {
-		// TODO Auto-generated method stub
-		
+	public boolean devolver() {
+		if (this.entregado) {
+			return true;
+		}
+		//System.out.println("La serie " + this.titulo + " ha sido devuelto");
+	return entregado;
 	}
 
 	@Override
 	public boolean isEntregado() {
-		// TODO Auto-generated method stub
-		return false;
+		if (this.entregado) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public String compareTo(Object a) {
-		// TODO Auto-generated method stub
-		return null;
+		if (a instanceof Serie) {
+			Serie s = (Serie) a;
+			if (this.temporadas > s.temporadas) {
+				return this.titulo + " tiene mas horas estimadas que " + s.titulo;
+			} else if (this.temporadas < s.temporadas) {
+				return this.titulo + " tiene mas horas estimadas que " + this.titulo;
+			} else {
+				return this.titulo + " y " + s.titulo + " tienen las mismas horas estimadas.";
+			}
+		} else {
+			throw new IllegalArgumentException("El objeto no es tipo VideoJuego");
+		}
 	}
 }
