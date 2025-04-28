@@ -66,13 +66,11 @@ public class VideoJuego implements Entregable {
 	@Override
 	public void entregar() {
 		this.entregado = true;
-	//	System.out.println("El videojuego " + this.titulo + " ha sido entregado");
-
 	}
+
 	public String toString() {
-		return "VideoJuego {" + titulo + '\'' + ", Horas de Juego: " + horasEstimadas 
-				+ ", Entregado: " + entregado + ", Genero: ' "
-				+ genero + '\'' + ", Compañia: '" + compania + '\'' + '}';
+		return "VideoJuego {" + titulo + '\'' + ", Horas de Juego: " + horasEstimadas + ", Entregado: " + entregado
+				+ ", Genero: ' " + genero + '\'' + ", Compañia: '" + compania + '\'' + '}';
 	}
 
 	@Override
@@ -80,17 +78,17 @@ public class VideoJuego implements Entregable {
 		if (this.entregado) {
 			return true;
 		}
-	//System.out.println("El videojuego " + this.titulo + " ha sido devuelto");
-	return entregado;
+		// System.out.println("El videojuego " + this.titulo + " ha sido devuelto");
+		return entregado;
 	}
 
 	@Override
 	public boolean isEntregado() {
 		if (this.entregado) {
-			return true; 
-		}else {
-		return false;
-	}
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
@@ -98,18 +96,14 @@ public class VideoJuego implements Entregable {
 		if (a instanceof VideoJuego) {
 			VideoJuego v = (VideoJuego) a;
 			if (this.horasEstimadas > v.horasEstimadas) {
-				return this.titulo + " tiene mas horas estimadas que "
-						+ v.titulo;
-			}else if (this.horasEstimadas < v.horasEstimadas)  {
-				return this.titulo + " tiene mas horas estimadas que "
-						+ this.titulo;
-			}else {
-				return this.titulo + " y " + v.titulo + " tienen las mismas horas estimadas.";		
-		}
-		}else {
+				return this.titulo + " tiene mas horas estimadas que " + v.titulo;
+			} else if (this.horasEstimadas < v.horasEstimadas) {
+				return this.titulo + " tiene mas horas estimadas que " + this.titulo;
+			} else {
+				return this.titulo + " y " + v.titulo + " tienen las mismas horas estimadas.";
+			}
+		} else {
 			throw new IllegalArgumentException("El objeto no es tipo VideoJuego");
 		}
-		}
 	}
-	
-
+}

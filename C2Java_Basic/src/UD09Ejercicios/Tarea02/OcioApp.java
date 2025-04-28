@@ -20,10 +20,18 @@ public class OcioApp {
 		videojuegos[3] = new VideoJuego("THe Last of Us", 65, "Accion", "Naugthy Dog");
 		videojuegos[4] = new VideoJuego("God of War", 21, "Accion", "Santa Monica Studios");
 
-		videojuegos[2].entregar();
-		videojuegos[0].entregar();
-		serie[1].entregar();
-		serie[4].entregar();
+		for (VideoJuego e : videojuegos) {
+			e.entregar();
+		}
+		for (Serie s : serie) {
+			s.entregar();
+		}
+	
+		
+//		videojuegos[2].entregar();
+//		videojuegos[0].entregar();
+//		serie[1].entregar();
+//		serie[4].entregar();
 		
 		System.out.println(videojuegos[3] + "\n");
 		
@@ -42,23 +50,23 @@ public class OcioApp {
 		}
 		System.out.println("Videojuegos entregados: " + videojEntregados + "\n");
 		System.out.println("Series entregadas: " + serieEntregadas + "\n");
-		
-		for (int i = 0; i < videojuegos.length; i ++) {
 	
-		}
-		VideoJuego videoMasHoras = videojuegos[0];
+		VideoJuego videoMasHoras = videojuegos[4];
+	
+		
 		for ( VideoJuego v : videojuegos) {
 			if (v.getHorasEstimadas() < videoMasHoras.getHorasEstimadas()) {
 				videoMasHoras = v;
 			}
 		}
-		Serie serieMasTem= serie[0];
+		System.out.println("Videojuego con mas horas estimadas: " + videoMasHoras + "\n");
+		
+		Serie serieMasTem= serie[4];
 		for (Serie s : serie) {
 			if (s.getTemporadas() < serieMasTem.getTemporadas()) {
 				serieMasTem = s;
 			}
 		}
-		System.out.println("Videojuego con mas horas estimadas: " + videoMasHoras + "\n");
 		System.out.println("Serie con mas temporadas: " + serieMasTem + "\n");
 	}
 }

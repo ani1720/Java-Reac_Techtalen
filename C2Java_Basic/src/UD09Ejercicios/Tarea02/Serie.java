@@ -79,9 +79,7 @@ public class Serie implements Entregable {
 
 	@Override
 	public void entregar() {
-		this.entregado = true;
-	//	System.out.println("La serie " + this.titulo + " ha sido entregado");
-
+			this.entregado = true;
 	}
 
 	@Override
