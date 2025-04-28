@@ -4,7 +4,7 @@ public interface Entregable {
 	
 	// Métodos abstractos
 	public void entregar();
-	public boolean devolver();
+	public void devolver();
 	public boolean isEntregado();
 	public String compareTo(Object a);
 	

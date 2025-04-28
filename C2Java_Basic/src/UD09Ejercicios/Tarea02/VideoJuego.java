@@ -74,12 +74,11 @@ public class VideoJuego implements Entregable {
 	}
 
 	@Override
-	public boolean devolver() {
-		if (this.entregado) {
-			return true;
-		}
+	public void devolver() {
+		this.entregado = false;
+	
 		// System.out.println("El videojuego " + this.titulo + " ha sido devuelto");
-		return entregado;
+
 	}
 
 	@Override

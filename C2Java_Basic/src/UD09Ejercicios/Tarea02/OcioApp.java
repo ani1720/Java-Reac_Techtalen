@@ -20,18 +20,18 @@ public class OcioApp {
 		videojuegos[3] = new VideoJuego("THe Last of Us", 65, "Accion", "Naugthy Dog");
 		videojuegos[4] = new VideoJuego("God of War", 21, "Accion", "Santa Monica Studios");
 
-		for (VideoJuego e : videojuegos) {
-			e.entregar();
-		}
-		for (Serie s : serie) {
-			s.entregar();
-		}
+//		for (VideoJuego e : videojuegos) {
+//			e.entregar();
+//		}
+//		for (Serie s : serie) {
+//			s.entregar();
+//		}
 	
 		
-//		videojuegos[2].entregar();
-//		videojuegos[0].entregar();
-//		serie[1].entregar();
-//		serie[4].entregar();
+		videojuegos[2].entregar();
+		videojuegos[0].entregar();
+		serie[1].entregar();
+		serie[4].entregar();
 		
 		System.out.println(videojuegos[3] + "\n");
 		

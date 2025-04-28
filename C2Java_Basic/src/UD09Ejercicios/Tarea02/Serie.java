@@ -83,12 +83,10 @@ public class Serie implements Entregable {
 	}
 
 	@Override
-	public boolean devolver() {
-		if (this.entregado) {
-			return true;
-		}
+	public void devolver() {
+		this.entregado = false;
 		//System.out.println("La serie " + this.titulo + " ha sido devuelto");
-	return entregado;
+
 	}
 
 	@Override
