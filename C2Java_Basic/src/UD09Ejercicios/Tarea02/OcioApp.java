@@ -43,6 +43,9 @@ public class OcioApp {
 		System.out.println("Videojuegos entregados: " + videojEntregados + "\n");
 		System.out.println("Series entregadas: " + serieEntregadas + "\n");
 		
+		for (int i = 0; i < videojuegos.length; i ++) {
+	
+		}
 		VideoJuego videoMasHoras = videojuegos[0];
 		for ( VideoJuego v : videojuegos) {
 			if (v.getHorasEstimadas() < videoMasHoras.getHorasEstimadas()) {
