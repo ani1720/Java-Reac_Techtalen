@@ -75,7 +75,7 @@ public class VideoJuego implements Entregable {
 
 	@Override
 	public void devolver() {
-		this.entregado = false;
+		this.entregado = true;
 	
 		// System.out.println("El videojuego " + this.titulo + " ha sido devuelto");
 

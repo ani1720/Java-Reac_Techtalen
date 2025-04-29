@@ -33,7 +33,7 @@ public class OcioApp {
 		serie[1].entregar();
 		serie[4].entregar();
 		
-		System.out.println(videojuegos[3] + "\n");
+		//System.out.println(videojuegos[3] + "\n");
 		
 		int videojEntregados = 0;
 		int serieEntregadas = 0;
@@ -53,22 +53,44 @@ public class OcioApp {
 		
 		
 	
-		//VideoJuego videoMasHoras;
+		VideoJuego videoMasHoras = videojuegos[0];
 	
 		
-		for ( VideoJuego v : videojuegos) {
-			if (v.getHorasEstimadas() < videoMasHoras.getHorasEstimadas()) {
-				videoMasHoras = v;
+		for ( VideoJuego a : videojuegos) {
+			if (a.getHorasEstimadas() > videoMasHoras.getHorasEstimadas()) {
+				videoMasHoras = a;
 			}
 		}
 		System.out.println("Videojuego con mas horas estimadas: " + videoMasHoras + "\n");
 		
 		Serie serieMasTem= serie[4];
-		for (Serie s : serie) {
-			if (s.getTemporadas() < serieMasTem.getTemporadas()) {
-				serieMasTem = s;
+		for (Serie b : serie) {
+			if (b.getTemporadas() > serieMasTem.getTemporadas()) {
+				serieMasTem = b;
 			}
 		}
 		System.out.println("Serie con mas temporadas: " + serieMasTem + "\n");
+	
+		videojuegos[2].devolver();
+		videojuegos[0].devolver();
+		serie[1].devolver();
+		serie[4].devolver();
+		
+		int videojDevueltos = 0;
+		int serieDevueltas = 0;
+		
+		for (VideoJuego v : videojuegos) {
+			if (v.entregado) {
+				videojDevueltos++;
+			}
+			for (Serie s : serie) {
+				if (s.entregado) {
+					serieDevueltas++;
+				}
+			}
+		}
+		System.out.println("Videojuegos devueltos: " + videojDevueltos + "\n");
+		
+		System.out.println("Series devueltas: " + serieDevueltas + "\n");
 	}
 }
