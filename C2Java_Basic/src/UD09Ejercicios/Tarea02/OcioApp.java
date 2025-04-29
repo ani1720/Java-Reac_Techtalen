@@ -8,7 +8,7 @@ public class OcioApp {
 		VideoJuego[] videojuegos = new VideoJuego[5];
 
 		serie[0] = new Serie("Mi adorable Demonio", 1, "Romance", "Netflix");
-		serie[1] = new Serie("Pablo Escobar", 3, "Drama", "Caracol International");
+		serie[1] = new Serie("Pablo Escobar", 5, "Drama", "Caracol International");
 		serie[2] = new Serie("Juego del Calamar", 2, "Gore", "Netflix");
 		serie[3] = new Serie("La casa de las Flores", "Netflix");
 		serie[4] = new Serie("Game of Thrones", "HBO");
@@ -50,8 +50,10 @@ public class OcioApp {
 		}
 		System.out.println("Videojuegos entregados: " + videojEntregados + "\n");
 		System.out.println("Series entregadas: " + serieEntregadas + "\n");
+		
+		
 	
-		VideoJuego videoMasHoras = videojuegos[4];
+		//VideoJuego videoMasHoras;
 	
 		
 		for ( VideoJuego v : videojuegos) {
