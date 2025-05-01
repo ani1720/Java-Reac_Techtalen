@@ -10,7 +10,7 @@ public class Estudiante {
 //	protected boolean asistencia;
 
 	// Constructor
-	public Estudiante(String nombre, int edad, char sexo, int calificacion) {
+	public Estudiante(String nombre, int edad, char sexo, double calificacion) {
 		this.nombre = nombre;
 		this.edad = edad;
 		this.sexo = sexo;

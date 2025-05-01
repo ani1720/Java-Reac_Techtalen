@@ -2,6 +2,8 @@ package UD09Ejercicios.Tarea05;
 
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 public class Aula {
  
 	// Atributos
@@ -46,6 +48,8 @@ public class Aula {
 		long aprobadosM = estudiantes.stream()
 				.filter(e -> e.getCalificacion() >= 5 && e.getSexo() == 'F')
 				.count();
+		JOptionPane.showMessageDialog(null, "Aprobados masculinos: "
+				+ aprobadosH + "\nAprobados femeninos: " + aprobadosM);
 		System.out.println("Aprobados masculinos: " + aprobadosH);
 		System.out.println("Aprobados femeninos: " + aprobadosM);
 	}
