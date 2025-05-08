@@ -5,7 +5,6 @@ public class OcioApp {
 	public static void main(String[] args) {
 
 		Serie[] serie = new Serie[5];
-		VideoJuego[] videojuegos = new VideoJuego[5];
 
 		serie[0] = new Serie("Mi adorable Demonio", 1, "Romance", "Netflix");
 		serie[1] = new Serie("Pablo Escobar", 5, "Drama", "Caracol International");
@@ -13,6 +12,8 @@ public class OcioApp {
 		serie[3] = new Serie("La casa de las Flores", "Netflix");
 		serie[4] = new Serie("Game of Thrones", "HBO");
 
+		VideoJuego[] videojuegos = new VideoJuego[5];
+		
 		videojuegos[0] = new VideoJuego("Call of Duty", 6);
 		videojuegos[1] =  new VideoJuego("Luigi's Mansion 3", 13);
 		videojuegos[2] = new VideoJuego("Shadow of the Colossus", 7, "Aventura y Accion", 
@@ -61,7 +62,7 @@ public class OcioApp {
 				videoMasHoras = a;
 			}
 		}
-		System.out.println("Videojuego con mas horas estimadas: " + videoMasHoras + "\n");
+		System.out.println("Videojuego con mas horas estimadas: " + "\n" + videoMasHoras + "\n");
 		
 		Serie serieMasTem= serie[4];
 		for (Serie b : serie) {
@@ -69,7 +70,7 @@ public class OcioApp {
 				serieMasTem = b;
 			}
 		}
-		System.out.println("Serie con mas temporadas: " + serieMasTem + "\n");
+		System.out.println("Serie con mas temporadas: " + "\n" + serieMasTem + "\n");
 	
 		videojuegos[2].devolver();
 		videojuegos[0].devolver();

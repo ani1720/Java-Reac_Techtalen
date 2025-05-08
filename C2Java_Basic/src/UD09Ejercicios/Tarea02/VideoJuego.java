@@ -62,17 +62,15 @@ public class VideoJuego implements Entregable {
 	public void setCompania(String compania) {
 		this.compania = compania;
 	}
-
-	@Override
-	public void entregar() {
-		this.entregado = true;
-	}
-
 	public String toString() {
 		return "VideoJuego {" + titulo + '\'' + ", Horas de Juego: " + horasEstimadas + ", Entregado: " + entregado
 				+ ", Genero: ' " + genero + '\'' + ", Compañia: '" + compania + '\'' + '}';
 	}
 
+	@Override
+	public void entregar() {
+		this.entregado = true;
+	}
 	@Override
 	public void devolver() {
 		this.entregado = true;
@@ -80,7 +78,6 @@ public class VideoJuego implements Entregable {
 		// System.out.println("El videojuego " + this.titulo + " ha sido devuelto");
 
 	}
-
 	@Override
 	public boolean isEntregado() {
 		if (this.entregado) {

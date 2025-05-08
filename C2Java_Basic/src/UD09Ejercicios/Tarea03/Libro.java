@@ -38,7 +38,7 @@ public Libro(Long ISBN, String titulo, String autor, int numPaginas) {
 	this.numPaginas = numPaginas;
 }
 	public String toString() {
-		return "Libro: " + titulo + " con ISBN: " + ISBN + ", creado por el autor: " 
+		return "Libro: " + titulo + "\n" + "Con ISBN: " + ISBN + ", creado por el autor: " 
 				+ autor + ", tiene " + numPaginas + " paginas";
 	}
 	public Libro(Long ISBN, String autor, int numPaginas) {
