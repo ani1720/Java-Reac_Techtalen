@@ -1,0 +1,55 @@
+use TIENDACA; 
+
+db.createCollection('PEDIDO');
+db.PEDIDO.insert([{
+    _IdPedido : "1001",
+    
+}])
+
+db.createCollection('PRODUCTOS');
+db.PRODUCTOS.insertMany([
+  {
+    _IdSerie : "A1001",
+    nombre: "Croissant de mantequilla",
+    inventario: 35,
+    precio: 1.50
+  },
+  {
+    _IdSerie : "A1002",
+    nombre: "Alfajor de maicena",
+    inventario: 50,
+    precio: 0.80
+  },
+  {
+    _IdSerie : "A1003",
+    nombre: "Tarta de frutilla",
+    inventario: 12,
+    precio: 3.20
+  },
+  {
+    _IdSerie : "A1004",
+    nombre: "Pan de campo",
+    inventario: 25,
+    precio: 2.50
+  },
+  {
+    _IdSerie : "A1005",
+    nombre: "Bizcochuelo marmolado",
+    inventario: 18,
+    precio: 4.00
+  }
+]);
+use TIENDACA;
+db.createCollection('SE_COMPONE');
+
+db.SE_COMPONE.insertMany([{
+_IdSerie : "A1002",
+_IdPedido : "",
+Cantidad : 5
+},
+{
+_IdSerie : "A1004"
+_IdPedido : "",
+Cantidad : 2
+}
+]);
