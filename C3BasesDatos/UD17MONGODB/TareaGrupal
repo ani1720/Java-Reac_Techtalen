@@ -142,3 +142,10 @@ db.SE_COMPONE.insertMany([
     Cantidad: 2,
   }
 ]);
+db.DETALLE_FACTURA.find(
+  { id_Pedido: "PED001" },
+  { _id: 0, _IdSerie: 1, cantidad: 1 }
+);
+db.PRODUCTOS.find( 
+  { "inventario: { "$lt": 20}}
+    )
