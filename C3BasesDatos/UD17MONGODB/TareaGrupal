@@ -147,5 +147,9 @@ db.DETALLE_FACTURA.find(
   { _id: 0, _IdSerie: 1, cantidad: 1 }
 );
 db.PRODUCTOS.find( 
-  { "inventario: { "$lt": 20}}
+  {"inventario: { "$lt": 20}
+    }
     )
+db.FACTURA.find(
+  { "id_Pedido": "PED002" }
+)
