@@ -1,12 +1,14 @@
 CREATE DATABASE biblio2025;
 USE biblio;
 
-CREATE TABLE editorial (
-    claveditorial SMALLINT NOT NULL,
-    nombre VARCHAR(60),
+    CREATE TABLE editorial (
+    claveditorial SMALLINT UNSIGNED NOT NULL,
+    nombre VARCHAR(50),
     direccion VARCHAR(60),
     telefono VARCHAR(15),
-    PRIMARY KEY (claveditorial));
+    PRIMARY KEY (claveditorial)
+);
+
 
 CREATE TABLE tema (
     clavetema SMALLINT NOT NULL,
