@@ -25,7 +25,4 @@ public class Calculadora extends JFrame {
 //		JTextField txtResultado = new JTJTextField();
 		
    }
-   public static void main (String[] args) {
-	   calculadora2();
-   }
 }
