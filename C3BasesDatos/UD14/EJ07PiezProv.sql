@@ -2,22 +2,22 @@ CREATE DATABASE piezprov;
 USE piezprov;
 
 CREATE TABLE piezas (
-    idpiez INT AUTO_INCREMENT ,
+    codigo INT UNSIGNED AUTO_INCREMENT ,
     nombre VARCHAR (100) NOT NULL,
     PRIMARY KEY(idpiez));
 
 CREATE TABLE proveedores (
-    idprov INT AUTO_INCREMENT ,
+    idprov INT UNSIGNED AUTO_INCREMENT ,
     nombre VARCHAR (100) NOT NULL,
     PRIMARY KEY(idprov));
 
 CREATE TABLE suministra (
-    idpiez INT,
-    idprov INT,
+    codigo INT UNSIGNED,
+    idprov INT UNSIGNED,
     precio FLOAT NOT NULL,
-    PRIMARY KEY(idpiez,idprov),
-    FOREIGN KEY (idpiez) 
-    REFERENCES piezas (idpiez) 
+    PRIMARY KEY(codigo,idprov),
+    FOREIGN KEY (codigo) 
+    REFERENCES piezas (codigo) 
     ON DELETE CASCADE 
     ON UPDATE CASCADE,
     FOREIGN KEY (idprov) 

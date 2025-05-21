@@ -1,8 +1,7 @@
-CREATE DATABASE directores_despachos2025;
-USE directores_despachos2025;
+CREATE DATABASE directores;
+USE directores;
 CREATE TABLE despachos 
-    (num INT,
-    --AUTO_INCREMENT
+    (num INT UNSIGNED AUTO_INCREMENT,
     capacidad INT NOT NULL,
     PRIMARY KEY (num));
 
@@ -10,7 +9,7 @@ CREATE TABLE directores
     (DNI VARCHAR(9),
     NomApels VARCHAR(255),
     DNIJefe VARCHAR(9),
-    despacho INT NOT NULL,
+    despacho INT UNSIGNED NOT NULL,
     PRIMARY KEY (DNI),
     FOREIGN KEY (DNIJefe) 
     REFERENCES directores(DNI)
