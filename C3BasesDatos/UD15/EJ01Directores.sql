@@ -1,23 +1,36 @@
-INSERT INTO despachos (capacidad) VALUES 
-    (3),(5),(8),(16),(4),(7),(9),(3),(11),(33);
--- Dos ventajas del auto_increment
--- 1. Eficiencia en la insercción deatos en la instrucción SQL
--- 2. Elimina la probabilidad de los errores
--- INSERT INTO despachos VALUES (NULL,3),(NULL,5),(NULL,8),(NULL,16),(NULL,4),(NULL,7),(NULL,9),(3),(NULL,11),(NULL,33);
+INSERT INTO despachos (capacidad) VALUES
+(4), --NUM1
+(6), --NUM2
+(8), --NUM3
+(10), --NUM4
+(3), --NUM5
+(5), --NUM6
+(7), --NUM7
+(3), --NUM8
+(6), --NUM9
+(5);--NUM10
 
--- Inicial prueba
-INSERT INTO `directores` (`DNI`, `NomApels`, `DNIJefe`, `despacho`) VALUES ('12345', 'Marc Esteve Garcia', NULL, '3');
+-- Insertamos primero a los directores sin jefe
+INSERT INTO directores (DNI,
+ NomApels, 
+ DNIJefe, 
+ despacho) 
+ VALUES
+('11111111A', 'María López', NULL, 1),
+('22222222B', 'Juan Pérez', NULL, 2);
 
-INSERT INTO directores (DNI, NomApels, DNIJefe, despacho) VALUES 
-    ('3333', 'Garcia', NULL, '2'),
-    ('2345', 'Esteve', NULL, '4'),
-    ('12345645', 'Dani', NULL, '5'),
-    ('657', 'Juan', NULL, '10'),
-    ('12376745', 'Pedro', NULL, '9'),
-    ('878787', 'Pepe', NULL, '9'),
-    ('444', 'Mar', NULL, '7'),
-    ('777', 'Marcos', NULL, '6'),
-    ('999', 'Marquitos', NULL, '8');
+-- Insertamos a los demás con sus jefes ya insertados
+INSERT INTO directores (DNI, 
+NomApels, 
+DNIJefe,
+ despacho) 
+ VALUES
+('33333333C', 'Laura Sánchez', '11111111A', 3),
+('44444444D', 'Carlos Ruiz', '11111111A', 4),
+('55555555E', 'Ana Martínez', '22222222B', 5),
+('66666666F', 'Lucía Gómez', '22222222B', 6),
+('77777777G', 'Pedro Romero', '33333333C', 7),
+('88888888H', 'Marta Torres', '44444444D', 8),
+('99999999I', 'Sofía Ramírez', '55555555E', 9),
+('00000000J', 'Diego Vargas', '66666666F', 10);
 
--- UPDATE posterior a la insercción inicial
-UPDATE `directores` SET `DNIJefe` = '444' WHERE `directores`.`DNI` = '777';
