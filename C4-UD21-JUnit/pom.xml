@@ -6,4 +6,12 @@
   <groupId>com.ejm</groupId>
   <artifactId>C4-UD21-JUnit</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <dependencies>
+ <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+<dependency>
+    <groupId>com.mysql</groupId>
+    <artifactId>mysql-connector-j</artifactId>
+    <version>9.3.0</version>
+</dependency>
+</dependencies>
 </project>
