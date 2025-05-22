@@ -12,26 +12,30 @@ CREATE TABLE profesores(
     UNIQUE (nombre, apel1, apel2),
     PRIMARY KEY (dni));
 
-CREATE TABLE cursos(
-    cod INT,
-    nombre VARCHAR(100),
+CREATE TABLE curso (
+    cod INT NOT NULL,
+    nombre VARCHAR(100) NOT NULL,
     horas INT NOT NULL,
     fechainicio DATE,
     fechafin DATE,
     maxalumn INT,
-    dni varchar(9),
+    dni_p VARCHAR(9),
+
     PRIMARY KEY (cod),
     UNIQUE (nombre),
-    CONSTRAINT fechacurso CHECK (fechainicio<fechafin),
-    FOREIGN KEY (dni) 
-    REFERENCES profesores (dni)
-    ON DELETE CASCADE 
-    ON UPDATE CASCADE);
+
+    FOREIGN KEY (dni_p)
+        REFERENCES profe (dni)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE,
+
+    CONSTRAINT chk_fechas CHECK (fechainicio <= fechafin)
+) ENGINE=InnoDB;
 
 CREATE TABLE alumnos(
-    nombre VARCHAR (255),
-    apel1 VARCHAR (255),
-    apel2 VARCHAR (255),
+    nombre VARCHAR (200),
+    apel1 VARCHAR (200),
+    apel2 VARCHAR (200),
     dni VARCHAR(9),
     direccion VARCHAR(100),
     nace DATE,
@@ -40,6 +44,6 @@ CREATE TABLE alumnos(
     UNIQUE (nombre),
     PRIMARY KEY (dni),
     FOREIGN KEY (codalum) 
-    REFERENCES cursos (cod)
+    REFERENCES curso (cod)
     ON DELETE CASCADE 
     ON UPDATE CASCADE);
