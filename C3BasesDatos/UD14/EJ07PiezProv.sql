@@ -3,8 +3,8 @@ USE piezprov;
 
 CREATE TABLE piezas (
     codigo INT UNSIGNED AUTO_INCREMENT ,
-    nombre VARCHAR (100) NOT NULL,
-    PRIMARY KEY(idpiez));
+    nom VARCHAR (100) NOT NULL,
+    PRIMARY KEY(codigo));
 
 CREATE TABLE proveedores (
     idprov INT UNSIGNED AUTO_INCREMENT ,
@@ -24,3 +24,5 @@ CREATE TABLE suministra (
     REFERENCES proveedores (idprov) 
     ON DELETE CASCADE 
     ON UPDATE CASCADE);
+
+

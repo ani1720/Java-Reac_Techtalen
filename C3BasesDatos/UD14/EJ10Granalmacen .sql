@@ -15,7 +15,7 @@ CREATE TABLE producto(
         );
         
         CREATE TABLE makinreg (
-            codemak INT UNSIGNED NOT NULL,
+            cod INT UNSIGNED NOT NULL,
             piso INT NOT NULL,
             PRIMARY KEY (codemak)
             );
@@ -34,7 +34,10 @@ CREATE TABLE producto(
                 ON DELETE CASCADE
                 ON UPDATE CASCADE,
                 FOREIGN KEY (maquina)
-                REFERENCES makinreg (codmak)
+                REFERENCES makinreg (cod)
                 ON DELETE CASCADE
                 ON UPDATE CASCADE
                 );
+
+
+
