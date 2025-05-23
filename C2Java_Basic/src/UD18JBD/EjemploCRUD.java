@@ -5,7 +5,7 @@ import java.sql.*;
 public class EjemploCRUD {
 
 	// Datos de conexión a la base de datos
-	static final String URL = "jdbc:mysql://localhost:3306/calculadora";
+	static final String URL = "jdbc:mysql://localhost:3306/tiendainfor";
 	static final String USER = "root";
 	static final String PASSWORD = "";
 
