@@ -26,46 +26,36 @@ public class CalculadoraFrame extends JFrame {
 
 		// Panel de números
 		JPanel panelNumeros = new JPanel(new GridLayout(5, 3, 5, 5));
-	//	panelNumeros.setBackground(new Color(230,230,250));
-		String[] botones = { "7", "8", "9", 
-							 "4", "5", "6",
-							 "1", "2", "3", 
-							 "0", ".", "=", "C" };
+		// panelNumeros.setBackground(new Color(230,230,250));
+		String[] botones = { "7", "8", "9", "4", "5", "6", "1", "2", "3", "0", ".", "=", "C" };
 
 		for (String texto : botones) {
-			
+
 			JButton btn = new JButton(texto);
-			
+
 			btn.setFont(new Font("Arial", Font.BOLD, 18));
-			 if (texto.equals("=")) {
-			      //  btn.setBackground(new Color(255, 204, 204));  // botton rosa pastel
-			        btn.setForeground(Color.GREEN);
-			    } else if (texto.equals("C")) {
-			     //   btn.setBackground(new Color(220, 53, 69)); // rojo
-			        btn.setForeground(Color.ORANGE);
-			    }else if (texto.equals("+")) {
-			    	btn.setForeground(Color.MAGENTA);
-			    }else if (texto.equals("-")) {
-			    	btn.setForeground(Color.MAGENTA);
-			    }else if (texto.equals("*")) {
-			    	btn.setForeground(Color.MAGENTA);
-			    }else if (texto.equals("/")) {
-			    	btn.setForeground(Color.MAGENTA);
-			    }else {
-			        btn.setBackground(Color.WHITE);
-			        btn.setForeground(Color.BLACK);
-			    }
-
-			    btn.addActionListener(e -> procesarEntrada(texto));
-			    panelNumeros.add(btn);
+			if (texto.equals("=")) {
+				btn.setBackground(Color.GREEN); // 
+				btn.setForeground(Color.WHITE);
+			} else if (texto.equals("C")) {
+				 btn.setBackground(Color.ORANGE); // 
+				btn.setForeground(Color.WHITE);
+		
+			} else {
+				btn.setBackground(Color.WHITE);
+				btn.setForeground(Color.BLACK);
 			}
-			add(panelNumeros, BorderLayout.CENTER);
 
-			//			btn.setBackground(Color.BLUE);
-			//			btn.addActionListener(e -> procesarEntrada(texto));
-			//			panelNumeros.add(btn);
-			//			getContentPane().setBackground(Color.GREEN);
-						// btn.setBackground(Color.PINK);
+			btn.addActionListener(e -> procesarEntrada(texto));
+			panelNumeros.add(btn);
+		}
+		add(panelNumeros, BorderLayout.CENTER);
+
+		// btn.setBackground(Color.BLUE);
+		// btn.addActionListener(e -> procesarEntrada(texto));
+		// panelNumeros.add(btn);
+		// getContentPane().setBackground(Color.GREEN);
+		// btn.setBackground(Color.PINK);
 
 		// Panel de operaciones
 		JPanel panelOperaciones = new JPanel(new GridLayout(4, 1, 5, 5));
@@ -73,8 +63,8 @@ public class CalculadoraFrame extends JFrame {
 		for (String op : operaciones) {
 			JButton btnOp = new JButton(op);
 			btnOp.setFont(new Font("Arial", Font.BOLD, 18));
-			//btnOp.setBackground(new Color(204, 229, 255));
-			btnOp.setBackground(Color.WHITE);
+		    btnOp.setBackground(Color.WHITE);
+			btnOp.setForeground(Color.GREEN);
 			btnOp.addActionListener(e -> seleccionarOperacion(op));
 			panelOperaciones.add(btnOp);
 
@@ -110,14 +100,14 @@ public class CalculadoraFrame extends JFrame {
 	}
 
 	private void mostrarHistorial() {
-		    String textoHistorial = HistorialDB.obtenerHistorial();
+		String textoHistorial = HistorialDB.obtenerHistorial();
 
-		    JTextArea area = new JTextArea(textoHistorial);
-		    area.setEditable(false);
-		    JScrollPane scroll = new JScrollPane(area);
+		JTextArea area = new JTextArea(textoHistorial);
+		area.setEditable(false);
+		JScrollPane scroll = new JScrollPane(area);
 
-		    JOptionPane.showMessageDialog(this, scroll, "Historial de Operaciones", JOptionPane.INFORMATION_MESSAGE);
-		}
+		JOptionPane.showMessageDialog(this, scroll, "Historial de Operaciones", JOptionPane.INFORMATION_MESSAGE);
+	}
 
 	private void procesarEntrada(String texto) {
 		if (texto.equals("C")) {
@@ -126,7 +116,7 @@ public class CalculadoraFrame extends JFrame {
 			n1 = 0;
 			n2 = 0;
 			operador = null;
-		}else if (texto.equals("=")) {
+		} else if (texto.equals("=")) {
 			calcular();
 		} else {
 			if (nuevoNumero) {
