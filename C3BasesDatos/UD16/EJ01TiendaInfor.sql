@@ -30,6 +30,17 @@ SELECT nombre FROM articulos;
 --2
 SELECT nombre, precio FROM articulos;
 --3
-SELECT * FROM articulos WHERE nombre = (precio <=200);
-SELECT * FROM articulos WHERE nombre = (precio >=200);
+SELECT * FROM articulos 
+WHERE nombre = (precio <=200);
+SELECT * FROM articulos 
+WHERE nombre = (precio >=200);
 --4
+SELECT * FROM articulos
+ WHERE precio BETWEEN 60 AND 120;
+--5
+SELECT 
+    nombre,
+    precio,
+    precio * 166.386 AS precio_en_pesetas
+FROM 
+    articulos;
