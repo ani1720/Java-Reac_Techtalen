@@ -44,3 +44,36 @@ SELECT
     precio * 166.386 AS precio_en_pesetas
 FROM 
     articulos;
+--6
+SELECT AVG(precio) AS preciomedio
+FROM articulos;
+--7
+SELECT AVG(precio) AS precio_medio
+FROM articulos
+WHERE fabricante = 2; 
+--Plus 7
+SELECT 
+    fabricante, 
+    ROUND(AVG(precio), 2) AS precio_medio
+FROM 
+    articulos
+WHERE 
+    fabricante = 2
+GROUP BY 
+    fabricante;
+    --8
+    SELECT * FROM articulos 
+    WHERE nombre = (precio >=180);
+--9
+SELECT * FROM articulos 
+    WHERE nombre = (precio >=180)
+    ORDER BY precio DESC;
+
+    SELECT * FROM articulos 
+    WHERE nombre = (precio >=180)
+    ORDER BY nombre ASC;
+--10
+SELECT a.nombre, f.nombre
+FROM articulos a
+JOIN fabricantes f
+ON a.fabricante = f.codigo;

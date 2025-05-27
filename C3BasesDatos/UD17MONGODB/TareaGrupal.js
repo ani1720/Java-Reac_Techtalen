@@ -1,4 +1,4 @@
-use TIENDACA;
+// use TIENDACA;
 
 db.createCollection ('USUARIOS');
 
@@ -147,7 +147,7 @@ db.DETALLE_FACTURA.find(
   { _id: 0, _IdSerie: 1, cantidad: 1 }
 );
 db.PRODUCTOS.find( 
-  {"inventario: { "$lt": 20}
+  {"inventario": { "$lt": 20}
     }
     )
 db.FACTURA.find(
