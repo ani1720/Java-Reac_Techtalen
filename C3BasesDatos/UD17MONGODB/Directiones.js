@@ -31,3 +31,47 @@ db.Directores.insertMany([
     despacho: 4
   }
 ])
+
+db.Despachos.updateOne({ _id: 1 }, { $set: { capacidad: 5 } })
+db.Despachos.updateOne({ _id: 2 }, { $set: { capacidad: 6 } })
+
+db.Despachos.insertMany([
+  { _id: 5, capacidad: 2 },
+  { _id: 6, capacidad: 3 },
+  { _id: 7, capacidad: 4 },
+  { _id: 8, capacidad: 5 },
+  { _id: 9, capacidad: 6 }
+])
+db.Directores.insertMany([
+  {
+    _id: "33445566E",
+    NomApels: "Marina Torres",
+    DNIJefe: "22334455D",
+    despacho: 5
+  },
+  {
+    _id: "44556677F",
+    NomApels: "José Ortega",
+    DNIJefe: "11223344C",
+    despacho: 6
+  },
+  {
+    _id: "55667788G",
+    NomApels: "Claudia Vidal",
+    DNIJefe: "33445566E",
+    despacho: 7
+  },
+  {
+    _id: "66778899H",
+    NomApels: "David Morales",
+    DNIJefe: "33445566E",
+    despacho: 8
+  },
+  {
+    _id: "77889900J",
+    NomApels: "Nuria Salas",
+    DNIJefe: "44556677F",
+    despacho: 9
+  }
+])
+
