@@ -11,6 +11,7 @@ public class EjemploCRUD {
 
 	public static void main(String[] args) {
 		Connection conexion = null;
+		// Crea un objeto Statement para ejecutar sentecias SQL
 		Statement statement = null;
 
 		try {
