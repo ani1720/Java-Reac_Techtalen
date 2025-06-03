@@ -3,7 +3,6 @@ package UD19SwingAwt;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.*;
 
 public class Saludador extends JFrame{
@@ -23,7 +22,7 @@ public class Saludador extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String name = campoTexto.getText();
-				JOptionPane.showMessageDialog(null, "¡Hola," + name + "!");
+				JOptionPane.showMessageDialog(null, "¡Hola, " + name + "!");
 				
 			}
 			
