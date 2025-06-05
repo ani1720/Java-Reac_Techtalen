@@ -24,7 +24,7 @@ public class VentanaInteractiva extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(500, 300);
 		setLayout(new GridLayout(2, 2));
-		
+		setLocationRelativeTo(null);
 			etiqueta1 = new JLabel("Botón 1: 0 clics");
 			etiqueta2 = new JLabel("Botón 2: 0 clics");
 
