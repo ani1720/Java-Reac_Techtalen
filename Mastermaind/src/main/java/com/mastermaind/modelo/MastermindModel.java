@@ -18,6 +18,9 @@ public class MastermindModel {
 		this.correctoPositions = 0;
 		
 	}
+	public MastermindModel(Player player1, Player player2, int attempts) {
+		// TODO Auto-generated constructor stub
+	}
 	public boolean hasAttemptsLeft() {
 		return currentAttemps < masAttempts;
 	}

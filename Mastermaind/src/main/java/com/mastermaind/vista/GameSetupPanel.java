@@ -13,8 +13,8 @@ import javax.swing.*;
 
 public class GameSetupPanel extends JPanel {
 
-	private JTextField player1NameField;
-	private JTextField player2NameField;
+	private JTextField player1NameField = new JTextField(10);
+	private JTextField player2NameField = new JTextField(10);
 	private JSpinner attemptsSpinner;
 	private JButton continueButton;
 	
@@ -50,15 +50,15 @@ public class GameSetupPanel extends JPanel {
 	   add(continueButton, gbc);
 	}
 	public String getPlayer1Name() {
-		return player1NameField.getText();
+		return player1NameField.getText().trim();
 	}
-	public String getPlayer2Nane() {
+	public String getPlayer2Name() {
 		return player2NameField.getText();
 	}
-	public int getAttempts() {
+	public int getMaxAttempts() {
 		return (Integer) attemptsSpinner.getValue();
 	}
-	public void setContinueAction(ActionListener listener) {
+	public void setStartAction(ActionListener listener) {
 		continueButton.addActionListener(listener);
 	}
 }
