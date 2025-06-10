@@ -1,66 +1,26 @@
 package com.mastermaind.appmain;
 
-import javax.swing.*;
+import java.awt.Color;
 
-import com.mastermaind.vista.*;
-import com.mastermaind.controlador.MastermindController;
+import com.mastermaind.controlador.MastermidController;
+import com.mastermaind.modelo.Juego;
+import com.mastermaind.modelo.Jugador;
+import com.mastermaind.vista.VentanaInicio;
+import com.mastermaind.vista.VentanaJuego;
 
-import java.awt.*;
+import db.BaseDatos;
 
-public class MastermindApp extends JFrame {
+public class MastermindApp {
+	 public static void main(String[] args) {
+	        // Crear instancia de la ventana inicial (vista)
+	        VentanaInicio ventanaInicio = new VentanaInicio();
+	        ventanaInicio.setVisible(true);
+	        // Crear instancia de la base de datos (esto establecerá la conexión)
+	        BaseDatos bd = new BaseDatos();
+	        // Crear el controlador, pasando la vista inicial y la base de datos
+	        MastermidController controlador = new MastermidController(ventanaInicio, bd);
 
-    private CardLayout cardLayout;  // Permite cambiar entre pantallas (panels)
-    private JPanel mainPanel;       // Panel principal con varias vistas
-
-    // Los paneles del juego
-    private GameSetupPanel setupPanel;
-    private ColorSelectionPanel colorPanel;
-    private GamePlayPanel gameplayPanel;
-    private Victory victoryPanel;
-
-    public MastermindApp() {
-        // Configuración de la ventana principal
-        setTitle("Juego Mastermind");
-        setSize(600, 400);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);  // Centrar ventana
-
-        // Crear layout y panel principal
-        cardLayout = new CardLayout();
-        mainPanel = new JPanel(cardLayout);
-
-        // Inicializar cada panel de vista
-        setupPanel = new GameSetupPanel();
-        colorPanel = new ColorSelectionPanel();
-        gameplayPanel = new GamePlayPanel();
-        victoryPanel = new Victory();
-
-        // Agregar los paneles al CardLayout
-        mainPanel.add(setupPanel, "config");
-        mainPanel.add(colorPanel, "seleccion");
-        mainPanel.add(gameplayPanel, "juego");
-        mainPanel.add(victoryPanel, "victoria");
-
-        // Agregar el panel principal a la ventana
-        add(mainPanel);
-
-        // Crear el controlador y pasarle las vistas necesarias
-        new MastermindController(this, setupPanel, colorPanel, gameplayPanel, victoryPanel);
-    }
-
-    /**
-     * Cambia la pantalla actual mostrando el panel especificado por nombre.
-     * Ejemplo: mostrarPanel("juego") muestra el panel de juego.
-     */
-    public void mostrarPanel(String nombrePanel) {
-        cardLayout.show(mainPanel, nombrePanel);
-    }
-
-    // Método main para ejecutar el programa
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            new MastermindApp().setVisible(true);
-        });
-    }
-}
-
+	        // Nota: el controlador manejará el resto del flujo de la aplicación.
+	        // Cuando la aplicación termine, podríamos invocar bd.cerrarConexion() para liberar recursos.
+	    }
+	}
