@@ -1,61 +1,73 @@
 package com.mastermaind.controlador;
 
+import com.mastermaind.vista.*;
 import com.mastermaind.appmain.MastermindApp;
-import com.mastermaind.modelo.MastermindModel;
-import com.mastermaind.modelo.Player;
-import com.mastermaind.vista.ColorSelectionPanel;
-import com.mastermaind.vista.GamePlayPanel;
-import com.mastermaind.vista.GameSetupPanel;
-import com.mastermaind.vista.Victory;
+import com.mastermaind.modelo.*;
 
-import javax.swing.*;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class MastermindController {
+
+    private MastermindModel model;
     private MastermindApp app;
     private GameSetupPanel setupPanel;
-    private ColorSelectionPanel selectionPanel;
+    private ColorSelectionPanel colorPanel;
     private GamePlayPanel gameplayPanel;
     private Victory victoryPanel;
 
-    private Player player1;
-    private Player player2;
-    private MastermindModel game;
-
-    private boolean isSelectingSecret = true;
-
     public MastermindController(MastermindApp app,
                                  GameSetupPanel setupPanel,
-                                 ColorSelectionPanel selectionPanel,
+                                 ColorSelectionPanel colorPanel,
                                  GamePlayPanel gameplayPanel,
                                  Victory victoryPanel) {
         this.app = app;
         this.setupPanel = setupPanel;
-        this.selectionPanel = selectionPanel;
+        this.colorPanel = colorPanel;
         this.gameplayPanel = gameplayPanel;
         this.victoryPanel = victoryPanel;
+        this.model = new MastermindModel(); // Asegúrate de tener esta clase
 
-        initSetupPanel();
+        initSetup();
     }
 
-    private void initSetupPanel() {
+    private void initSetup() {
         setupPanel.setStartAction(e -> {
             String name1 = setupPanel.getPlayer1Name();
             String name2 = setupPanel.getPlayer2Name();
             int attempts = setupPanel.getMaxAttempts();
 
-            if (name1.isEmpty() || name2.isEmpty() || attempts <= 0) {
-                JOptionPane.showMessageDialog(null, "Debes ingresar nombres válidos y un número de intentos mayor que cero.");
-                return;
-            }
+            Player player1 = new Player(name1, attempts);
+            Player player2 = new Player(name2, attempts);
 
-            player1 = new Player(name1, attempts);
-            player2 = new Player(name2, attempts);
-            game = new MastermindModel(player1, player2, attempts);
+            model.setPlayers(player1, player2);
 
-            isSelectingSecret = true;
-            selectionPanel.clearSelection();
-            app.showPanel("SELECTION");
+            colorPanel.setConfirmAction(selectedColors -> {
+                model.setSecretCombination(selectedColors);
+                startGame();
+            });
+
+            app.mostrarPanel("seleccion"); // Asegúrate de que esto existe en MastermindApp
         });
+    }
+
+    private void startGame() {
+        gameplayPanel.setAvailableColors(List.of("Rojo", "Verde", "Azul", "Amarillo"));
+        gameplayPanel.setPlayer(model.getCurrentPlayer());
+
+        gameplayPanel.setSubmitAction(guess -> {
+            Feedback feedback = model.evaluateGuess(guess);
+            gameplayPanel.addAttemptResult(guess, feedback);
+
+            if (feedback.getExactMatches() == 4) {
+                victoryPanel.setWinner(model.getCurrentPlayer().getName());
+                app.mostrarPanel("victoria");
+            } else if (!model.hasRemainingAttempts(model.getCurrentPlayer())) {
+                model.changeTurn();
+                gameplayPanel.setPlayer(model.getCurrentPlayer());
+            }
+        });
+
+        app.mostrarPanel("juego");
     }
 }

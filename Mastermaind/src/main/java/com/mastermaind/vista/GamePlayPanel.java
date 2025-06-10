@@ -1,80 +1,94 @@
 package com.mastermaind.vista;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.event.ActionListener;
-
 import javax.swing.*;
-public class GamePlayPanel extends JPanel{
 
-		private final JLabel turnPlayLabel = new JLabel("Turno de: ");
-		private final JLabel attemptsLabel = new JLabel("Intentos restantes: ");
-		private final JComboBox<String>[] guessSelectors= new JComboBox[4];
-		private final JButton guessButton = new JButton("Adivinar");
-		private final JTextArea feedbackArea = new JTextArea(10, 30);
-		
-		private static final String[] COLORS = {"Rojo", "Azul", "Verde", "Amarillo", "Naranja", "Morado"};
+import com.mastermaind.modelo.Feedback;
 
-		public GamePlayPanel() {
-			setLayout(new BorderLayout());
-			setBackground(Color.WHITE);
-			
-			//Panel superior con datos del jugador
-			
-			JPanel topPanel = new JPanel(new GridLayout(2, 1));
-			topPanel.setBackground(Color.WHITE);
-			turnPlayLabel.setFont(new Font("Arial", Font.BOLD, 16));
-			attemptsLabel.setFont(new Font("Arial", Font.PLAIN, 14));
-			topPanel.add(turnPlayLabel);
-			topPanel.add(attemptsLabel);
-			add(topPanel, BorderLayout.NORTH);
-			
-			//Panel central de seleccion de colores
-			JPanel centerPanel = new JPanel(new FlowLayout());
-			centerPanel.setBackground(Color.WHITE);
-			
-			   for (int i = 0; i < 4; i++) {
-				   guessSelectors[i] = new JComboBox<>(COLORS);
-				   centerPanel.add(guessSelectors[i]);  
-			   }
-			   add(centerPanel, BorderLayout.CENTER);
-		
-			 //Boton para enviar suposicion
-			   JPanel buttonPanel = new JPanel();
-			   buttonPanel.setBackground(Color.WHITE);
-			   buttonPanel.add(guessButton);
-			   add(buttonPanel, BorderLayout.SOUTH);
-			   
-			   //Area de Feedback
-			   feedbackArea.setEditable(false);
-			   feedbackArea.setFont(new Font("Monospaced", Font.PLAIN,12));
-			   feedbackArea.setBorder(BorderFactory.createTitledBorder("Historial de intentos"));
-			   JScrollPane scrollPane = new JScrollPane(feedbackArea);
-			   add(scrollPane, BorderLayout.EAST);
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
+
+
+public class GamePlayPanel extends JPanel {
+
+	private JLabel playerTurnLabel = new JLabel("Turno de: ");
+	private JLabel attemptsLabel = new JLabel("Intentos restantes: ");
+	private JButton submitButton = new JButton("Adivinar");
+	private JComboBox<String>[] guessSelectors = new JComboBox[4];
+	private String playerName;
+	private int maxAttempts;
+	private static final String[] COLORS = { "Rojo", "Azul", "Verde", "Amarillo", "Naranja", "Violeta" };
+
+	public GamePlayPanel() {
+		setLayout(new BorderLayout());
+		setBackground(Color.WHITE);
+
+		// Parte superior con info de jugador y turnos
+		JPanel topPanel = new JPanel();
+		topPanel.setBackground(Color.WHITE);
+		topPanel.add(playerTurnLabel);
+		topPanel.add(attemptsLabel);
+		add(topPanel, BorderLayout.NORTH);
+
+		// Parte central con los ComboBox para adivinar colores
+		JPanel centerPanel = new JPanel();
+		centerPanel.setBackground(Color.WHITE);
+		for (int i = 0; i < 4; i++) {
+			guessSelectors[i] = new JComboBox<>(COLORS);
+			centerPanel.add(guessSelectors[i]);
 		}
-		public void setturnPlay(String playName) {
-			turnPlayLabel.setText("Turno de: " + playName);
+		add(centerPanel, BorderLayout.CENTER);
+
+		// Parte inferior con botón para enviar la jugada
+		JPanel bottomPanel = new JPanel();
+		bottomPanel.setBackground(Color.WHITE);
+		bottomPanel.add(submitButton);
+		add(bottomPanel, BorderLayout.SOUTH);
+	}
+
+	// Obtener los colores seleccionados como intento del jugador
+	public String[] getGuessedColors() {
+		String[] guess = new String[4];
+		for (int i = 0; i < 4; i++) {
+			guess[i] = (String) guessSelectors[i].getSelectedItem();
 		}
-		public void setAttemptsLeft(int attempts) {
-			attemptsLabel.setText("Intentos restantes: " + attempts);
+		return guess;
+	}
+
+	// Limpiar selección (opcional)
+	public void clearSelection() {
+		for (JComboBox<String> box : guessSelectors) {
+			box.setSelectedIndex(0);
 		}
-		public String [] getCurrentGuess() {
-			String[] guess = new String[4];
-			    for (int i = 0; i < 4; i++) {
-			    	guess[i] = (String) guessSelectors[i].getSelectedItem();
-			    }
-			    return guess;
-		}
-		public void setGuessAction(ActionListener listener) {
-			guessButton.addActionListener(listener);
-		}
-		public void resetSelectors() {
-			for (JComboBox<String> selector : guessSelectors) {
-				selector.setSelectedIndex(0);
-			}
-		}
-		
+	}
+
+	public GamePlayPanel(String playerName, int maxAttempts) {
+		this.playerName = playerName;
+		this.maxAttempts = maxAttempts;
+	}
+
+	// Establecer el texto del turno del jugador
+	public void setPlayerTurn(String playerName) {
+		playerTurnLabel.setText("Turno de: " + playerName);
+	}
+
+	// Establecer el número de intentos restantes
+	public void setAttempts(int attempts) {
+		attemptsLabel.setText("Intentos restantes: " + attempts);
+	}
+
+	// Asignar acción personalizada al botón "Adivinar"
+	public void setSubmitAction(ActionListener listener) {
+		submitButton.addActionListener(listener);
+	}
+
+	public void setConfirmAction(ActionListener listener) {
+		submitButton.addActionListener(listener);
+	}
+	   public void addAttempt(ActionEvent attempt, Feedback feedback, int attemptNumber) {
+	       // Lógica para registrar el intento, mostrar el feedback y actualizar la interfaz
+	   }
+
+
 }

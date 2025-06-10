@@ -1,65 +1,71 @@
 package com.mastermaind.vista;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.function.Consumer;
+
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class ColorSelectionPanel extends JPanel {
-	private final JComboBox<String>[] colorSelectors = new JComboBox[4];
-	private final JButton confirmButton = new JButton("Confirmar combinacion");
-	private final JLabel playerLabel = new JLabel("Jugador: ");
 
-	private static final String[] COLORS = { "Rojo", "Azul", "Verde", "Amarillo", "Naranja", "Violeta", };
-	
-	
-	public ColorSelectionPanel() {
-		setLayout(new BorderLayout());
-		setBackground(Color.WHITE);
+    private JComboBox<String>[] colorSelectors = new JComboBox[4]; // Selección de 4 colores
+    private JButton confirmButton = new JButton("Confirmar combinación");
+    private JLabel playerLabel = new JLabel("Jugador:");
 
-		// Panel superior con el name
-		JPanel topPanel = new JPanel();
-		topPanel.setBackground(Color.WHITE);
-		topPanel.add(playerLabel);
-		add(topPanel, BorderLayout.NORTH);
+    private static final String[] COLORS = {"Rojo", "Azul", "Verde", "Amarillo", "Naranja", "Violeta"};
 
-		// Panel central con los selectores
-		JPanel centerPanel = new JPanel();
-		centerPanel.setBackground(Color.WHITE);
-		centerPanel.setLayout(new FlowLayout());
+    public ColorSelectionPanel() {
+        setLayout(new BorderLayout());
+        setBackground(Color.WHITE);
 
-		for (int i = 0; i < colorSelectors.length; i++) {
-			colorSelectors[i] = new JComboBox<>(COLORS);
-			centerPanel.add(colorSelectors[i]);
-		}
-		add(centerPanel, BorderLayout.CENTER);
+        // Panel superior con el nombre del jugador
+        JPanel topPanel = new JPanel();
+        topPanel.setBackground(Color.WHITE);
+        topPanel.add(playerLabel);
+        add(topPanel, BorderLayout.NORTH);
 
-		// Panel inferior con botones
-		JPanel bottomPanel = new JPanel();
-		bottomPanel.setBackground(Color.WHITE);
-		bottomPanel.add(confirmButton);
-		add(bottomPanel, BorderLayout.SOUTH);
-	}
+        // Panel central con los ComboBox para elegir colores
+        JPanel centerPanel = new JPanel();
+        centerPanel.setBackground(Color.WHITE);
+        centerPanel.setLayout(new FlowLayout());
 
-	public void setPalyerName(String playName) {
-		playerLabel.setText("Jugador: " + playName + "Elige tu combinacion secreta");
-	}
-	public void clearSelection() {
-		for (JComboBox<String> selector : colorSelectors) {
-			selector.setSelectedIndex(0);
-		}
-	}
-	public String[] getSelectedColors() {
-		String[] selected = new String[4];
-		for (int i = 0; i < 4; i++) {
-			selected[i] = (String) colorSelectors[i].getSelectedItem();
-		}
-		return selected;
-	}
+        for (int i = 0; i < 4; i++) {
+            colorSelectors[i] = new JComboBox<>(COLORS);
+            centerPanel.add(colorSelectors[i]);
+        }
+        add(centerPanel, BorderLayout.CENTER);
 
-	public void addConfirmButtonListener(ActionListener listener) {
-		confirmButton.addActionListener(listener);
-	}
+        // Panel inferior con botón de confirmar
+        JPanel bottomPanel = new JPanel();
+        bottomPanel.setBackground(Color.WHITE);
+        bottomPanel.add(confirmButton);
+        add(bottomPanel, BorderLayout.SOUTH);
+    }
+
+    // Asigna el nombre del jugador y actualiza el texto en pantalla
+    public void setPlayerName(String name) {
+        playerLabel.setText("Jugador: " + name + " - Elige tu combinación secreta");
+    }
+
+    // Devuelve los colores seleccionados como array
+    public String[] getSelectedColors() {
+        String[] selected = new String[4];
+        for (int i = 0; i < 4; i++) {
+            selected[i] = (String) colorSelectors[i].getSelectedItem();
+        }
+        return selected;
+    }
+
+    // Limpia los ComboBox (opcional: se puede dejar en primera opción)
+    public void clearSelection() {
+        for (JComboBox<String> combo : colorSelectors) {
+            combo.setSelectedIndex(0); // selecciona el primer color
+        }
+    }
+
+    // Permite que el botón "Confirmar combinación" tenga una acción personalizada
+    public void setConfirmAction(ActionListener listener) {
+        confirmButton.addActionListener(listener);
+    }
 }
-

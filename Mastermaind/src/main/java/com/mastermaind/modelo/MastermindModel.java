@@ -1,68 +1,67 @@
 package com.mastermaind.modelo;
 
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Lógica principal del juego Mastermind. Se encarga de almacenar la combinación
+ * secreta, evaluar los intentos y llevar el control del juego.
+ */
 public class MastermindModel {
-	private List<String> secretCombination;
-	private int masAttempts;
-	private int currentAttemps;
-	private int correctoColors;
-	private int correctoPositions;
-	
-	public MastermindModel(List<String> secretCombination, int maxAttempts) {
-		this.secretCombination = new ArrayList<>(secretCombination);
-		this.masAttempts = masAttempts;
-		this.currentAttemps = 0;
-		this.correctoColors = 0;
-		this.correctoPositions = 0;
-		
+
+	private List<String> secretCombination; // La combinación que el jugador debe adivinar
+
+	public MastermindModel() {
+		this.secretCombination = new ArrayList<>();
 	}
-	public MastermindModel(Player player1, Player player2, int attempts) {
-		// TODO Auto-generated constructor stub
+
+	// Establece la combinación secreta elegida por un jugador
+	public void setSecretCombination(List<String> combination) {
+		this.secretCombination = new ArrayList<>(combination);
 	}
-	public boolean hasAttemptsLeft() {
-		return currentAttemps < masAttempts;
-	}
-	public Feedback checkGuess(List<String> guess) {
-		currentAttemps++;
-		
-		int colorMatches= 0;
-		int positionMatches = 0;
-		
+
+	/**
+	 * Evalúa un intento del jugador y devuelve el resultado (Feedback).
+	 * 
+	 * @param attempt La combinación que el jugador intenta adivinar
+	 * @return Feedback con cantidad de colores correctos y en posición correcta
+	 */
+
+	public Feedback checkAttempt(List<String> attempt) {
+		int orderMatches = 0; // Aciertos exactos (color y posición)
+		int colorMatches = 0; // Colores correctos pero en posición incorrecta
+
+		// Copias para no modificar las originales
 		List<String> secretCopy = new ArrayList<>(secretCombination);
-		List<String> guessCopy = new ArrayList<>(guess);
-		
-		//Contar aciertos exactos (posicion y color
+		List<String> attemptCopy = new ArrayList<>(attempt);
+
+		// Paso 1: verificar coincidencias exactas
 		for (int i = 0; i < 4; i++) {
-			if (guessCopy.get(i).equals(secretCopy.get(i))) {
-				positionMatches++;
-				secretCopy.set(i,  null);
-				guessCopy.set(i,  null);
+			if (attemptCopy.get(i).equals(secretCopy.get(i))) {
+				orderMatches++;
+				// Marcar como usados para no contarlos dos veces
+				secretCopy.set(i, null);
+				attemptCopy.set(i, null);
 			}
 		}
-		
-		for (int i = 0; i < 4; i++) {
-			if (guessCopy.get(i) != null && secretCopy.contains(guessCopy.get(i)));
-			colorMatches++;
-			secretCopy.set(secretCopy.indexOf(guessCopy.get(i)), null);
-		}
-	 
-	this.correctoColors = colorMatches;
-	this.correctoPositions = positionMatches;
 
-	return new Feedback(colorMatches, positionMatches);
-}
-	public int getCorrectoColors() {
-		return correctoColors;
-	}
-	public int getCorrectoPositions() {
-		return correctoPositions;
-	}
-		public boolean isWin() {
-			return correctoPositions == 4;
+		// Paso 2: verificar coincidencias de color (pero en lugar diferente)
+		for (int i = 0; i < 4; i++) {
+			String color = attemptCopy.get(i);
+			if (color != null && secretCopy.contains(color)) {
+				colorMatches++;
+				// Marcar como usado
+				secretCopy.set(secretCopy.indexOf(color), null);
+			}
 		}
-		public int getCurrentAttempts() {
-			return currentAttemps;
+
+		return new Feedback(colorMatches, orderMatches);
+	}
+
+	// Devuelve la combinación secreta (puede usarse al final del juego para
+	// mostrarla)
+	public List<String> getSecretCombination() {
+		return secretCombination;
 	}
 }
