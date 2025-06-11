@@ -34,16 +34,21 @@ public class VentanaInicio extends JFrame{
         campoNombre1.setFont(new Font("Arial", Font.PLAIN,18));
         campoNombre1.setPreferredSize(new Dimension(150, 25));
         panelForm.add(campoNombre1);
+        
+        
         panelForm.add(new JLabel("Nombre Jugador 2:"));
         campoNombre2 = new JTextField();
         campoNombre2.setFont(new Font("Arial", Font.PLAIN,18));
         campoNombre2.setPreferredSize(new Dimension(150, 25));
         panelForm.add(campoNombre2);
         panelForm.add(new JLabel("Nº de intentos:"));
+        
+        
         // Spinner para seleccionar número de intentos (mínimo 1, máximo 15 por ejemplo)
         campoNombre1.setPreferredSize(new Dimension(200, 30));
         campoNombre2.setPreferredSize(new Dimension(200, 30));
-       // spinnerIntentos.setPreferredSize(new Dimension(80, 30));
+       
+        // spinnerIntentos.setPreferredSize(new Dimension(80, 30));
 
         spinnerIntentos = new JSpinner(new SpinnerNumberModel(10, 1, 20, 1));
         spinnerIntentos.setFont(new Font("Arial", Font.PLAIN,18));

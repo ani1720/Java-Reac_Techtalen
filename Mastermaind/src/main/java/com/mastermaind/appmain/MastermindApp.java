@@ -2,6 +2,9 @@ package com.mastermaind.appmain;
 
 import java.awt.Color;
 
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+
 import com.mastermaind.controlador.MastermidController;
 import com.mastermaind.modelo.Juego;
 import com.mastermaind.modelo.Jugador;
@@ -15,6 +18,8 @@ public class MastermindApp {
 	        // Crear instancia de la ventana inicial (vista)
 	        VentanaInicio ventanaInicio = new VentanaInicio();
 	        ventanaInicio.setVisible(true);
+       VentanaJuego ventanaJuego = new VentanaJuego(null, null, 0);	       
+       ventanaJuego.setVisible(true);
 	        // Crear instancia de la base de datos (esto establecerá la conexión)
 	        BaseDatos bd = new BaseDatos();
 	        // Crear el controlador, pasando la vista inicial y la base de datos

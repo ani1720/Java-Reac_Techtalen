@@ -89,7 +89,7 @@ public class MastermidController{
     private void manejarIntento() {
         if (juego == null) return; // seguridad, juego debería existir
         // Obtener combinación propuesta desde la vista
-        String[] combinacionIntento = ventanaJuego.getCombinacionIntroducida();
+        String[] combinacionIntento = ventanaJuego.getColoresSeleccionados();
         // Procesar el intento a través del modelo
         Intento resultado = juego.procesarIntento(combinacionIntento);
         // Actualizar la interfaz con el resultado
