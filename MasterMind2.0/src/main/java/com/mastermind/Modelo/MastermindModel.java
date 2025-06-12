@@ -3,21 +3,28 @@ package com.mastermind.Modelo;
 import java.awt.Color;
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 public class MastermindModel {
     public static final String[] COLORES = {"Rojo", "Azul", "Verde", "Amarillo", "Naranja", "Rosa"};
-    public static final Color[] COLORES_VISUALES = {Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.ORANGE, Color.PINK};
+    public static final Color[] COLORES_VISUALES = {Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.ORANGE, Color.BLACK};
     private String[] combinacionSecreta;
 
     public MastermindModel() {
         generarCombinacionAleatoria();
     }
+    public String usuarios() {
+    	String usuario = JOptionPane.showInputDialog("Ingresa el nombre del usuario");
+    	return usuario;
+    }
+    
 
     public void generarCombinacionAleatoria() {
         Random rand = new Random();
         combinacionSecreta = new String[4];
         for (int i = 0; i < 4; i++) {
-            int idx = rand.nextInt(COLORES.length);
-            combinacionSecreta[i] = COLORES[idx];
+            int id = rand.nextInt(COLORES.length);
+            combinacionSecreta[i] = COLORES[id];
         }
     }
 

@@ -5,17 +5,10 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class GameView {
-    public static final Color[] COLORES = {Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.ORANGE, Color.PINK};
+    public static final Color[] COLORES = {Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.ORANGE, Color.BLACK};
     public static final String[] COLORES_NOMBRES = {"Rojo", "Azul", "Verde", "Amarillo", "Naranja", "Rosa"};
     
-    /**
-     * Muestra un diálogo donde el usuario elige una combinación secreta de 4 colores.
-     * @param parent Ventana principal
-     * @param nombreJ1 Nombre del jugador que elige la combinación
-     * @param nombreJ2 Nombre del jugador que adivina (solo informativo)
-     * @return Array de Strings con los colores seleccionados, o null si se cancela
-     */
-    public static String[] mostrarDialogo(JFrame parent, String nombreJ1, String nombreJ2) {
+ static String[] mostrarDialogo(JFrame parent, String nombreJ1, String nombreJ2) {
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(2, 4, 10, 10));
         panel.setBackground(new Color(220, 230, 250));
