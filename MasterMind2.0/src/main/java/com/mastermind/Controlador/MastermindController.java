@@ -21,7 +21,7 @@ public class MastermindController {
     private int intentos = 0;
     private int userId;
     private long tiempoInicio;
-    private int intentosMax = 10;
+    private int intentosMax = 15;
 
     // CORREGIDO: el constructor debe estar DENTRO de la clase, y las llaves correctas
     public MastermindController(MastermindModel modelo, MastermindView vista2, DBManager db, int userId) {
