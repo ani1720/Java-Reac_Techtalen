@@ -1,10 +1,14 @@
 package com.mastermind.Controlador;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 
+import javax.swing.BoxLayout;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+
 import com.mastermind.Modelo.DBManager;
 import com.mastermind.Modelo.MastermindModel;
 import com.mastermind.Vista.GameView;
@@ -27,6 +31,12 @@ public class MastermindController {
         this.db = db;
         this.tiempoInicio = System.currentTimeMillis(); // CORREGIDO: inicia tiempo
 
+        vista.setOnReiniciarListener(() -> {
+            modelo.generarCombinacionAleatoria();
+            intentos = 0;
+            tiempoInicio = System.currentTimeMillis();
+        });
+
         // Solo necesitas UN addActionListener, no dos
         this.vista.probarBtn.addActionListener(new ActionListener() {
             @Override
@@ -43,7 +53,7 @@ public class MastermindController {
     // Separa la lógica en un método propio para claridad
     private void probarCombinacion() {
         if (intentos >= intentosMax) {
-        	JOptionPane.showMessageDialog(vista, "Had alcanzado el numero maximo de intentos");
+        	JOptionPane.showMessageDialog(vista, "Has alcanzado el numero maximo de intentos");
         	vista.probarBtn.setEnabled(false);
         	return;
         }
@@ -51,9 +61,10 @@ public class MastermindController {
         int[] resultado = modelo.comprobarIntento(intento);
         intentos++;
 
-        vista.agregarAlHistorial("Intento " + intentos + ": " +
-                String.join(", ", intento) +
-                " --> " + resultado[0] + " bien colocados, " + resultado[1] + " solo color");
+        vista.agregarAlHistorialVisual(intento, resultado[0], resultado[1]);
+//        vista.agregarAlHistorial("Intento " + intentos + ": " +
+//                String.join(", ", intento) +
+//                " --> " + resultado[0] + " bien colocados, " + resultado[1] + " solo color");
         if (resultado[0] == 4) {
             long tiempoFin = System.currentTimeMillis();
             int tiempoSegundos = (int)((tiempoFin - tiempoInicio) / 1000);
@@ -64,6 +75,22 @@ public class MastermindController {
             vista.probarBtn.setEnabled(false);
 
             // Guardar Partida en la base de datos
+            try {
+                db.guardarPartida(userId, String.join(",", modelo.getCombinacionSecreta()), intentos, tiempoSegundos);
+                mostrarRanking();
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(vista, "No se pudo guardar la partida en la base de datos.",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                ex.printStackTrace();
+            }
+        }else if (intentos == intentosMax) {
+        	long tiempoFin = System.currentTimeMillis();
+            int tiempoSegundos = (int)((tiempoFin - tiempoInicio) / 1000);
+
+            JOptionPane.showMessageDialog(vista, "¡Has alcanzado el número máximo de intentos (" + intentosMax + ")!\nLa combinación era: " + String.join(", ", modelo.getCombinacionSecreta()));
+            vista.probarBtn.setEnabled(false);
+
+            // Guardar partida aunque no haya ganado
             try {
                 db.guardarPartida(userId, String.join(",", modelo.getCombinacionSecreta()), intentos, tiempoSegundos);
                 mostrarRanking();

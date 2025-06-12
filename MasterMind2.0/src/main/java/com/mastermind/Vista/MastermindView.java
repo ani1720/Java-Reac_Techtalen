@@ -19,6 +19,7 @@ public class MastermindView extends JFrame {
 	        setTitle("Mastermind");
 	        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	        setLayout(new BorderLayout());
+	        pestanaMenu();
 
 	        // Panel de selección visual de colores
 	        JPanel panelSeleccion = new JPanel();
@@ -43,8 +44,6 @@ public class MastermindView extends JFrame {
 
 	        historial.setLayout(new BoxLayout(historial, BoxLayout.Y_AXIS));
 	        JScrollPane scroll = new JScrollPane(historial);
-	        add(scroll, BorderLayout.CENTER);
-
 	        add(new JScrollPane(historial), BorderLayout.CENTER);
 
 	        setSize(800, 600);
@@ -60,6 +59,7 @@ public class MastermindView extends JFrame {
 	        }
 	        return intento;
 	    }
+
 	    public void agregarAlHistorialVisual(String[] intento, int exactos, int color) {
 	        JPanel intentoPanel = new JPanel();
 	        intentoPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -68,15 +68,21 @@ public class MastermindView extends JFrame {
 	        // Muestra los cuadros de color
 	        for (String colorStr : intento) {
 	            JPanel colorBox = new JPanel();
-	            colorBox.setPreferredSize(new Dimension(30, 30));
+	            colorBox.setPreferredSize(new Dimension(40, 40));
 	            colorBox.setBackground(colorDeNombre(colorStr));
 	            colorBox.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	            intentoPanel.add(colorBox);
 	        }
 
 	        // Etiqueta con el resultado del intento
-	        JLabel lbl = new JLabel(" → " + exactos + " bien colocados, " + color + " solo color");
-	        intentoPanel.add(lbl);
+	        if (color == 1) {
+	        	JLabel lbl = new JLabel(" → " + exactos + " bien colocados, " + color + " color encontrado ");
+	        	intentoPanel.add(lbl);
+	        }else {
+	        	 JLabel lbl = new JLabel(" → " + exactos + " bien colocados, " + color + " colores encontrados");
+	 	        intentoPanel.add(lbl);
+
+	        }
 
 	        historial.add(intentoPanel);
 	        historial.revalidate();
@@ -95,6 +101,55 @@ public class MastermindView extends JFrame {
 	            default: return Color.LIGHT_GRAY;
 	        }
 	    }
-
+	    private void pestanaMenu () {
+	    	JMenuBar menubar = new JMenuBar();
+	    	JMenu menuJuego = new JMenu("Juego");
+	    	JMenuItem reiniciar = new JMenuItem("Reiniciar");
+	    	JMenuItem salir = new JMenuItem("Salir");
+	    	JMenuItem about = new JMenuItem("Sobre la App");
+	    	
+	    	menuJuego.add(reiniciar);
+	    	menuJuego.add(salir);
+	    	menuJuego.addSeparator();
+	    	menuJuego.add(about);
+	    	
+	    	menubar.add(menuJuego);
+	    	setJMenuBar(menubar);
+	    	
+	    	salir.addActionListener(e -> System.exit(0));
+	    	
+	    	about.addActionListener(e -> JOptionPane.showMessageDialog(this,
+	    			"Mastermid 2.0\nVersion: Beta\nDesarrollado por LOS MADI\n2025", 
+	    			"Sobre la App", JOptionPane.INFORMATION_MESSAGE));
+	    	
+	    	reiniciar.addActionListener(e ->{
+	    		int confirm = JOptionPane.showConfirmDialog(this, 
+	    										"¿Seguro que quieres reiniciar la partida?",
+	    											"Reiniciar juego", JOptionPane.YES_NO_OPTION);
+	    		if (confirm == JOptionPane.YES_OPTION) {
+	    			reiniciarJuego();
+	    		}
+	    	});
 	    
-	}
+	    }
+	    public void reiniciarJuego() {
+    		
+	    	for (int i = 0; i < intentoPanels.length; i++) {
+	    		seleccionActual[i] = 0;
+	    		intentoPanels[i].setBackground(COLORES[0]);
+	    	}
+	    	historial.removeAll();
+	    	historial.revalidate();
+	    	historial.repaint();
+	    	
+	    	probarBtn.setEnabled(true);
+	    	
+	    	if(onReiniciarListener !=null) {
+	    		onReiniciarListener.run();
+	    	}
+    	}
+	    private Runnable onReiniciarListener;
+	    public void setOnReiniciarListener(Runnable listener) {
+	    	this.onReiniciarListener = listener;
+	    }
+}

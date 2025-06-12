@@ -1,10 +1,9 @@
 // AppMain.java
-package com.mastermind;
+package com.mastermind.Main;
 
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
-
 import com.mastermind.Controlador.MastermindController;
 import com.mastermind.Modelo.DBManager;
 import com.mastermind.Modelo.MastermindModel;
