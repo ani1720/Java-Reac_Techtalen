@@ -22,6 +22,7 @@ public class videoClubViews extends JFrame {
 		super("Gestion de VideoClub");
 		setLayout(new FlowLayout());
 
+	
 		add(new JLabel("ID:"));
 		add(id);
 		
