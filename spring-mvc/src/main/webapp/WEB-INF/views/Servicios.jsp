@@ -7,7 +7,6 @@
 </head>
 <body>
     <h1>Estos son los servicios que ofrecemos</h1>
-    <a href="${pageContext.request.contextPath}/hello-world">Ir a Inicio
-    </a>
+    <a href="${pageContext.request.contextPath}/hello-world">Ir a Inicio</a>
 </body>
 </html>
