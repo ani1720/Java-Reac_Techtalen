@@ -52,16 +52,15 @@ nav a:hover {
 }
 .galeria {
  display: flex;
- gap: 20px;
- justify-content: center;
- margin: 3rem 0;
-
+  gap: 16px;         /* Espacio entre imágenes */
+  justify-content: center;
+  align-items: center;
 }
 .galeria img{
   width: 140px;
   height: 140px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 16px;
 }
 .galeria-item {
   position: relative;

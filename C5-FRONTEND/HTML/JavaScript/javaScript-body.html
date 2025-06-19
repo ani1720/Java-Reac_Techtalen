@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <h1>JavaScript en el HEAD</h1>
+    <p id="cambia">Un parrafo cualquiera</p>
+    <button type="button" onclick="cambiaParrafo()">cambia(texto boton)</button>
+    <script>
+      function cambiaParrafo() {
+        document.getElementById("cambia").innerHTML = "Parrafo cambiado";
+      }
+    </script>
+  </body>
+</html>
