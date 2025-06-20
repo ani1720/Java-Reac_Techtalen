@@ -3,50 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <title>Hundir la Flota</title>
+    <link rel="icon" type="image/x-icon" href="Icono.png">
     <link rel="stylesheet" href="style.css" />
-    <style>
-      .battleship-board {
-        display: grid;
-        grid-template-columns: repeat(10, 30px);
-        grid-template-rows: repeat(10, 30px);
-        gap: 2px;
-        justify-content: center;
-        margin: 2rem auto;
-        width: max-content;
-        background: #8d99ae;
-        border: 4px solid #2b2d42;
-        border-radius: 8px;
-      }
-      .cell {
-        width: 30px;
-        height: 30px;
-        background: #edf2f4;
-        border: 1px solid #2b2d42;
-        cursor: pointer;
-        transition: background 0.2s;
-      }
-      .cell.hit {
-        background: #ef233c;
-      }
-      .cell.miss {
-        background: #8d99ae;
-      }
-      .battleship-title {
-        text-align: center;
-        margin-top: 2rem;
-      }
-      .back-link {
-        display: block;
-        text-align: center;
-        margin-bottom: 2rem;
-        color: #2b2d42;
-        text-decoration: none;
-        font-weight: bold;
-      }
-      .back-link:hover {
-        color: #ef233c;
-      }
-    </style>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
   </head>
   <body>
     <header>
@@ -63,7 +25,7 @@
     <main>
       <div class="barcos-paleta">
         <img
-          src="../TareaGrupal/Barco1.png"
+          src="Barco1.png"
           alt="Barco 1"
           class="barco-img"
           draggable="true"
@@ -71,7 +33,7 @@
           data-size="2"
         />
         <img
-          src="../TareaGrupal/Barco2.png"
+          src="Barco2.png"
           alt="Barco 2"
           class="barco-img"
           draggable="true"
@@ -80,7 +42,7 @@
           style="width: 90px"
         />
         <img
-          src="../TareaGrupal/Barco3.png"
+          src="Barco3.png"
           alt="Barco 3"
           class="barco-img"
           draggable="true"
@@ -91,21 +53,14 @@
       </div>
       <div class="battleship-board" id="board"></div>
     </main>
-    <footer>
-      <p>&copy; 2025 Nuestros Juegos</p>
-    </footer>
+   <footer>
+    <p>&copy; 2025 GameZone - Todos los derechos reservados.</p>
+  </footer>
     <script>
       // Genera un tablero vacío de 10x10
       const board = document.getElementById("board");
       const size = 10;
-      const ships = [
-        { x: 2, y: 3 },
-        { x: 2, y: 4 },
-        { x: 2, y: 5 },
-        { x: 5, y: 7 },
-        { x: 6, y: 7 },
-        { x: 7, y: 7 },
-      ];
+
 
       function isShip(x, y) {
         return ships.some((ship) => ship.x === x && ship.y === y);
@@ -117,18 +72,8 @@
           cell.classList.add("cell");
           cell.dataset.x = x;
           cell.dataset.y = y;
-          cell.addEventListener("click", function () {
-            if (
-              cell.classList.contains("hit") ||
-              cell.classList.contains("miss")
-            )
-              return;
-            if (isShip(x, y)) {
-              cell.classList.add("hit");
-            } else {
-              cell.classList.add("miss");
-            }
-          });
+          
+          
           board.appendChild(cell);
         }
       }

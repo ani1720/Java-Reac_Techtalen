@@ -1,6 +1,6 @@
 body {
-  background-color: #90c7ff; /* Azul oscuro */
-  color: #edf2f4; /* Blanco suave */
+   background-color: #c1ddf1;
+  color: #2e3c43;
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
@@ -9,7 +9,7 @@ body {
   flex-direction: column;
 }
 
-h2 {
+h3 {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   background-color: #edf2f4;
@@ -17,17 +17,16 @@ h2 {
   margin-bottom: 0;
 }
 h2{
-  font-family:Arial, Helvetica, sans-serif;
+   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
-  background-color: #edf2f4;
-  color: black;
-  margin-bottom: 0;
+  /* background-color: #b3e5fc; */
+  color: #2e3c43;
 }
 .info{
-  margin-top: 0.25rem;
+  margin-top: 0.1rem;
   color: #2b2d42;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: small;
+  font-size: medium;
 }
 .links{
   display: inline-block;
@@ -37,9 +36,9 @@ h2{
 }
 
 header {
-  background-color: #edf2f4; /* Rojo complementario */
-  color: #009ddb;
-  padding: 2rem 0;
+   background-color: #b3e5fc;
+  color: #2e3c43;
+  padding: 1rem 0;
   text-align: center;
 }
 .barcos-paleta {
@@ -55,13 +54,13 @@ header {
   user-select: none;
 }
 nav {
-  background-color: #08f7b4; /* color fondo de nav*/
+  background-color: #08cbc4; /* color fondo de nav*/
   padding: 1rem;
   text-align: center;
 }
 
 nav a {
-  color: #2b2d42;
+  color: #37474f;
   text-decoration: none;
   margin: 0 1rem;
   font-weight: bold;
@@ -69,12 +68,58 @@ nav a {
 }
 
 nav a:hover {
-  color: #ef233c;
+  color: #ff7043;
+}
+.battleship-board {
+  display: grid;
+  grid-template-columns: repeat(10, 30px);
+  grid-template-rows: repeat(10, 30px);
+  gap: 2px;
+  justify-content: center;
+  margin: 2rem auto;
+  width: max-content;
+  background: #b2ebf2;
+  border: 4px solid #37474f;
+  border-radius: 8px;
+}
+.cell {
+  width: 30px;
+  height: 30px;
+  background: #ffffff;
+  border: 1px solid #37474f;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cell.hit {
+  background: #ef9a9a;
+}
+
+.cell.miss {
+  background: #b0bec5;
+}
+
+.battleship-title {
+  text-align: center;
+  margin-top: 2rem;
+}
+.back-link {
+  display: block;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #37474f;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.back-link:hover {
+  color: #ff7043;
 }
 .galeria .imgmini{
-  width: 22px;
-  height: 21px;
+  width: 25px;
+  height: 25px;
   display: flex;
+  flex-direction: column;
 
 }
 .galeria {
@@ -83,6 +128,7 @@ nav a:hover {
   /*gap: 80px;         /* Espacio entre imágenes */
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
 }
 .galeria img {
   width: 250px;
@@ -93,7 +139,7 @@ nav a:hover {
   display: block;
 }
 .galeria img:hover {
-  box-shadow: 5px 5px 5px 5px black;
+  box-shadow: 3px 3px 3px 3px black;
 }
 .galeria-item {
   position: relative;
@@ -106,6 +152,8 @@ nav a:hover {
   flex-direction: column;
   border-radius: 50px;
   padding-top: 1%;
+  margin-bottom: 1%;
+
 }
 .img-link {
   display: none;
@@ -130,7 +178,7 @@ footer {
   color: #2b2d42;
   text-align: center;
   padding: 1rem 0;
-  min-height: 60px;
+  min-height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -210,4 +258,44 @@ footer {
 .mm-color.orange {
   background: #ff8800;
 }
+img.hit {
+  filter: brightness(0.5) sepia(1) hue-rotate(-50deg) saturate(5);
+  border: 2px solid #ef9a9a;
+  box-shadow: 0 0 10px #ef9a9a;
+  transition: 0.2s;
+}
+.avatar-option {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 2px solid transparent;
+}
 
+.avatar-option:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.avatar-option.selected {
+  border-color: #4db6ac;
+}
+.form-alinear{
+  display: flex;
+  justify-content: center;
+   margin-top: 5%; 
+  margin-bottom: 10%;
+}
+.form-contenedor{
+  background-color:#94cef8 ;
+}
+.form-group{
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+p {
+  text-align: center;
+  padding: 2%;
+}
