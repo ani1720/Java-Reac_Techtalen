@@ -1,0 +1,46 @@
+body{
+    background-color: aliceblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(67, 84, 238);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+   }
+nav{
+    background-color: rgb(156, 210, 241);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: azure;
+    text-align: center;
+}
+nav a{
+  color:rgb(25, 58, 89);
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: Tahoma;
+  transition: color 0.3s;
+}
+.menu{
+display: flex;
+cursor: pointer; 
+}
+.menu-item{
+    position: relative;
+}
+.submenu{
+    display: none;
+    position: absolute;
+    background-color: rgb(13, 134, 240);
+    z-index: 1;
+}
+.submenu li {
+    padding: 5px 10px;
+}
+.submenu li:hover {
+    background-color: #020a09;
+}
+h1{
+    display:inline-block;
+    text-align: center;
+}
