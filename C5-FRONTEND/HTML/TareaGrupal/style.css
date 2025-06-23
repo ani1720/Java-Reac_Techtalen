@@ -30,8 +30,8 @@ h2{
 }
 .links{
   display: inline-block;
-  text-align: center;
-  /* flex-direction: row;
+  text-align: left;
+ flex-direction: row;
   align-items: start; */
 }
 
@@ -118,9 +118,6 @@ nav a:hover {
 .galeria .imgmini{
   width: 25px;
   height: 25px;
-  display: flex;
-  flex-direction: column;
-
 }
 .galeria {
   display: flex;
@@ -298,4 +295,12 @@ img.hit {
 p {
   text-align: center;
   padding: 2%;
+}
+.social-link{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 0.5rem;
 }
