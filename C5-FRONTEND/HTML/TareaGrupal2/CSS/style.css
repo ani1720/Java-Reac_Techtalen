@@ -27,6 +27,7 @@ cursor: pointer;
 }
 .menu-item{
     position: relative;
+    list-style: none;
 }
 .submenu{
     display: none;
