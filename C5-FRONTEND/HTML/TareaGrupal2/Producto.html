@@ -8,30 +8,22 @@
   </head>
   <body>
     <header>
-      <h1>Producto</h1>
-      <nav>
-        <ul class="menu">
-          <li
-            class="menu-item"
-            onmouseover="showSubmenu(this)"
-            onmouseout="hideSubmenu(this)"
-          >
-            <a href="#">Sobre</a>
-            <ul class="submenu">
-              <li>
-                <a href="SobreNosotros.html" target="_self">Sobre Nosotros</a>
-              </li>
-              <li><a href="Procesos.html" target="_self">Procesos</a></li>
-            </ul>
-          </li>
-        </ul>
-        <a href="Home.html">Inicio</a>
-
-        <a href="Contacto.html">Contacto</a>
-        <a href="Producto.html">Productos</a>
-        <a href="Merch.html">Merch</a>
-      </nav>
-    </header>
+        <nav>
+          <ul class="menu">
+            <li class="menu-item" onmouseover="showSubmenu(this)" onmouseout="hideSubmenu(this)">
+              <a href="Home.html">Sobre</a>
+              <ul class="submenu">
+                <li><a href="about.html" target="_self">Sobre Nosotros</a></li>
+                <li><a href="Procesos.html" target="_self">Procesos</a></li>
+              </ul>
+            </li>
+            <li><a href="Home.html">Inicio</a></li>
+            <li><a href="Contacto.html">Contacto</a></li>
+            <li><a href="Producto.html">Productos</a></li>
+            <li><a href="Carrito.html">Carrito</a></li>
+          </ul>
+        </nav>
+      </header>
     <main>
       <section class="personalizador">
         <h2>Personaliza tu producto</h2>
@@ -51,6 +43,7 @@
 
         <label for="inputColor"><br />Color del texto</label>
         <input type="color" id="inputColor" value="#0d86f0" />
+          <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Pacifico&family=Indie+Flower&display=swap" rel="stylesheet">
 
         <label for="fuente">Tipo de letra:</label>
         <select id="fuente">
@@ -59,6 +52,13 @@
           <option value="Georgia">Georgia</option>
           <option value="Comic Sans MS">Comic Sans</option>
           <option value="Impact">Impact</option>
+          <option value="'Pacifico', cursive">Pacifico</option>
+          <option value="'Amatic SC', cursive">Amatic SC</option>
+          <option value="'Indie Flower', cursive">Indie Flower</option>
+          <option value="'Roboto', sans-serif">Roboto</option>
+          <option value="'Open Sans', sans-serif">Open Sans</option>
+          <option value="'Lobster', cursive">Lobster</option>
+          <option value="'Dancing Script', cursive">Dancing Script</option>
         </select>
 
         <label for="estilo"><br />Estilo del texto:</label>
@@ -69,6 +69,7 @@
           <option value="bold italic">Negrita + Cursiva</option>
         </select>
 
+        <button onclick="agregarTexto">Agrega Nuevo Texto</button>
         <button onclick="aplicarPersonalizacion()">Aplicar</button>
         <button onclick="añadirAlCarrito()">Añadir al carrito</button>
 
@@ -118,6 +119,25 @@
     capaTexto.style.fontWeight = 'bold';
   }
 }
+let contadorTextos = 1;
+
+function agregarTexto() {
+  const zona = document.querySelector('.producto-preview');
+
+  const nuevoTexto = document.createElement('div');
+  nuevoTexto.className = 'texto-sobre-img';
+  nuevoTexto.innerText = `Nuevo texto ${contadorTextos++}`;
+  nuevoTexto.contentEditable = true;
+  nuevoTexto.style.left = '50%';
+  nuevoTexto.style.top = '50%';
+  nuevoTexto.style.position = 'absolute';
+  nuevoTexto.style.cursor = 'grab';
+
+  zona.appendChild(nuevoTexto);
+
+  hacerArrastrable(nuevoTexto);
+}
+
 function añadirAlCarrito() {
     const texto = document.getElementById('inputTexto').value || 'Tu texto aquí';
     const color = document.getElementById('inputColor').value;
@@ -137,8 +157,82 @@ function añadirAlCarrito() {
 
     alert('¡Taza añadida al carrito!');
   }
+  const texto = document.getElementById('textoPersonalizado');
+
+let isDragging = false;
+let offsetX, offsetY;
+
+texto.addEventListener('mousedown', function (e) {
+  isDragging = true;
+  const rect = texto.getBoundingClientRect();
+  offsetX = e.clientX - rect.left;
+  offsetY = e.clientY - rect.top;
+  texto.style.cursor = 'grabbing';
+});
+
+document.addEventListener('mousemove', function (e) {
+  if (isDragging) {
+    const contenedor = document.querySelector('.producto-preview');
+    const contRect = contenedor.getBoundingClientRect();
+
+    let left = e.clientX - contRect.left - offsetX;
+    let top = e.clientY - contRect.top - offsetY;
+
+    texto.style.left = `${left}px`;
+    texto.style.top = `${top}px`;
+  }
+});
+
+document.addEventListener('mouseup', function () {
+  isDragging = false;
+  texto.style.cursor = 'grab';
+});
+function hacerArrastrable(elemento) {
+  let isDragging = false;
+  let offsetX, offsetY;
+
+  elemento.addEventListener('mousedown', function (e) {
+    isDragging = true;
+    const rect = elemento.getBoundingClientRect();
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
+    elemento.style.cursor = 'grabbing';
+  });
+
+  document.addEventListener('mousemove', function (e) {
+    if (isDragging) {
+      const contenedor = document.querySelector('.producto-preview');
+      const contRect = contenedor.getBoundingClientRect();
+
+      let left = e.clientX - contRect.left - offsetX;
+      let top = e.clientY - contRect.top - offsetY;
+
+      elemento.style.left = `${left}px`;
+      elemento.style.top = `${top}px`;
+    }
+  });
+
+  document.addEventListener('mouseup', function () {
+    isDragging = false;
+    elemento.style.cursor = 'grab';
+  });
+}
+function agregarSticker(src) {
+  const zona = document.querySelector('.producto-preview');
+
+  const sticker = document.createElement('img');
+  sticker.src = src;
+  sticker.className = 'sticker';
+  sticker.style.position = 'absolute';
+  sticker.style.left = '50%';
+  sticker.style.top = '50%';
+  sticker.style.width = '60px';
+  sticker.style.cursor = 'grab';
+
+  zona.appendChild(sticker);
+  hacerArrastrable(sticker);
+}
+
  </script>
- <script>
-
-
+ 
 </html>
