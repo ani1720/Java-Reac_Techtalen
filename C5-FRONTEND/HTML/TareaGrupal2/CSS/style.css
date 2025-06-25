@@ -32,16 +32,26 @@ cursor: pointer;
 .submenu{
     display: none;
     position: absolute;
-    background-color: rgb(13, 134, 240);
+    background-color: #0d86f0;
     z-index: 1;
 }
 .submenu li {
     padding: 5px 10px;
 }
 .submenu li:hover {
-    background-color: #020a09;
+    background-color: #91c6f4;
 }
 h1{
     display:inline-block;
     text-align: center;
+}
+footer {
+    background-color: rgb(25, 58, 89);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    min-height: 20px;
+    justify-content: center;
 }
