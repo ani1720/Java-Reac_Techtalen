@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" , initial-scale="1.0" />
     <title>Producto</title>
@@ -8,41 +8,137 @@
   </head>
   <body>
     <header>
-        <h1>Producto</h1>
-        <nav>
-            <ul class="menu">
-            <li class="menu-item" onmouseover="showSubmenu(this)"
-            onmouseout="hideSubmenu(this)">
+      <h1>Producto</h1>
+      <nav>
+        <ul class="menu">
+          <li
+            class="menu-item"
+            onmouseover="showSubmenu(this)"
+            onmouseout="hideSubmenu(this)"
+          >
             <a href="#">Sobre</a>
             <ul class="submenu">
-                <li><a href="SobreNosotros.html" target="_self">Sobre Nosotros</a></li>
-                <li><a href="Procesos.html" target="_self">Procesos</a></li>
+              <li>
+                <a href="SobreNosotros.html" target="_self">Sobre Nosotros</a>
+              </li>
+              <li><a href="Procesos.html" target="_self">Procesos</a></li>
             </ul>
-            </li>
+          </li>
         </ul>
         <a href="Home.html">Inicio</a>
-        
+
         <a href="Contacto.html">Contacto</a>
         <a href="Producto.html">Productos</a>
         <a href="Merch.html">Merch</a>
-        </nav>
+      </nav>
     </header>
+    <main>
+      <section class="personalizador">
+        <h2>Personaliza tu producto</h2>
+        <div class="producto-preview">
+          <img
+            src="IMG/taza-editable.png"
+            alt="Taza base"
+            class="producto-img"
+          />
+          <div id="textoPersonalizado" class="texto-sobre-img">
+            Tu texto aqui
+          </div>
+        </div>
+
+        <label for="inputTexto">Texto personalizado:</label>
+        <input type="text" id="inputTexto" placeholder="Escribe tu frase" />
+
+        <label for="inputColor"><br />Color del texto</label>
+        <input type="color" id="inputColor" value="#0d86f0" />
+
+        <label for="fuente">Tipo de letra:</label>
+        <select id="fuente">
+          <option value="Arial">Arial</option>
+          <option value="Courier New">Courier New</option>
+          <option value="Georgia">Georgia</option>
+          <option value="Comic Sans MS">Comic Sans</option>
+          <option value="Impact">Impact</option>
+        </select>
+
+        <label for="estilo"><br />Estilo del texto:</label>
+        <select id="estilo">
+          <option value="normal">Normal</option>
+          <option value="italic">Cursiva</option>
+          <option value="bold">Negrita</option>
+          <option value="bold italic">Negrita + Cursiva</option>
+        </select>
+
+        <button onclick="aplicarPersonalizacion()">Aplicar</button>
+        <button onclick="añadirAlCarrito()">Añadir al carrito</button>
+
+      </section>
+    </main>
   </body>
   <footer>
     <p>&copy; 2025 Derechos reservados</p>
   </footer>
   <script>
     function showSubmenu(element) {
-        const submenu = element.querySelector('.submenu');
-        if(submenu) {
-            submenu.style.display = 'block';
-        }
+      const submenu = element.querySelector(".submenu");
+      if (submenu) {
+        submenu.style.display = "block";
+      }
     }
     function hideSubmenu(element) {
-        const submenu = element.querySelector('.submenu');
-        if (submenu) {
-            submenu.style.display = 'none';
-        }
+      const submenu = element.querySelector(".submenu");
+      if (submenu) {
+        submenu.style.display = "none";
+      }
     }
   </script>
+ <script>
+  function aplicarPersonalizacion() {
+  const texto = document.getElementById('inputTexto').value;
+  const color = document.getElementById('inputColor').value;
+  const fuente = document.getElementById('fuente').value;
+  const estilo = document.getElementById('estilo').value;
+
+  const capaTexto = document.getElementById('textoPersonalizado');
+  capaTexto.innerText = texto || 'Tu texto aquí';
+  capaTexto.style.color = color;
+  capaTexto.style.fontFamily = fuente;
+
+  if (estilo === 'normal') {
+    capaTexto.style.fontStyle = 'normal';
+    capaTexto.style.fontWeight = 'normal';
+  } else if (estilo === 'italic') {
+    capaTexto.style.fontStyle = 'italic';
+    capaTexto.style.fontWeight = 'normal';
+  } else if (estilo === 'bold') {
+    capaTexto.style.fontStyle = 'normal';
+    capaTexto.style.fontWeight = 'bold';
+  } else if (estilo === 'bold italic') {
+    capaTexto.style.fontStyle = 'italic';
+    capaTexto.style.fontWeight = 'bold';
+  }
+}
+function añadirAlCarrito() {
+    const texto = document.getElementById('inputTexto').value || 'Tu texto aquí';
+    const color = document.getElementById('inputColor').value;
+    const fuente = document.getElementById('fuente').value;
+    const estilo = document.getElementById('estilo').value;
+
+    // Creamos un objeto con los datos
+    const diseñoPersonalizado = {
+      producto: 'Taza personalizada',
+      texto,
+      color,
+      fuente,
+      estilo
+    };
+
+    localStorage.setItem('carritoTaza', JSON.stringify(diseñoPersonalizado));
+
+    alert('¡Taza añadida al carrito!');
+  }
+ </script>
+ <script>
+
+
 </html>

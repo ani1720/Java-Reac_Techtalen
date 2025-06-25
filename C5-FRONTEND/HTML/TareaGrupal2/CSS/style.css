@@ -1,13 +1,13 @@
 body{
-    background-color: aliceblue;
+    background-color: #e6f2fb; 
+    color: #2a3b8f;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: rgb(67, 84, 238);
     margin: 0;
     padding: 0;
     min-height: 100vh;
    }
 nav{
-    background-color: rgb(156, 210, 241);
+    background: linear-gradient(to right, #cfe9fd, #90cbee);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,7 +46,7 @@ h1{
     text-align: center;
 }
 footer {
-    background-color: rgb(25, 58, 89);
+    background-color: #1e3a5f;
     color: white;
     text-align: center;
     padding: 1rem;
@@ -55,3 +55,47 @@ footer {
     min-height: 20px;
     justify-content: center;
 }
+.product-img {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.product-img:hover {
+  transform: scale(1.05) rotate(-1deg);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.personalizador {
+  max-width: 500px;
+  margin: 2rem auto;
+  text-align: center;
+}
+.producto-preview {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  margin: 0 auto 1rem;
+}
+
+.producto-img {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.texto-sobre-img {
+  position: absolute;
+  max-width: 80%;
+  text-align: center;
+  font-size: 20px;
+  pointer-events: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
