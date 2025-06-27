@@ -94,7 +94,7 @@
 
         <button onclick="aplicarPersonalizacion()">Aplicar</button>
         <button onclick="añadirAlCarrito()">Añadir al carrito</button>
-        <div class="galeria-de-stickers">
+        <div class="galeria-stickers">
           <button onclick="agregarSticker('IMG/blabla.png')">🗣️</button>
           <button onclick="agregarSticker('IMG/auch.png')">💥</button>
           <button onclick="agregarSticker('IMG/.l..png')">🖕</button>
@@ -121,7 +121,7 @@
             alt="Camisa base"
             class="producto-imagen"
           />
-          <div id="textoDiseñado" class="texto-editable">Tu texto aquí</div>
+          <div id="textoDiseñado" class="texto-sobre-img">Tu texto aquí</div>
         </div>
 
         <label for="inputTextoCustom">Texto personalizado:</label>
@@ -171,7 +171,7 @@
         <button onclick="inicializarPersonalizacion()">Aplicar</button>
         <button onclick="guardarEnCarrito()">Añadir al carrito</button>
 
-        <div class="sticker-galeria">
+        <div class="galeria-stickers">
           <button onclick="insertarStickerCustom('IMG/blabla.png')">🗣️</button>
           <button onclick="insertarStickerCustom('IMG/auch.png')">💥</button>
           <button onclick="insertarStickerCustom('IMG/.l..png')">🖕</button>
@@ -507,7 +507,7 @@
       const zona = document.querySelector(".preview-producto");
 
       const contenedor = document.createElement("div");
-      contenedor.className = "sticker-redimensionable";
+      contenedor.className = "redimensionable";
 
       const imagen = document.createElement("img");
       imagen.src = url;
