@@ -28,13 +28,21 @@
     </nav>
   </header>
    <main>
-    <div class="item-carrito">
-    <section id="carrito">
-      <h2>Resumen de tu pedido personalizado</h2>
-      <div id="contenidoCarrito"></div>
-      <button onclick="enviarPedido()">Confirmar pedido</button>
-    </section>
-    </div>
+    <section class="vista-carrito">
+        <h2>🛒 Vista previa del carrito</h2>
+        <section></section>
+        <div id="contenidoCarrito"></div>
+        <ul id="lista-carrito-preview"></ul>
+        <p id="total-preview">Total: 0 €</p>
+      
+        <div class="botones-carrito">
+        <button onclick="enviarPedido()">Confirmar pedido</button>
+        </div>
+          <a href="carrito.php"><button>Ver carrito completo</button></a>
+          <button onclick="borrarCarrito()">Borrar carrito</button>
+        </div>
+      </section>
+      <br><br>
   </main>
 
   <footer>
@@ -43,39 +51,60 @@
 
   <script>
     const carritoDiv = document.getElementById('contenidoCarrito');
-    const datos = JSON.parse(localStorage.getItem('carritoTaza'));
-    const datosCamisa = JSON.parse(localStorage.getItem('carritoCamisa'))
-    if (datos) {
-      carritoDiv.innerHTML = `
-        <p><strong>Producto:</strong> ${datos.producto}</p>
-        <p><strong>Texto:</strong> ${datos.texto}</p>
-        <p><strong>Color:</strong> ${datos.color}</p>
-        <p><strong>Fuente:</strong> ${datos.fuente}</p>
-        <p><strong>Estilo:</strong> ${datos.estilo}</p>
-      `;
-    } else {
-      carritoDiv.innerHTML = '<p>Tu carrito está vacío.</p>';
-    }
+  const datosTaza = JSON.parse(localStorage.getItem('carritoTaza'));
+  const datosCamisa = JSON.parse(localStorage.getItem('carritoCamisa'));
 
-    function enviarPedido() {
-      fetch('http://localhost:3000/pedido', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(datos)
-      })
-      .then(res => res.json())
-      .then(data => {
-        alert('Pedido confirmado. ¡Gracias!');
-        localStorage.removeItem('carritoTaza');
-        location.href = 'Home.html';
-      })
-      .catch(err => {
-        alert('Error al enviar pedido.');
-        console.error(err);
-      });
-    }
+  let contenido = '';
+
+  if (datosTaza) {
+    contenido += `
+      <h4>☕Taza personalizada</h4>
+      <p><strong>Texto:</strong> ${datosTaza.texto}</p>
+      <p><strong>Color:</strong> ${datosTaza.color}</p>
+      <p><strong>Fuente:</strong> ${datosTaza.fuente}</p>
+      <p><strong>Estilo:</strong> ${datosTaza.estilo}</p>
+      <hr/>
+    `;
+  }
+
+  if (datosCamisa) {
+    contenido += `
+      <h4>👕 Camisa personalizada</h4>
+      <p><strong>Texto:</strong> ${datosCamisa.texto}</p>
+      <p><strong>Talla:</strong> ${datosCamisa.talla}</p>
+      <p><strong>Color:</strong> ${datosCamisa.color}</p>
+      <p><strong>Estilo:</strong> ${datosCamisa.estilo}</p>
+      <hr/>
+    `;
+  }
+
+  carritoDiv.innerHTML = contenido || '<p>Tu carrito está vacío.</p>';
+
+  function enviarPedido() {
+    const pedido = {
+      taza: datosTaza,
+      camisa: datosCamisa
+    };
+
+    fetch('http://localhost:3000/pedido', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(pedido)
+    })
+    .then(res => res.json())
+    .then(data => {
+      alert('Pedido confirmado. ¡Gracias!');
+      localStorage.removeItem('carritoTaza');
+      localStorage.removeItem('carritoCamisa');
+      location.href = 'Home.html';
+    })
+    .catch(err => {
+      alert('Error al enviar pedido.');
+      console.error(err);
+    });
+  }
   </script>
 </body>
 <script src="JS/enviarPedido.js"></script>

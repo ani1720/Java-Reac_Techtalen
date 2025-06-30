@@ -1,45 +1,18 @@
-<?php
-header('Content-Type: application/json');
+<?php require 'db.php'; ?>
+<link rel="stylesheet" href="style.css" />
 
-// Obtener el cuerpo de la petición (puede ser un array de productos)
-$productos = json_decode(file_get_contents("php://input"), true);
-
-// Conexión a la base de datos
-$conn = new mysqli("localhost", "root", "", "tienda");
-
-if ($conn->connect_error) {
-    http_response_code(500);
-    echo json_encode(["error" => "Error de conexión"]);
-    exit();
-}
-
-// Verificamos que lo recibido sea un arreglo
-if (!is_array($productos)) {
-    http_response_code(400);
-    echo json_encode(["error" => "El formato del pedido es incorrecto"]);
-    exit();
-}
-
-// Recorremos cada producto
-foreach ($productos as $data) {
-    $producto = $conn->real_escape_string($data['producto']);
-    $texto    = $conn->real_escape_string($data['texto']);
-    $color    = $conn->real_escape_string($data['color']);
-    $fuente   = $conn->real_escape_string($data['fuente']);
-    $estilo   = $conn->real_escape_string($data['estilo']);
-    $tamanio  = isset($data['tamanio']) ? $conn->real_escape_string($data['tamanio']) : "N/A";
-
-    $sql = "INSERT INTO pedidos (producto, texto, color, fuente, estilo, tamanio)
-            VALUES ('$producto', '$texto', '$color', '$fuente', '$estilo', '$tamanio')";
-
-    if (!$conn->query($sql)) {
-        http_response_code(500);
-        echo json_encode(["error" => "Error al guardar pedido"]);
-        $conn->close();
-        exit();
+<div class="carrito-contenedor">
+  <h2>🛒 Carrito actual</h2>
+  <ul>
+  <?php
+    $result = $conexion->query("SELECT * FROM carrito");
+    $total = 0;
+    while ($row = $result->fetch_assoc()) {
+      echo "<li>{$row['nombre']} - " . number_format($row['precio'], 2) . " €</li>";
+      $total += $row['precio'];
     }
-}
-
-$conn->close();
-echo json_encode(["mensaje" => "Todos los productos fueron guardados correctamente"]);
-?>
+  ?>
+  </ul>
+  <p><strong>Total: <?php echo number_format($total, 2); ?> €</strong></p>
+  <a href="pago.php"><button>Pagar</button></a>
+</div>

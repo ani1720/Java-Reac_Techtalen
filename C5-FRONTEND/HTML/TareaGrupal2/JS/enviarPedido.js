@@ -41,3 +41,27 @@ function agregarProductoAlCarrito(producto, ids) {
   localStorage.setItem("carritoGeneral", JSON.stringify(carrito));
   alert(`¡${producto} añadido al carrito!`);
 }
+function fetchCarrito() {
+    const texto = document.getElementById('inputTextoCustom').value.trim();
+    const color = document.getElementById('inputColorCustom').value;
+    const tamanio = document.getElementById('tamanioFuenteCustom').value;
+    const fuente = document.getElementById('fuenteCustom').value;
+    const estilo = document.getElementById('estiloCustom').value;
+
+    if (!texto) {
+      alert('Por favor escribe un texto para tu camisa.');
+      return;
+    }
+
+    const datosCamisa = {
+      producto: 'Camisa personalizada',
+      texto: texto,
+      color: color,
+      tamanioFuente: tamanio + 'px',
+      fuente: fuente,
+      estilo: estilo
+    };
+
+    localStorage.setItem('carritoCamisa', JSON.stringify(datosCamisa));
+    alert('Camisa añadida al carrito 🧺');
+  }
