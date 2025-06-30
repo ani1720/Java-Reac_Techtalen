@@ -10,18 +10,21 @@
 
   <header>
     <nav>
+      <div class="logo">
+      <img src="IMG/Logo.png" alt="Logo">
+      </div>
       <ul class="menu">
         <li><a href="Home.html">Inicio</a></li>
         <li class="menu-item" onmouseover="showSubmenu(this)" onmouseout="hideSubmenu(this)">
           <a href="#">Sobre</a>
           <ul class="submenu">
-            <li><a href="about.html">Sobre Nosotros</a></li>
+            <li><a href="SobreNosotros.html">Sobre Nosotros</a></li>
             <li><a href="Procesos.html">Procesos</a></li>
           </ul>
         </li>
         <li><a href="Contacto.html">Contacto</a></li>
         <li><a href="Producto.html">Productos</a></li>
-        <li><a href="Carrito.html">Carrito</a></li>
+    
       </ul>
     </nav>
   </header>
@@ -66,6 +69,53 @@
         submenu.style.display = 'none';
       }
     }
+  </script>
+  <script>
+  document.getElementById('formulario-contacto').addEventListener('submit', async function(e) {
+    e.preventDefault();
+  
+    const nombre = document.getElementById('nombre').value;
+    const email = document.getElementById('email').value;
+    const mensaje = document.getElementById('mensaje').value;
+  
+    const formData = new FormData();
+    formData.append('nombre', nombre);
+    formData.append('email', email);
+    formData.append('mensaje', mensaje);
+  
+    const resultado = document.getElementById('mensaje-resultado');
+    resultado.textContent = "Enviando...";
+  
+    try {
+      const response = await fetch('procesar_formulario.php', {
+        method: 'POST',
+        body: formData
+      });
+  
+      const texto = await response.text();
+      resultado.textContent = texto;
+      resultado.style.color = 'green';
+      document.getElementById('formulario-contacto').reset();
+    } catch (error) {
+      resultado.textContent = "Ups... ocurrió un error.";
+      resultado.style.color = 'red';
+    }
+  });
+  </script>
+  
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script>
+    const formulario = document.getElementById('formulario-contacto');
+  
+    formulario.addEventListener('submit', function (e) {
+      const respuesta = grecaptcha.getResponse();
+  
+      if (!respuesta) {
+        e.preventDefault(); // Detiene el envío
+        alert('¡Por favor, confirma que no eres un robot! 🤖🚫');
+      }
+      // Si hay respuesta, se envía normalmente
+    });
   </script>
 
 </body>

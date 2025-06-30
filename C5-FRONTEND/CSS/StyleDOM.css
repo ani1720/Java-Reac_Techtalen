@@ -1,0 +1,17 @@
+.contenedor{
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.titulo{
+    color: darkblue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3rem;
+    background-color: lightblue;
+}
+.destacado{
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 1.5rem;
+    color: darksalmon;
+}

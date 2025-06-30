@@ -13,24 +13,23 @@
   <body>
     <header>
       <nav>
-        <ul class="menu">
-          <li
-            class="menu-item"
-            onmouseover="showSubmenu(this)"
-            onmouseout="hideSubmenu(this)"
-          >
-            <a href="Home.html">Inicio</a>
-            <ul class="submenu">
-              <li><a href="about.html" target="_self">Sobre Nosotros</a></li>
-              <li><a href="Procesos.html" target="_self">Procesos</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Sobre</a></li>
-          <li><a href="Contacto.html">Contacto</a></li>
-          <li><a href="Producto.html">Productos</a></li>
-          <li><a href="Carrito.html">Carrito</a></li>
-        </ul>
-      </nav>
+        <div class="logo">
+      <img src="IMG/Logo.png" alt="Logo">
+      </div>
+      <ul class="menu">
+        <li><a href="Home.html">Inicio</a></li>
+        <li class="menu-item" onmouseover="showSubmenu(this)" onmouseout="hideSubmenu(this)">
+          <a href="#">Sobre</a>
+          <ul class="submenu">
+            <li><a href="SobreNosotros.html">Sobre Nosotros</a></li>
+            <li><a href="Procesos.html">Procesos</a></li>
+          </ul>
+        </li>
+        <li><a href="Contacto.html">Contacto</a></li>
+        <li><a href="Producto.html">Productos</a></li>
+        
+      </ul>
+    </nav>
     </header>
     <main>
       <h1>Nuestros Productos</h1>
@@ -181,7 +180,7 @@
 
       <div class="btn">
         <button onclick="inicializarPersonalizacion()">Aplicar</button>
-        <button onclick="guardarEnCarrito()">Añadir al carrito</button>
+        <button onclick="fetchCarrito()">Añadir al carrito</button>
       </div>
       <!-- </div> -->
       </section>
@@ -204,8 +203,8 @@
   <footer>
     <p>&copy; 2025 Derechos reservados</p>
   </footer>
-  <script src="../JS/submenu.js"></script>
-  <script src="../JS/aplicarPersonalizacion.js"></script>
+  <!-- <script src="../JS/submenu.js"></script>
+  <script src="../JS/aplicarPersonalizacion.js"></script> -->
   
   <script>
     function mostrarSubmenuCustom(el) {
@@ -260,7 +259,7 @@
       zona.appendChild(nuevo);
       hacerElementoArrastrable(nuevo);
     }
-
+    
     function guardarEnCarrito() {
       const texto =
         document.getElementById("inputTextoCustom").value || "Tu texto aquí";
