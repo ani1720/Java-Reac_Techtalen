@@ -9,6 +9,9 @@
 <body>
     <header>
     <nav>
+      <div class="logo">
+          <img src="IMG/Logo.png" alt="Logo" />
+        </div>
       <ul class="menu">
         <li><a href="Home.html">Inicio</a></li>
         <li class="menu-item" onmouseover="showSubmenu(this)" onmouseout="hideSubmenu(this)">
@@ -20,17 +23,18 @@
         </li>
         <li><a href="Contacto.html">Contacto</a></li>
         <li><a href="Producto.html">Productos</a></li>
-        
+        <li><a href="Carrito.html">Carrito</a></li>
       </ul>
     </nav>
   </header>
    <main>
+    <div class="item-carrito">
     <section id="carrito">
-      <h2>Resumen de tu taza personalizada</h2>
+      <h2>Resumen de tu pedido personalizado</h2>
       <div id="contenidoCarrito"></div>
       <button onclick="enviarPedido()">Confirmar pedido</button>
     </section>
-    
+    </div>
   </main>
 
   <footer>
@@ -40,7 +44,7 @@
   <script>
     const carritoDiv = document.getElementById('contenidoCarrito');
     const datos = JSON.parse(localStorage.getItem('carritoTaza'));
-
+    const datosCamisa = JSON.parse(localStorage.getItem('carritoCamisa'))
     if (datos) {
       carritoDiv.innerHTML = `
         <p><strong>Producto:</strong> ${datos.producto}</p>
@@ -74,4 +78,5 @@
     }
   </script>
 </body>
+<script src="JS/enviarPedido.js"></script>
 </html>

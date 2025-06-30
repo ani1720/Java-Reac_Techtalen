@@ -637,3 +637,13 @@ h3{
   line-height: 1.6;
   align-items: right;
 }
+.item-carrito {
+  padding: 2rem;
+  margin-bottom: 15rem;
+  border-radius: 8px;
+}
+p {
+  font-size: 1.3rem;
+
+}
+
