@@ -147,6 +147,19 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
   }
+  .equipo .imgmini{
+    flex-direction: column;
+    width: 20px;
+    height: 20px;
+  }
+  .links{
+    display: inline-block;
+    text-align: left;
+    flex-direction: row;
+    align-items: start; 
+    justify-content: center;
+    margin-top: 10px;
+  }
   
   .miembro {
     background: linear-gradient(145deg, #ffffff, #eaeaea);
