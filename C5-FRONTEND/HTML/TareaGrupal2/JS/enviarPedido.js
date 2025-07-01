@@ -24,13 +24,14 @@ function agregarProductoAlCarrito(producto, ids) {
   const color = document.getElementById(ids.color).value;
   const fuente = document.getElementById(ids.fuente).value;
   const estilo = document.getElementById(ids.estilo).value;
-
+  
   const item = {
     producto,
     texto,
     color,
     fuente,
     estilo,
+    precio
   };
 
   // Recupera o crea el array de productos
@@ -60,6 +61,7 @@ function fetchCarrito() {
       tamanioFuente: tamanio + 'px',
       fuente: fuente,
       estilo: estilo
+      precio: 14.99 // Precio de la camisa personalizada
     };
 
     localStorage.setItem('carritoCamisa', JSON.stringify(datosCamisa));

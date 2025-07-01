@@ -18,7 +18,7 @@
     transition: cubic-bezier(0.23, 1, 0.320, 1);
     color: #25256d;
   }
-  /* ========== GOOGLE MAPS ========== */
+ /* ========== GOOGLE MAPS ========== */
 
 .ubicacion {
  text-align: center;
@@ -31,11 +31,20 @@
   margin-bottom: 0.5em;
 }
 
-.mapa iframe {
-  border-radius: 8px;
+.mapa {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.mapa > div {
   max-width: 800px;
   width: 100%;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
 }
+
   
   /* ========== NAVIGATION ========== */
   nav {
@@ -730,4 +739,12 @@ button:hover {
     width: 100%;
     margin-top: 10px;
   }
+}
+.g-recaptcha{
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
 }
