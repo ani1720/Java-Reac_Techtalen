@@ -1,10 +1,8 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+console.log("Hola, mundo desde main.jsx");
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+const name = "Ani";
+const subname = "Bueno";
+
+console.log(`Hola, ${name} ${subname}`);
+
+
