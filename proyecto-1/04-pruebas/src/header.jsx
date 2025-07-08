@@ -1,4 +1,4 @@
-import Img from "./assets/UppAllNight.png"
+import Logo from "./assets/UppAllNight.png"
 const Header = () => {
     return (
         <>
@@ -7,7 +7,7 @@ const Header = () => {
             <a href="Prueba.jsx">Prueba 1</a>
             <a href="Prueba2.jsx">Prueba2</a>
         </nav>
-        <img src={Img} alt="Imagen de prueba" />
+        <img src={Logo} alt="Imagen de prueba" />
         </>
     )
 }
