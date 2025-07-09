@@ -4,6 +4,7 @@ import App from "./App";
 // import SegundoComponente from "./SegundosComponentes";
 import Header from "./Header";
 import Footer from "./footer";
+import SegundoComponente from "./SegundosComponentes";
 
 
 // const apiKey = "tMyhZKb8CG7goaU6VVwjtbUDEcr6mJAY";
@@ -27,6 +28,7 @@ import Footer from "./footer";
     <React.StrictMode>
       <Header/>
       <App />
+      <SegundoComponente/>
       <Footer/>
     </React.StrictMode>
   );
