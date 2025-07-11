@@ -1,11 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
+import ComponenteProp from "./ComponenteProps";
+// // import SegundoComponente from "./SegundosComponentes";
+// import Header from "./Header";
+// import Footer from "./footer";
 // import SegundoComponente from "./SegundosComponentes";
-import Header from "./Header";
-import Footer from "./footer";
-import SegundoComponente from "./SegundosComponentes";
-
+// import MouseExample from "./mouseEvento";
+// import PointerExample from "./EventosPointer";
+// import FocusExample from "./FocusExample";
+// import KeyboardExample from "./KeyBordExample";
+// import ContadorBotones from "./HookUseStateBoton"
 
 // const apiKey = "tMyhZKb8CG7goaU6VVwjtbUDEcr6mJAY";
 // const peticion = fetch(`http://api.giphy.com/v1/gifs/random?api_key=${apiKey}`);
@@ -26,9 +31,15 @@ import SegundoComponente from "./SegundosComponentes";
   // }
   ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-      <Header/>
+      <ComponenteProp title="Buen dia" subtitulo={123}/>
+      {/* <Header/>
       <App />
       <SegundoComponente/>
-      <Footer/>
+      {/* <ContadorBotones/> */}
+      {/* <MouseExample/>
+      <PointerExample/>
+      <FocusExample/>
+      <KeyboardExample/> */}
+      {/* <Footer/> */} 
     </React.StrictMode>
   );

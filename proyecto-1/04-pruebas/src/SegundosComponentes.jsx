@@ -10,19 +10,20 @@
 import Louis from "./Louis";
 import Lauren from "./Lauren";
 import MyButton from "./Button";
+import ShoppingList from "./Arrays";
 
 const nombre = 'Anileth';
 const nuevoMensaje = {
     mensaje: 'Mamahuevo',
     nombre: 'Glu Glu'
 };
-// const boleano = true;
-// let content ;
-// if (boleano) {
-//     content = <Louis/>
-// } else {
-//     conten = <Lauren/>
-// }
+const boleano = true;
+let content ;
+if (boleano) {
+    content = <Louis/>
+} else {
+    conten = <Lauren/>
+}
 
 const SegundoComponente = () => {
   // const nombre = 'Ani'; //Es mas eficiente generarlo fuera
@@ -42,6 +43,7 @@ const SegundoComponente = () => {
         <div>{content}</div>
         <div>{boleano ? <Louis /> : <Lauren />}</div>
         <code>{JSON.stringify(nuevoMensaje)}</code>
+       <ShoppingList/>
         </>
     )
 }
